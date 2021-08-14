@@ -89,16 +89,13 @@ const
     startURL = "http://aenders.dk/wp-json/jwt-auth/v1/token",
 
     login = {
-        "username":"api.user",
-        "password":"API-key-1234#!"
        
     };
 
     // fetch("http://aenders.dk/wp-json/jwt-auth/v1/token", {
     //     method: "POST",
     //     body: {
-    //         "username":"api.user",
-    //         "password":"API-key-1234#!"
+    //       
     //     },
     // }) 
     // .then(res => res.json())
@@ -107,8 +104,7 @@ const
     // fetch("http://aenders.dk/wp-json/wp/v2/posts?status=private&categories=50", {
     //     method: "GET",
     //     headers: {
-    //         Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvd3d3LmFlbmRlcnMuZGsiLCJpYXQiOjE2Mjg5NTQ1NTIsIm5iZiI6MTYyODk1NDU1MiwiZXhwIjoxNjI5NTU5MzUyLCJkYXRhIjp7InVzZXIiOnsiaWQiOiIyIn19fQ.Zuyeel6XRRSu8PxeAjVJUOzX82F8CEHi76Dcw7gJ6yU"
-    //     }
+    //         }
     // })
     // .then(res => res.json())
     // .then(json => console.log(json))
@@ -120,8 +116,7 @@ const
     //         "Content-Type": "application/json"
     //     },
     //     body: {
-    //         "username":"api.user",
-    //         "password":"API-key-1234#!"
+    //         
     //     }
     // })
     // .then(res => res.json())
