@@ -9,6 +9,25 @@ console.log("     / /__\\ \\   |   ____| |  |\\ \\|  |")
 console.log("    / /____\\ \\  |  |____  |  | \\    |")
 console.log("   /_/      \\_\\ |_______| |__|  \\___|")
 
+                            // IKKE NØDVENDIG; MEN NICE!
+                            function footerPosition() {
+                                let
+                                footer = document.querySelector("footer"),
+                                main = document.querySelector("main"),
+                                mainH = main.offsetHeight,
+                                windowH = window.innerHeight;
 
+                                document.documentElement.style.setProperty("--footer-position", (windowH + mainH) + "px");
+                            }
+                            window.onload = footerPosition();
+function onScroll() {
+    let y = window.scrollY;
+    main = document.querySelector("main");
+    mainH = main.offsetHeight;
+    // main.style.top ="-" + y + "vh";
+    console.log(y)
+
+}
+document.addEventListener("scroll", onScroll)
 
  

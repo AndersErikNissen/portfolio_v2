@@ -9,42 +9,90 @@ UCN MMDA0920*/
 /*############### 
     VARIABLER 
 ################*/
+:root {
+    /* 
+        ----- Styling of Elements
+    */
 
+        /* Corners */
+        --corners-mid: 20px;
+        --corners-round: 50%;
+
+
+        --footer-position: 0;
+}
 
 /*###########  
     GRID  
 ############*/
-.grid {
-    display: grid;
-    grid-template-columns: repeat(var(--grid-column-desk), 1fr);
-    grid-gap: var(--grid-gap);
-}
-.grid-clmnCenter {
-    justify-content: center;
-    align-items: center;
-}
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(var(--grid-column-desk), 1fr);
+        grid-gap: var(--grid-gap);
+    }
+
 /*##########
     FLEX 
 ###########*/
-.flex-center-XandY {
-    display: flex;
-    flex-direction: var(--flex-direction);
-    flex-wrap: var(--flex-wrap);
-    justify-content: center;
-    align-items: center;
-}
-
-
+    .flex-center-XandY {
+        display: flex;
+        flex-direction: var(--flex-direction);
+        flex-wrap: var(--flex-wrap);
+        justify-content: center;
+        align-items: center;
+    }
 /*##################
     MEDIA QUERIES 
 ###################*/
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-    .grid {
-        grid-template-columns: repeat(var(--grid-column-tablet), 1fr);
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+        .grid {
+            grid-template-columns: repeat(var(--grid-column-tablet), 1fr);
+        }
     }
-}
-@media screen and (min-width: 320px) and (max-width: 480px) {
-    .grid {
-        grid-template-columns: repeat(var(--grid-column-mobil), 1fr);
+    @media screen and (min-width: 320px) and (max-width: 480px) {
+        .grid {
+            grid-template-columns: repeat(var(--grid-column-mobil), 1fr);
+        }
     }
-}
+
+
+
+
+                    /* TEMP */
+                    header {
+                        background-color: blue;
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        height: 10vh;
+                        width: 100%;
+                        z-index: 3;
+                    }
+                    #hero {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        height: 100vh;
+                        width: 100%;
+                        background-color: cornflowerblue;
+                        z-index: 0;
+                    }
+                    main {
+                        margin: 0;
+                        top: 100vh;
+                        left: 0;
+                        position: absolute;
+                        height: 300vh;
+                        width: 100%;
+                        background-color: aqua;
+                        z-index: 1;
+                    }
+                    footer {
+                        position: absolute;
+                        top: var(--footer-position);
+                        left: 0;
+                        z-index: 1;
+                        background-color: blueviolet;
+                        height: 100vh;
+                        width: 100%;
+                    }
