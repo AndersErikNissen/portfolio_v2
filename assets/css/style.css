@@ -96,3 +96,17 @@ UCN MMDA0920*/
                         height: 100vh;
                         width: 100%;
                     }
+
+/* Global Header */
+    #globalHeader {
+        display: flex;
+        justify-content: space-between;
+    }
+    #globalHeader > nav {
+        display: flex;
+    }
+    #globalHeader > ul {
+        display: flex;
+        flex-direction: row;
+    }
+
