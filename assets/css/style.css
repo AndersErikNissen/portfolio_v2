@@ -74,7 +74,7 @@ UCN MMDA0920*/
 
                     /* TEMP */
                     header {
-                        background-color: blue;
+                        background-color: #050817;
                         position: fixed;
                         top: 0;
                         left: 0;
@@ -88,7 +88,7 @@ UCN MMDA0920*/
                         left: 0;
                         height: 100vh;
                         width: 100%;
-                        background-color: cornflowerblue;
+                        background-color: #FE8860;
                         z-index: 0;
                     }
                     main {
@@ -98,7 +98,7 @@ UCN MMDA0920*/
                         position: absolute;
                         /* height: 300vh; */
                         width: 100%;
-                        background-color: aqua;
+                        background-color: #22CCBF;
                         z-index: 1;
                     }
                     footer {
@@ -106,7 +106,7 @@ UCN MMDA0920*/
                         top: var(--footer-position);
                         left: 0;
                         z-index: 1;
-                        background-color: blueviolet;
+                        background-color: #050817;;
                         height: 50vh;
                         width: 100%;
                     }
@@ -115,51 +115,55 @@ UCN MMDA0920*/
 /*      ---------------- 
         ---- GLOBAL ----
         ----------------    */ 
-/* Styling  */
-    p {
-        max-width: 70ch;
-    }
+    /* Styling  */
+        p {
+            max-width: 70ch;
+        }
 
-/* Global Header */
-    #globalHeader {
-        display: flex;
-        justify-content: space-between;
-    }
-    #globalHeader > nav {
-        display: flex;
-    }
-    #globalHeader nav > ul {
-        display: flex;
-        flex-direction: row;
-    }
-    #globalHeader li {
-        list-style: none;
-    }
-    /* Links */
-        #globalHeader_links {
+    /* Global Header */
+        #globalHeader {
             display: flex;
-            align-items: center;
+            justify-content: space-between;
         }
-        #globalHeader_links li {
-            margin: 0 1vw;
+        #globalHeader > nav {
+            display: flex;
         }
-        #globalHeader_links a {
+        #globalHeader nav > ul {
+            display: flex;
+            flex-direction: row;
+        }
+        #globalHeader li {
+            list-style: none;
+        }
+        /* Links */
+            #globalHeader_links {
+                display: flex;
+                align-items: center;
+            }
+            #globalHeader_links li {
+                margin: 0 1vw;
+            }
+            #globalHeader_links a {
+                color: white;
+            }
+        /* Icons */
+            #globalHeader_soMiIcons {
+                display: flex;
+                align-items: center;
+            }
+            #globalHeader_soMiIcons div {
+                width: 30px;
+                margin: 0 1vw;
+            }
+            #globalHeader_soMiIcons img {
+                width: 100%;
+                height: auto;
+            }
+    /* Footer */
+        footer {
             color: white;
         }
-    /* Icons */
-        #globalHeader_soMiIcons {
-            display: flex;
-            align-items: center;
-        }
-        #globalHeader_soMiIcons div {
-            width: 30px;
-            margin: 0 1vw;
-        }
-        #globalHeader_soMiIcons img {
-            width: 100%;
-            height: auto;
-        }
-
+       
 /*      --------------- 
         --- FORSIDE ---
         ---------------     */
@@ -187,7 +191,7 @@ UCN MMDA0920*/
         #forsidePersonlig div {
             width: 200px;
             height: 200px;
-            background-color: red;
+            background-color: rgb(255, 230, 230);
         }
     /* Forside - Projekter */
         /* Intro */
@@ -207,5 +211,9 @@ UCN MMDA0920*/
             height: 10vw;
             background-color: springgreen;
         }
-
+        .projektMain {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
