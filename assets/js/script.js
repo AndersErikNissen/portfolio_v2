@@ -46,6 +46,24 @@ function onScroll() {
         //Changes the Title
         document.title = newTitle + " - Anders Erik Nissen - Portfolio"
     }
+
+    function globalNAV () {
+        let 
+        nav = document.querySelector("#globalHeader"),
+        main = document.querySelector("main"),
+        top = main.getBoundingClientRect().top;
+    
+        if (top < 0) {
+            nav.classList.remove("nav_fadeOut");
+            nav.classList.add("nav_fadeIn");
+        } 
+        if (top > 0) {
+            nav.classList.remove("nav_fadeIn");
+            nav.classList.add("nav_fadeOut");
+        }
+    }
+    document.addEventListener("scroll", globalNAV);
+
     function GlobalNAVactive (active) {
         let
         list = document.querySelectorAll(".globalNAVli"),
@@ -71,45 +89,77 @@ function onScroll() {
         })
 
     }
+    function HTMLcreate (check) {
+        console.log("HTML create - RUNNING")
+        switch(check) {
+            case "om-mig":
+                OMMIGcreate(check);
+                break;
+
+            case "projekter":
+
+                break;
+            case "kontakt":
+
+                break;
+
+            case "snv":
+
+                break;
+            case "englerod":
+
+                break;
+
+            default:
+            console.log("DEFAULT HTMLcreate")
+
+        }
+
+    }
     function SITEcreate () {
         let 
         checkSplit = thisURL.split("?"),
         check = checkSplit[1];
     
         switch (check) {
-
+            // Note to self: Don't use ; in a Case, that is why there is a break. :)
             case undefined:
-                titleCreate("Forside");
+                titleCreate("Forside")
                 console.log("false!!")
                 break;
 
             case "om-mig":
-                titleCreate(check);
-                GlobalNAVactive(check);
-                console.log(check)
+                titleCreate(check)
+                GlobalNAVactive(check)
+                HTMLcreate(check)
+                console.log("SITEcreate",check)
                 break;
 
             case "projekter":
-                titleCreate(check);
-                GlobalNAVactive(check);
+                titleCreate(check)
+                GlobalNAVactive(check)
+                HTMLcreate(check)
                 console.log(check)
                 break;
 
             case "kontakt":
-                titleCreate(check);
-                GlobalNAVactive(check);
+                titleCreate(check)
+                GlobalNAVactive(check)
+                HTMLcreate(check)
                 console.log(check)
                 break;
 
             case "snv":
-                titleCreate(check);
-                GlobalNAVactive(check);
+                titleCreate(check)
+                GlobalNAVactive(check)
+                HTMLcreate(check)
                 console.log(check)
                 break;
 
             case "englerod":
-                titleCreate(check);
-                GlobalNAVactive(check);
+                titleCreate(check)
+                GlobalNAVactive(check)
+                HTMLcreate(check)
                 console.log(check)
                 break;
                 
@@ -142,7 +192,66 @@ document.addEventListener("scroll", ()=> {
 
 
 
+// Create HTML for EACH page
+const
+//Constants
+    hero = document.querySelector("#hero"),
+    main = document.querySelector("main");
 
+function OMMIGcreate (check) {
+    let
+    // Hero Content
+        intro = document.createElement("section"), h1 = document.createElement("h1"), intro_p = document.createElement("p"),
+        introIMG_container = document.createElement("section"), introIMG_div = document.createElement("div"), introIMG = document.createElement("img"),
+    // Main Content    
+        main_outer = document.createElement("section"), main_h2 = document.createElement("h2");
+
+    // Add Content / Append
+        // Intro
+            h1.textContent = "MOJN";
+            intro_p.textContent = "";
+            introIMG.src = "/assets/images/fluffy_desk.jpg"; // Placeholder!!!!!!!!!!
+
+            intro.appendChild(h1, intro_p);
+            introIMG_div.appendChild(introIMG);
+            introIMG_container.appendChild(introIMG_div);
+            hero.appendChild(intro, introIMG_container);
+        
+        // Main
+            main_outer.appendChild(main_h2);
+            // Creates 3 container with "Values" content
+                for (let i = 0; i < 3; i++) {
+                    let
+                    outer = document.createElement("section"), h3 = document.createElement("h3"), p = document.createElement("p"), img = document.createElement("img");
+                    //Switch to change content depending where in the loop(i) we are.
+                        switch(i) {
+                            case 0:
+                                h3.textContent = "Udfordringen";
+                                p.textContent = "";
+                                img.src = "";
+                                img.alt = "Billede til " + h3.textContent;
+                                break;
+                            case 1:
+                                h3.textContent = "Scopet og Designet";
+                                p.textContent = "";
+                                img.src = "";
+                                img.alt = "Billede til " + h3.textContent;
+                                break;
+                            case 2:
+                                h3.textContent = "Løsningen";
+                                p.textContent = "";
+                                img.src = "";
+                                img.alt = "Billede til " + h3.textContent;
+                                break;
+                        }
+                    //Add Class
+                        outer.classList.add("vaerdiBox");
+                    //Append the content
+                        outer.appendChild(h3, p, img);
+                        main_outer.appendChild(outer);
+                }
+            main.appendChild(main_outer);
+}
 
 
 
@@ -170,42 +279,26 @@ document.addEventListener("scroll", ()=> {
 
 
 // Fetch Token
-const
-    startURL = "http://aenders.dk/wp-json/jwt-auth/v1/token",
+// const
+//     startURL = "http://aenders.dk/wp-json/jwt-auth/v1/token",
 
-    login = {
-       
-    };
-
-    // fetch("http://aenders.dk/wp-json/jwt-auth/v1/token", {
-    //     method: "POST",
-    //     body: {
-    //       
-    //     },
-    // }) 
-    // .then(res => res.json())
-    // .then(json => console.log(json));
-
-    // fetch("http://aenders.dk/wp-json/wp/v2/posts?status=private&categories=50", {
-    //     method: "GET",
-    //     headers: {
-    //         }
-    // })
-    // .then(res => res.json())
-    // .then(json => console.log(json))
+//     login = {
+//         "username":"api.user",
+//         "password":"API-key-1234#!"
+//     };
     
-    
-    // fetch("http://aenders.dk/wp-json/jwt-auth/v1/token", {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json"
-    //     },
-    //     body: {
-    //         
-    //     }
-    // })
-    // .then(res => res.json())
-    // .then(json => console.log(json))
+//     fetch("http://aenders.dk/wp-json/jwt-auth/v1/token", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify(login)
+//     })
+//     .then(response => response.json())
+//     .then(json => { 
+//         window.localStorage.setItem("token", JSON.stringify(json));
+//         console.log(window.localStorage.getItem("token"))
+//     })
 
 
 
@@ -232,7 +325,7 @@ const
 
 
 
-    
+
 
     console.log("        /\\       _______   ___    __ ")
     console.log("       /  \\     |   ____| |   \\  |  |")
