@@ -206,14 +206,22 @@ UCN MMDA0920*/
             height: 100vh;
             width: 100%;
         }
-        #snv > section, #englerod > section {
+        /* #snv > section, #englerod > section {
             width: 50vw;
             height: 10vw;
             background-color: springgreen;
-        }
+        } */
         .projektMain {
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
+        }
+        .projektMain > section {
+            width: 40vw;
+            height: auto;
+
+            display: flex;
+            background-color: aqua;
         }
 

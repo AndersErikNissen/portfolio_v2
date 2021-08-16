@@ -21,7 +21,7 @@ function onScroll() {
     console.log(y)
 
 }
-document.addEventListener("scroll", onScroll)
+// document.addEventListener("scroll", onScroll)
 
 
 // Create Sites
@@ -121,7 +121,17 @@ document.addEventListener("scroll", onScroll)
     }
     SITEcreate();
 
-// window.addEventListener("load", ()=> {console.log(window.location.href)})
+// window.addEventListener("load", ()=> {console.log(document.querySelector("main").scrollTop)})
+
+// Fades out Hero Content with the scrollY.
+document.addEventListener("scroll", ()=> {
+    let 
+    hero = document.querySelector("#heroTextSection");
+    //Stops when going below 0.
+    if (window.scrollY < 400) {
+        hero.style.opacity = 1 - (window.scrollY / 400);
+    }
+})
 
 
 
