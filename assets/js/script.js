@@ -12,7 +12,7 @@
 
                                 document.documentElement.style.setProperty("--footer-position", (windowH + mainH) + "px");
                             }
-                            window.onload = footerPosition();
+                            
 function onScroll() {
     let y = window.scrollY;
     main = document.querySelector("main");
@@ -55,16 +55,22 @@ function onScroll() {
     function NAVcreate () {
         let
         // Logo ( LEFT )
-            logo_a = document.createElement("a"), logo_div = document.querySelector("div"), logo_img = document.querySelector("img"),
+            logo_a = document.createElement("a"), logo_div = document.createElement("div"), logo_img = document.createElement("img"),
         // NAV ( RIGHT )
-            gNAV = document.querySelector("nav"), links = document.querySelector("ul"), soMi = document.querySelector("ul");
+            gNAV = document.createElement("nav"), links = document.createElement("ul"), soMi = document.createElement("ul");
         // Add ID's
             links.id = "globalHeader_links";
             soMi.id = "globalHeader_soMiIcons";
+        // Logo
+            logo_a.href = "index.html";
+            logo_img.src = "";
+            logo_div.appendChild(logo_img);
+            logo_a.appendChild(logo_div);
+
         // Create Links / SoMi (LI's)
             for (let i = 0; i < 3; i++) {
                 let
-                li = document.querySelector("li"), a = document.querySelector("a");
+                li = document.createElement("li"), a = document.createElement("a");
                 //Add class and more
                     a.classList.add("globalNAVli");
                     switch (i) {
@@ -74,11 +80,11 @@ function onScroll() {
                             break;
                         case 1:
                             a.href = "?projekter";
-                            a.textContent = "projekter";
+                            a.textContent = "Projekter";
                             break;
                         case 2:
                             a.href = "?kontakt";
-                            a.textContent = "kontakt";
+                            a.textContent = "Kontakt";
                             break;
                     }
                 //Append
@@ -87,34 +93,35 @@ function onScroll() {
             }
             for (let i = 0; i < 3; i++) {
                 let
-                li = document.querySelector("li"), a = document.querySelector("a"), div = document.querySelector("div"), img = document.querySelector("img");
+                soMi_li = document.createElement("li"), soMi_a = document.createElement("a"), soMi_div = document.createElement("div"), soMi_img = document.createElement("img");
                 //Add class and more
                     
                     switch (i) {
                         case 0:
-                            a.href = "https://github.com/AndersErikNissen";
-                            img.src = "/assets/images/icons/github_round_white.png";
-                            img.alt = "Link og Billede til Github";
+                            soMi_a.href = "https://github.com/AndersErikNissen";
+                            soMi_img.src = "/assets/images/icons/github_round_white.png";
+                            soMi_img.alt = "Link og Billede til Github";
                             break;
                         case 1:
-                            a.href = "https://www.instagram.com/aendersledes/";
-                            img.src = "/assets/images/icons/instagram_round_white.png";
-                            img.alt = "Link og Billede til Instagram";
+                            soMi_a.href = "https://www.instagram.com/aendersledes/";
+                            soMi_img.src = "/assets/images/icons/instagram_round_white.png";
+                            soMi_img.alt = "Link og Billede til Instagram";
                             break;
                         case 2:
-                            a.href = "https://www.linkedin.com/in/anders-erik-nissen/";
-                            img.src = "/assets/images/icons/linkedin_round_white.png";
-                            img.alt = "Link og Billede til LinkedIn";
+                            soMi_a.href = "https://www.linkedin.com/in/anders-erik-nissen/";
+                            soMi_img.src = "/assets/images/icons/linkedin_round_white.png";
+                            soMi_img.alt = "Link og Billede til LinkedIn";
                             break;
                     }
                 //Append
-                    div.appendChild(img)
-                    a.appendChild(div);
-                    li.appendChild(a);
-                    soMi.appendChild(li);
+                    soMi_div.appendChild(soMi_img)
+                    soMi_a.appendChild(soMi_div);
+                    soMi_li.appendChild(soMi_a);
+                    soMi.appendChild(soMi_li);
             }
             //Append all to header
-                gNAV.appendChild(links, soMi);
+                gNAV.append(links, soMi);
+                document.querySelector("#globalHeader").append(logo_a, gNAV);
     }
 
     function globalNAV () {
@@ -180,6 +187,7 @@ function onScroll() {
                 break;
 
             default:
+                FORSIDEcreate();
             console.log("DEFAULT HTMLcreate")
 
         }
@@ -194,6 +202,11 @@ function onScroll() {
             // Note to self: Don't use ; in a Case, that is why there is a break. :)
             case undefined:
                 titleCreate("Forside")
+                NAVcreate ()
+                GlobalNAVactive()
+                HTMLcreate()
+
+                footerPosition()
                 console.log("false!!")
                 break;
 
@@ -210,6 +223,8 @@ function onScroll() {
                 NAVcreate ()
                 GlobalNAVactive(check)
                 HTMLcreate(check)
+
+                footerPosition()
                 console.log(check)
                 break;
 
@@ -218,6 +233,8 @@ function onScroll() {
                 NAVcreate ()
                 GlobalNAVactive(check)
                 HTMLcreate(check)
+
+                footerPosition()
                 console.log(check)
                 break;
 
@@ -226,6 +243,8 @@ function onScroll() {
                 NAVcreate ()
                 GlobalNAVactive(check)
                 HTMLcreate(check)
+
+                footerPosition()
                 console.log(check)
                 break;
 
@@ -234,10 +253,17 @@ function onScroll() {
                 NAVcreate ()
                 GlobalNAVactive(check)
                 HTMLcreate(check)
+
+                footerPosition()
                 console.log(check)
                 break;
                 
             default:
+                titleCreate("Forside")
+                NAVcreate ()
+                HTMLcreate()
+
+                footerPosition()
                 console.log("DEFAULT: HTML-CREATE")
         }
         // "Forside", ommig, projekter, kontakt, snv, englerod
@@ -250,10 +276,10 @@ function onScroll() {
 // Fades out Hero Content with the scrollY.
 document.addEventListener("scroll", ()=> {
     let 
-    hero = document.querySelector("#heroTextSection");
+    heroo = document.querySelector("#heroTextSection");
     //Stops when going below 0.
     if (window.scrollY < 400) {
-        hero.style.opacity = 1 - (window.scrollY / 400);
+        heroo.style.opacity = 1 - (window.scrollY / 400);
     }
 })
 
@@ -325,49 +351,24 @@ function OMMIGcreate (check) {
 function FORSIDEcreate () {
     let
     //Hero Area
-    hero_section = document.querySelector("section"), h1 = document.querySelector("h1"), hero_h2 = document.querySelector("h2"), cv = document.querySelector("a"),
+    hero_section = document.createElement("section"), h1 = document.createElement("h1"), hero_h2 = document.createElement("h2"), cv = document.createElement("a"),
     // Main Area
         // Personlig
-            forPer_section = document.querySelector("section"), forPer_cover = document.querySelector("section"), forPer_textBox = document.querySelector("section"), forPer_h2 = document.querySelector("h2"), forPer_p = document.querySelector("p"), forPer_obj = document.querySelector("object"), link_ommig = document.querySelector("a"),
+            forPer_section = document.createElement("section"), forPer_cover = document.createElement("section"), forPer_textBox = document.createElement("section"), forPer_h2 = document.createElement("h2"), forPer_p = document.createElement("p"), forPer_obj = document.createElement("object"), link_ommig = document.createElement("a"),
         // Projekter
-            forPro_section = document.querySelector("section"), forPro_info = document.querySelector("section"), forPro_info_h2 = document.querySelector("h2"), forPro_info_p = document.querySelector("p"), forPro_alle = document.querySelector("a");
-    
-        // Loop to make 2 projekt containers with content.
-            for (let i = 0; i < 2; i++) {
-                let
-                section = document.querySelector("section"), pMain = document.querySelector("section"), h2 = document.querySelector("h2"), h4 = document.querySelector("h4"), imgLogo_box = document.querySelector("section"), logo = document.querySelector("img"), img = document.querySelector("img"), a = document.querySelector("a");
-                // Changes content after point in loop(i).
-                switch (i) {
-                    case 0:
-                        section.id = "snv";
-                        h2.textContent = "SNV.dk";
-                        h4.textContent = "MAJ - JUNI 2021";
-                        
-                        logo.src = "";
-                        img.src = "";
-                        a.href = "?snv";
-                        break;
-                    case 1:
-                        section.id = "englerod";
-                        h2.textContent = "Englerod.dk";
-                        h4.textContent = "APRIL 2021";
-                        
-                        logo.src = "";
-                        img.src = "";
-                        a.href = "?englerod";
-                        break;
-                    }
-                //General Items Content
-                    a.textContent = "SE PROJEKTET";
-                    section.classList.add("flex-center");
-                    pMain.classList.add("projektMain");
+            forPro_section = document.createElement("section"), forPro_info = document.createElement("section"), forPro_info_h2 = document.createElement("h2"), forPro_info_p = document.createElement("p"), forPro_alle = document.createElement("a"), forPro_alle_container = document.createElement("section");
+    //Append + Content
+        // Hero
+            h1.textContent = "FRONT-END PÅ ET STÆRKT FUNDAMENT";
+            hero_h2.textContent = "Mit navn er Anders Erik Nissen, og jeg studere til Multimediedesigner hos UCN i Aalborg.";
+            cv.href = "";
+            cv.textContent = "DOWNLOAD CV"
+            cv.download;
+            cv.classList.add("button");
+            hero_section.id = "heroTextSection";
+            hero_section.classList.add("flex-center");
+            hero_section.append(h1, hero_h2, cv);
 
-                //Append 
-                    imgLogo_box.appendChild(logo, img);
-                    pMain.appendChild(h2, h4, imgLogo_box, a);
-                    section.appendChild(pMain);
-            }
-    // Personlig Append + Content
         // Personlig
             forPer_h2.textContent = "Slow is smooth, smooth is fast!";
             forPer_p.textContent = "Mauris ac pretium turpis. Aenean pharetra condimentum felis, eu iaculis massa. Mauris in vestibulum libero. Maecenas blandit hendrerit libero, id dignissim nisi malesuada et. Nulla ipsum dui, aliquam bibendum lacus id, fermentum cursus massa. Quisque diam nisl, congue sed arcu in, vestibulum tristique mi. In posuere egestas sapien id pellentesque. Donec varius risus suscipit dapibus viverra. Duis ultrices feugiat sollicitudin. Nulla efficitur ornare ante, at eleifend purus. Fusce massa risus, interdum nec interdum sit amet, faucibus non dolor. Nulla facilisi. Nulla vel luctus erat, vel fringilla turpis. Ut vitae malesuada augue. Curabitur non sollicitudin augue.";
@@ -375,11 +376,71 @@ function FORSIDEcreate () {
             link_ommig.href = "?om-mig";
             link_ommig.textContent = "LÆS MERE";
 
-            forPer_textBox.appendChild(forPer_h2, forPer_p, link_ommig);
-            forPer_cover.appendChild(forPer_textBox, forPer_obj,);
+            forPer_textBox.append(forPer_h2, forPer_p, link_ommig);
+            forPer_cover.append(forPer_textBox, forPer_obj);
             forPer_section.appendChild(forPer_cover);
-        // Projekter
 
+            link_ommig.classList.add("button");
+            forPer_cover.id = "forPer_cover";
+            forPer_section.id = "forsidePersonlig";
+            forPer_section.classList.add("flex-center");
+        // Projekter
+            forPro_info_h2.textContent = "SE SKOLE PROJEKTER";
+            forPro_info_p.textContent = "Mauris ac pretium turpis. Aenean pharetra condimentum felis, eu iaculis massa. Mauris in vestibulum libero. Maecenas blandit hendrerit libero, id dignissim nisi malesuada et.";
+            forPro_info.append(forPro_info_h2, forPro_info_p);
+        
+            forPro_info.id = "forPro_info";
+            forPro_info.classList.add("flex-center");
+            forPro_section.id = "forsideProjekter";
+
+        // Loop to make 2 projekt containers with content.
+        for (let i = 0; i < 2; i++) {
+            let
+            section = document.createElement("section"), pMain = document.createElement("section"), h2 = document.createElement("h2"), h4 = document.createElement("h4"), imgLogo_box = document.createElement("section"), logo = document.createElement("img"), img = document.createElement("img"), a = document.createElement("a");
+            // Changes content after point in loop(i).
+            switch (i) {
+                case 0:
+                    section.id = "snv";
+                    h2.textContent = "SNV.dk";
+                    h4.textContent = "MAJ - JUNI 2021";
+                    
+                    logo.src = "";
+                    img.src = "";
+                    a.href = "?snv";
+                    break;
+                case 1:
+                    section.id = "englerod";
+                    h2.textContent = "Englerod.dk";
+                    h4.textContent = "APRIL 2021";
+                    
+                    logo.src = "";
+                    img.src = "";
+                    a.href = "?englerod";
+                    break;
+                }
+            //General Items Content
+                a.textContent = "SE PROJEKTET";
+                a.classList.add("button");
+                section.classList.add("flex-center");
+                pMain.classList.add("projektMain");
+
+            //Append 
+                imgLogo_box.append(logo, img);
+                pMain.append(h2, h4, imgLogo_box, a);
+                section.appendChild(pMain);
+                forPro_section.appendChild(section);
+        }
+        // View all project link.
+            forPro_alle.href = "?projekter";
+            forPro_alle.classList.add("button");
+            forPro_alle.textContent = "SE ALLE PROJEKTER";
+            forPro_alle_container.id = "forsideSeAlleProjekter";
+            forPro_alle_container.classList.add("flex-center");
+            forPro_alle_container.appendChild(forPro_alle);
+            forPro_section.appendChild(forPro_alle_container);
+        // Append to Hero / Main
+        hero.appendChild(hero_section);
+        main.append(forPer_section, forPro_section);
 }
 
 
