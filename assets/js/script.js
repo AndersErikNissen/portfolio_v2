@@ -215,6 +215,8 @@ function onScroll() {
                 NAVcreate ()
                 GlobalNAVactive(check)
                 HTMLcreate(check)
+
+                footerPosition()
                 console.log("SITEcreate",check)
                 break;
 
@@ -298,6 +300,7 @@ function OMMIGcreate (check) {
     // Hero Content
         intro = document.createElement("section"), h1 = document.createElement("h1"), intro_p = document.createElement("p"),
         introIMG_container = document.createElement("section"), introIMG_div = document.createElement("div"), introIMG = document.createElement("img"),
+        intro_section = document.createElement("section"),
     // Main Content    
         main_outer = document.createElement("section"), main_h2 = document.createElement("h2");
 
@@ -307,10 +310,13 @@ function OMMIGcreate (check) {
             intro_p.textContent = "";
             introIMG.src = "/assets/images/fluffy_desk.jpg"; // Placeholder!!!!!!!!!!
 
-            intro.appendChild(h1, intro_p);
+            intro.append(h1, intro_p);
             introIMG_div.appendChild(introIMG);
             introIMG_container.appendChild(introIMG_div);
-            hero.appendChild(intro, introIMG_container);
+            introIMG_container.id = "om-mig_intro_img";
+            intro_section.append(intro, introIMG_container);
+            intro_section.id = "heroTextSection";
+            hero.append(intro_section);
         
         // Main
             main_outer.appendChild(main_h2);
@@ -342,10 +348,15 @@ function OMMIGcreate (check) {
                     //Add Class
                         outer.classList.add("vaerdiBox");
                     //Append the content
-                        outer.appendChild(h3, p, img);
+                        outer.append(h3, p, img);
                         main_outer.appendChild(outer);
                 }
+            //Append and Add Id
+            main_outer.id = "om-mig_main";
             main.appendChild(main_outer);
+
+    // Add ID to Body for dynamic styling.
+        document.querySelector("body").id = "om-mig";
 }
 
 function FORSIDEcreate () {
@@ -441,9 +452,99 @@ function FORSIDEcreate () {
         // Append to Hero / Main
         hero.appendChild(hero_section);
         main.append(forPer_section, forPro_section);
+
+    // Add ID to Body for dynamic styling.
+        document.querySelector("body").id = "forside";
 }
 
+function PROJEKTcreate_template () {
+    // ---------------
+    // Create Elements
+    // ---------------
+    let
+    // Hero
+        hero_section = document.createElement("section"), h1 = document.createElement("h1"), hero_kode_block = document.createElement("section"), hero_arrow_block = document.createElement("section"), hero_arrow_div = document.createElement("div"), hero_arrow_img = document.createElement("img"),
+    // Projekt - Intro
+        intro_section = document.createElement("section"), intro_block = document.createElement("section"), intro_h2 = document.createElement("h2"), intro_p = document.createElement("p"),
+    // Projekt - Værdier
+        step_section = document.createElement("section"), step_h2 = document.createElement("h2"), 
+    // Projekt - Galleri
+        galleri_section = document.createElement("section"), galleri_h2 = document.createElement("h2"), galleri_next_section = document.createElement("section"), galleri_next_a = document.createElement("a");
+    
+    // First round of Append (Need to add some elements before, the loops create elements in the same parents).
+        hero_section.appendChild(h1);
+        step_section.appendChild(step_h2);
 
+    // Hero - Sprog Box's
+        for (let i = 0; i < 3; i++) {
+            let h5 = document.createElement("h5");
+            h5.classList.add("kodeSprogBox");
+            switch (i) {
+                case 0:
+                    h5.textContent = "HTML"
+                    break;
+                case 1:
+                    h5.textContent = "CSS"
+                    break;
+                case 2:
+                    h5.textContent = "JS"
+                    break;
+            }
+            // Append
+            h5.appendChild(hero_kode_block);
+        }
+    // Forløb - Steps
+        for (let i = 0; i < 3; i++) {
+            let section = document.createElement("section"), h3 = document.createElement("h3"), p = document.createElement("p");
+            section.classList.add("projektStepBox");
+            switch (i) {
+                case 0:
+                    h3.textContent = "Udfordringen"
+                    p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus."
+                    break;
+                case 1:
+                    h3.textContent = "Scopet og Designet"
+                    p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus."
+                    break;
+                case 2:
+                    h3.textContent = "Løsningen"
+                    p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus."
+                    break;
+            }
+            // Append
+            section.append(h3, p);
+            step_section.appendChild(section);
+        }
+    // For Each IMG
+        let
+        arr_galleri = [];
+
+        arr_galleri.forEach(each => {
+            let
+            section = document.createElement("section"), div = document.createElement("div"), img = document.createElement("img");
+
+            img.src = each.img;
+            div.appendChild(img);
+            section.appendChild(div);
+            galleri_section.appendChild(section);
+        });
+    //2nd round of Append and Content
+        // Hero
+            hero_arrow_img.src = "/assets/images/icons/arrow_down_white.png";
+            hero_arrow_img.alt = "Nedad vendende pil";
+            hero_arrow_div.appendChild(hero_arrow_img); hero_arrow_block.appendChild(hero_arrow_div); hero_section.appendChild(hero_arrow_block);
+
+            hero.appendChild(hero_section)
+        // Intro
+            intro_h2.textContent = "PLACEHOLDER: HVAD ER????";
+            intro_p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
+            
+            intro_block.append(intro_h2, intro_p); intro_section.appendChild(intro_block);
+            main.appendChild(intro_section);
+        // Step
+            
+
+}   
 
 
 
