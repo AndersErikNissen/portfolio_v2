@@ -149,6 +149,7 @@ UCN MMDA0920*/
             display: flex;
             justify-content: space-between;
             background-color: rgba(255,171,3,0);
+            padding: 0 3vw;
         }
         #globalHeader > nav {
             display: flex;
