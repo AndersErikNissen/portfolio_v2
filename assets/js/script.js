@@ -180,10 +180,10 @@ function onScroll() {
                 break;
 
             case "snv":
-
+                PROJEKTcreate_template ()
                 break;
             case "englerod":
-
+                PROJEKTcreate_template ()
                 break;
 
             default:
@@ -463,17 +463,20 @@ function PROJEKTcreate_template () {
     // ---------------
     let
     // Hero
-        hero_section = document.createElement("section"), h1 = document.createElement("h1"), hero_kode_block = document.createElement("section"), hero_arrow_block = document.createElement("section"), hero_arrow_div = document.createElement("div"), hero_arrow_img = document.createElement("img"),
+        hero_section = document.createElement("section"), hero_h2 = document.createElement("h2"), hero_kode_block = document.createElement("section"), hero_arrow_block = document.createElement("section"), hero_arrow_div = document.createElement("div"), hero_arrow_img = document.createElement("img"),
     // Projekt - Intro
         intro_section = document.createElement("section"), intro_block = document.createElement("section"), intro_h2 = document.createElement("h2"), intro_p = document.createElement("p"),
     // Projekt - Værdier
-        step_section = document.createElement("section"), step_h2 = document.createElement("h2"), 
+        step_section = document.createElement("section"), step_h1 = document.createElement("h2"), 
     // Projekt - Galleri
-        galleri_section = document.createElement("section"), galleri_h2 = document.createElement("h2"), galleri_next_section = document.createElement("section"), galleri_next_a = document.createElement("a");
+        galleri_section = document.createElement("section"), galleri_h2 = document.createElement("h2"), 
+    // Næste Projekt
+        next_section = document.createElement("section"), next_a = document.createElement("a");
     
     // First round of Append (Need to add some elements before, the loops create elements in the same parents).
-        hero_section.appendChild(h1);
-        step_section.appendChild(step_h2);
+        hero_section.appendChild(hero_h2);
+        step_section.appendChild(step_h1);
+        galleri_section.appendChild(galleri_h2);
 
     // Hero - Sprog Box's
         for (let i = 0; i < 3; i++) {
@@ -491,7 +494,7 @@ function PROJEKTcreate_template () {
                     break;
             }
             // Append
-            h5.appendChild(hero_kode_block);
+            hero_kode_block.appendChild(h5);
         }
     // Forløb - Steps
         for (let i = 0; i < 3; i++) {
@@ -530,9 +533,14 @@ function PROJEKTcreate_template () {
         });
     //2nd round of Append and Content
         // Hero
+            hero_h2.textContent = "MÅNED????"
             hero_arrow_img.src = "/assets/images/icons/arrow_down_white.png";
             hero_arrow_img.alt = "Nedad vendende pil";
-            hero_arrow_div.appendChild(hero_arrow_img); hero_arrow_block.appendChild(hero_arrow_div); hero_section.appendChild(hero_arrow_block);
+            hero_arrow_div.appendChild(hero_arrow_img); 
+            hero_arrow_block.appendChild(hero_arrow_div);
+            hero_section.id = "heroTextSection";
+            hero_section.classList.add("flex-center"); 
+            hero_section.append(hero_kode_block, hero_arrow_block);
 
             hero.appendChild(hero_section)
         // Intro
@@ -542,8 +550,19 @@ function PROJEKTcreate_template () {
             intro_block.append(intro_h2, intro_p); intro_section.appendChild(intro_block);
             main.appendChild(intro_section);
         // Step
-            
+            step_h1.textContent = "Forløb";
+            main.appendChild(step_section);
+        // Galleri
+            galleri_h2.textContent = "Galleri";
+            main.appendChild(galleri_section);
+        // Next
+            next_a.href = "";
+            next_a.textContent = "NÆSTE PROJEKT";
+            next_section.appendChild(next_a);
+            main.appendChild(next_section);
 
+    // Add ID to Body for dynamic styling.
+        document.querySelector("body").id = "";
 }   
 
 
