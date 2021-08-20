@@ -156,14 +156,13 @@ function footerPosition() {
         })
     }
     function HTMLcreate (check) {
-        console.log("HTML create - RUNNING")
         switch(check) {
             case "om-mig":
                 OMMIGcreate(check);
                 break;
 
             case "projekter":
-
+                PROJEKTERcreate ()
                 break;
             case "kontakt":
                 KONTAKTcreate ()
@@ -176,20 +175,24 @@ function footerPosition() {
                 PROJEKTcreate_template ()
                 break;
 
+            case "pinktree":
+                PROJEKTcreate_template ()
+                break;
+
             default:
                 FORSIDEcreate();
-            console.log("DEFAULT HTMLcreate")
-
+                console.log("DEFAULT - HTMLcreate")
         }
-
     }
     function SITEcreate () {
         let 
+        //Check in URL
         checkSplit = thisURL.split("?"),
         check = checkSplit[1];
     
         switch (check) {
             // Note to self: Don't use ; in a Case, that is why there is a break. :)
+            // Undefined is not really needed, but..
             case undefined:
                 titleCreate("Forside")
                 NAVcreate ()
@@ -241,6 +244,16 @@ function footerPosition() {
                 break;
 
             case "englerod":
+                titleCreate(check)
+                NAVcreate ()
+                GlobalNAVactive(check)
+                HTMLcreate(check)
+                FOOTERcreate ()
+                footerPosition()
+                console.log(check)
+                break;
+
+            case "pinktree":
                 titleCreate(check)
                 NAVcreate ()
                 GlobalNAVactive(check)
@@ -567,7 +580,7 @@ function FOOTERcreate () {
         a.href = "?kontakt";
         a.textContent = "KONTAKT";
         section.append(h2, a);
-        document.querySelector("footer").appendChild(section)
+        document.querySelector("footer").appendChild(section);
 }
 
 function KONTAKTcreate () {
@@ -636,7 +649,89 @@ function KONTAKTcreate () {
         document.querySelector("body").id = "kontakt";
 }
 
+function PROJEKTERcreate () {
+    let
+    // Hero
+        hero_section = document.createElement("section"), h1 = document.createElement("h1"), hero_p = document.createElement("p"),
+    // Skoleprojekter
+        sko_section = document.createElement("section"),
+    // Mini Projekter
+        mini_section = document.createElement("section"), pink_section = document.createElement("section"), pink_main = document.createElement("section"), pink_h2 = document.createElement("h2"), pink_h4 = document.createElement("h4"), 
+        pink_box = document.createElement("section"), pink_logo = document.createElement("img"), pink_img = document.createElement("img"), pink_a = document.createElement("a");
 
+    //Same loop from Index(Forside), will be a forEach loop later on. 
+        for (let i = 0; i < 2; i++) {
+            let
+            // Create elements
+            section = document.createElement("section"), pMain = document.createElement("section"), h2 = document.createElement("h2"), h4 = document.createElement("h4"), imgLogo_box = document.createElement("section"), logo = document.createElement("img"), img = document.createElement("img"), a = document.createElement("a");
+            // Changes content after point in loop(i).
+            switch (i) {
+                case 0:
+                    section.id = "snv";
+                    h2.textContent = "SNV.dk";
+                    h4.textContent = "MAJ - JUNI 2021";
+                    
+                    logo.src = "";
+                    img.src = "";
+                    a.href = "?snv";
+                    break;
+                case 1:
+                    section.id = "englerod";
+                    h2.textContent = "Englerod.dk";
+                    h4.textContent = "APRIL 2021";
+                    
+                    logo.src = "";
+                    img.src = "";
+                    a.href = "?englerod";
+                    break;
+            }
+            //General Items Content
+                a.textContent = "SE PROJEKTET";
+                a.classList.add("button");
+                section.classList.add("flex-center");
+                pMain.classList.add("projektMain");
+
+            //Append 
+                imgLogo_box.append(logo, img);
+                pMain.append(h2, h4, imgLogo_box, a);
+                section.appendChild(pMain);
+                sko_section.appendChild(section);
+        }
+
+    // Add / Append
+        // Hero
+            h1.textContent = "Projekter";
+            hero_p.textContent = "Her kan du se mine seneste projekter, fra mit studie og nogle som jeg har lavet i min fritid!";
+
+            hero_section.append(h1, hero_p);
+            hero_section.classList.add("flex-center")
+            hero_section.id = "heroTextSection";
+            hero.appendChild(hero_section);
+        // SKole
+            main.appendChild(sko_section);
+        // Mini
+            // Pink Tree Projekt
+            pink_a.textContent = "SE PROJEKTET";
+            pink_a.classList.add("button");
+            pink_section.classList.add("flex-center");
+            pink_main.classList.add("projektMain");
+
+            pink_section.id ="pinkTree";
+            pink_h2.textContent = "Pink Tree";
+            pink_h4.textContent = "AUGUST 2021";
+            pink_img.src = "";
+            pink_logo.src = "";
+            pink_a.href = "?pinktree";
+        
+            pink_box.append(pink_logo, pink_img);
+            pink_main.append(pink_h2, pink_h4, pink_box, pink_a);
+            pink_section.appendChild(pink_main);
+            mini_section.appendChild(pink_section);
+            main.appendChild(mini_section)
+
+    // Add ID to Body for dynamic styling.
+    document.querySelector("body").id = "projekter";
+}
 
 
 
