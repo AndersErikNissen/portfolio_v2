@@ -53,7 +53,9 @@ function footerPosition() {
             soMi.id = "globalHeader_soMiIcons";
         // Logo
             logo_a.href = "index.html";
-            logo_img.src = "";
+            logo_img.src = "/assets/images/logo/aen_logo_simple_2_2px.png";
+            logo_div.id = "logo_div";
+            logo_div.classList.add("flex-center")
             logo_div.appendChild(logo_img);
             logo_a.appendChild(logo_div);
 

@@ -150,6 +150,7 @@ UCN MMDA0920*/
             justify-content: space-between;
             background-color: rgba(255,171,3,0);
             padding: 0 3vw;
+            height: 60px;
         }
         #globalHeader > nav {
             display: flex;
@@ -160,6 +161,15 @@ UCN MMDA0920*/
         }
         #globalHeader li {
             list-style: none;
+        }
+        /* Logo */
+        #logo_div {
+            height: 100%;
+            width: auto;
+        }
+        #logo_div img {
+            width: auto;
+            height: 80%;
         }
         /* Links */
             #globalHeader_links {
