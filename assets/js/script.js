@@ -2,26 +2,16 @@
 //UCN MMDA0920
 
 
-                            // IKKE NØDVENDIG, MEN NICE!
-                            function footerPosition() {
-                                let
-                                footer = document.querySelector("footer"),
-                                main = document.querySelector("main"),
-                                mainH = main.offsetHeight,
-                                windowH = window.innerHeight;
+// IKKE NØDVENDIG, MEN NICE!
+function footerPosition() {
+    let
+    footer = document.querySelector("footer"),
+    main = document.querySelector("main"),
+    mainH = main.offsetHeight,
+    windowH = window.innerHeight;
 
-                                document.documentElement.style.setProperty("--footer-position", (windowH + mainH) + "px");
-                            }
-                            
-function onScroll() {
-    let y = window.scrollY;
-    main = document.querySelector("main");
-    mainH = main.offsetHeight;
-    // main.style.top ="-" + y + "vh";
-    console.log(y)
-
+    document.documentElement.style.setProperty("--footer-position", (windowH + mainH) + "px");
 }
-// document.addEventListener("scroll", onScroll)
 
 // ====================
 // === Create Sites ===
@@ -176,7 +166,7 @@ function onScroll() {
 
                 break;
             case "kontakt":
-
+                KONTAKTcreate ()
                 break;
 
             case "snv":
@@ -205,7 +195,7 @@ function onScroll() {
                 NAVcreate ()
                 GlobalNAVactive()
                 HTMLcreate()
-
+                FOOTERcreate ()
                 footerPosition()
                 console.log("false!!")
                 break;
@@ -215,7 +205,7 @@ function onScroll() {
                 NAVcreate ()
                 GlobalNAVactive(check)
                 HTMLcreate(check)
-
+                FOOTERcreate ()
                 footerPosition()
                 console.log("SITEcreate",check)
                 break;
@@ -225,7 +215,7 @@ function onScroll() {
                 NAVcreate ()
                 GlobalNAVactive(check)
                 HTMLcreate(check)
-
+                FOOTERcreate ()
                 footerPosition()
                 console.log(check)
                 break;
@@ -235,7 +225,7 @@ function onScroll() {
                 NAVcreate ()
                 GlobalNAVactive(check)
                 HTMLcreate(check)
-
+                FOOTERcreate ()
                 footerPosition()
                 console.log(check)
                 break;
@@ -245,7 +235,7 @@ function onScroll() {
                 NAVcreate ()
                 GlobalNAVactive(check)
                 HTMLcreate(check)
-
+                FOOTERcreate ()
                 footerPosition()
                 console.log(check)
                 break;
@@ -255,7 +245,7 @@ function onScroll() {
                 NAVcreate ()
                 GlobalNAVactive(check)
                 HTMLcreate(check)
-
+                FOOTERcreate ()
                 footerPosition()
                 console.log(check)
                 break;
@@ -264,7 +254,7 @@ function onScroll() {
                 titleCreate("Forside")
                 NAVcreate ()
                 HTMLcreate()
-
+                FOOTERcreate ()
                 footerPosition()
                 console.log("DEFAULT: HTML-CREATE")
         }
@@ -280,8 +270,10 @@ document.addEventListener("scroll", ()=> {
     let 
     heroo = document.querySelector("#heroTextSection");
     //Stops when going below 0.
-    if (window.scrollY < 400) {
-        heroo.style.opacity = 1 - (window.scrollY / 400);
+    if (document.querySelector("#heroTextSection")) {
+        if (window.scrollY < 400) {
+            heroo.style.opacity = 1 - (window.scrollY / 400);
+        }
     }
 })
 
@@ -371,7 +363,7 @@ function FORSIDEcreate () {
     //Append + Content
         // Hero
             h1.textContent = "FRONT-END PÅ ET STÆRKT FUNDAMENT";
-            hero_h2.textContent = "Mit navn er Anders Erik Nissen, og jeg studere til Multimediedesigner hos UCN i Aalborg.";
+            hero_h2.textContent = "Mit navn er Anders Erik Nissen, og jeg studerer til Multimediedesigner hos UCN i Aalborg.";
             cv.href = "";
             cv.textContent = "DOWNLOAD CV"
             cv.download;
@@ -565,9 +557,84 @@ function PROJEKTcreate_template () {
         document.querySelector("body").id = "";
 }   
 
+function FOOTERcreate () {
+    let
+    // Create Elements
+        section = document.createElement("section"), h2 = document.createElement("h2"), a = document.createElement("a");
+    // Finish    
+        section.classList.add("flex-center");
+        h2.textContent = "Vil du vide mere om mig, eller i kontakt?";
+        a.href = "?kontakt";
+        a.textContent = "KONTAKT";
+        section.append(h2, a);
+        document.querySelector("footer").appendChild(section)
+}
 
+function KONTAKTcreate () {
+    let
+    //Create Elements
+        outer = document.createElement("section"), non_img = document.createElement("section"),
+        //Text Area
+            text_area = document.createElement("section"), h1 = document.createElement("h1"), p = document.createElement("p"), h2 = document.createElement("h2"),
+        // SoMi
+            soMi = document.createElement("section"), soMi_ul = document.createElement("ul"), soMi_h2 = document.createElement("h2"),
+        // Img
+            img_outer = document.createElement("section"), img_div = document.createElement("div"), img_img = document.createElement("img");
+        // SoMI LI   
+            for (let i = 0; i < 3; i++) {
+                let
+                soMi_li = document.createElement("li"), soMi_a = document.createElement("a"), soMi_div = document.createElement("div"), soMi_img = document.createElement("img");
+                //Add class and more
+                    
+                    switch (i) {
+                        case 0:
+                            soMi_a.href = "https://github.com/AndersErikNissen";
+                            soMi_img.src = "/assets/images/icons/github_round_white.png";
+                            soMi_img.alt = "Link og Billede til Github";
+                            break;
+                        case 1:
+                            soMi_a.href = "https://www.instagram.com/aendersledes/";
+                            soMi_img.src = "/assets/images/icons/instagram_round_white.png";
+                            soMi_img.alt = "Link og Billede til Instagram";
+                            break;
+                        case 2:
+                            soMi_a.href = "https://www.linkedin.com/in/anders-erik-nissen/";
+                            soMi_img.src = "/assets/images/icons/linkedin_round_white.png";
+                            soMi_img.alt = "Link og Billede til LinkedIn";
+                            break;
+                    }
+                //Append
+                    soMi_div.appendChild(soMi_img)
+                    soMi_a.appendChild(soMi_div);
+                    soMi_li.appendChild(soMi_a);
+                    soMi_ul.appendChild(soMi_li);
+            }
+        // Add and Append
+            // Text Area
+                h1.textContent = "LAD OS TAGE EN SNAK!";
+                p.textContent = "Hvis du har spørgsmål, eller bare gerne vil i kontakt med mig, så send mig gerne en e-mail. Jeg svare tilbage så hurtigt som jeg kan!";
+                // Obfuscate Email
+                    h2.innerHTML = '<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#110;&#100;&#101;&#114;&#115;&#101;&#114;&#105;&#107;&#110;&#105;&#115;&#115;&#101;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#97;&#110;&#100;&#101;&#114;&#115;&#101;&#114;&#105;&#107;&#110;&#105;&#115;&#115;&#101;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>';
+                text_area.append(h1, p, h2);
+                outer.appendChild(text_area);
+                outer.id = "kontakt-outer_container";
+            // SoMi
+                soMi_h2.textContent = "Følg mig på:";
+                soMi.append(soMi_h2, soMi_ul);
+                soMi.id = "kontakt-soMi";
+                soMi_ul.id = "kontakt-soMi_ul";
+                outer.appendChild(soMi);
+            // SoMi Li
+                img_img.src = "/assets/images/fluffy_desk.jpg";
 
-
+                img_div.appendChild(img_img);
+                img_outer.appendChild(img_div);
+                outer.appendChild(img_outer);
+            
+            hero.appendChild(outer);
+    // Add ID to Body for dynamic styling.
+        document.querySelector("body").id = "kontakt";
+}
 
 
 
