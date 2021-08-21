@@ -263,15 +263,10 @@ UCN MMDA0920*/
             height: 20vh;
         }
         /* Projekter */
-        #snv, #englerod{
+        #snv, #englerod, #pinkTree{
             height: 100vh;
             width: 100%;
         }
-        /* #snv > section, #englerod > section {
-            width: 50vw;
-            height: 10vw;
-            background-color: springgreen;
-        } */
         .projektMain {
             display: flex;
             flex-direction: column;
@@ -279,11 +274,27 @@ UCN MMDA0920*/
             align-items: center;
         }
         .projektMain > section {
+            border-radius: 20px;
             width: 40vw;
             height: auto;
 
             display: flex;
-            background-color: aqua;
+            
+        }
+
+        #englerod_imgBox {background-color: #f27720;}
+        #snv_imgBox {background-color: #B22918;}
+        #pinktree_imgBox {background-color: #2cbdd0;}
+
+        .projektMain > section img, .projektMain > section object {
+            width: 50%;
+            height: auto;
+        }
+        .projektMain > section img {
+            border-radius: 0 20px 20px 0;
+        }
+        .projektMain > section object {
+            padding: 5%
         }
 
 /*      --------------- 
@@ -328,6 +339,19 @@ UCN MMDA0920*/
     .prokjektIntro {
 
     }
+    .pro_h2_box {
+        /* height: 10vh; */
+        width: 100%;
+    }
+    .pro_h2s {
+        text-decoration: underline;
+        font-size: 3rem;
+    }
+    /* Projekt Template */
+        .step_obj {
+            width: 100px;
+            height: auto;
+        }
 
 /*      --------------- 
         --- KONTAKT ---

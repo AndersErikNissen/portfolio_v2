@@ -418,7 +418,7 @@ function FORSIDEcreate () {
         // Loop to make 2 projekt containers with content.
         for (let i = 0; i < 2; i++) {
             let
-            section = document.createElement("section"), pMain = document.createElement("section"), h2 = document.createElement("h2"), h4 = document.createElement("h4"), imgLogo_box = document.createElement("section"), logo = document.createElement("img"), img = document.createElement("img"), a = document.createElement("a");
+            section = document.createElement("section"), pMain = document.createElement("section"), h2 = document.createElement("h2"), h4 = document.createElement("h4"), imgLogo_box = document.createElement("section"), logo = document.createElement("object"), img = document.createElement("img"), a = document.createElement("a");
             // Changes content after point in loop(i).
             switch (i) {
                 case 0:
@@ -426,20 +426,24 @@ function FORSIDEcreate () {
                     h2.textContent = "SNV.dk";
                     h4.textContent = "MAJ - JUNI 2021";
                     
-                    logo.src = "";
-                    img.src = "";
+                    logo.data = "/assets/images/svg/snv_logo_white.svg";
+                    logo.type = "image/svg+xml";
+                    img.src = "/assets/images/images_projekter/snvdk_small.png";
                     a.href = "?snv";
+                    imgLogo_box.id = "snv_imgBox";
                     break;
                 case 1:
                     section.id = "englerod";
                     h2.textContent = "Englerod.dk";
                     h4.textContent = "APRIL 2021";
                     
-                    logo.src = "";
-                    img.src = "";
+                    logo.data = "/assets/images/svg/englerod_logo_white.svg";
+                    logo.type = "image/svg+xml";
+                    img.src = "/assets/images/images_projekter/englerod_small.png";
                     a.href = "?englerod";
+                    imgLogo_box.id = "englerod_imgBox";
                     break;
-                }
+            }
             //General Items Content
                 a.textContent = "SE PROJEKTET";
                 a.classList.add("button");
@@ -509,24 +513,31 @@ function PROJEKTcreate_template () {
         }
     // Forløb - Steps
         for (let i = 0; i < 3; i++) {
-            let section = document.createElement("section"), h3 = document.createElement("h3"), p = document.createElement("p");
+            let section = document.createElement("section"), h3 = document.createElement("h3"), p = document.createElement("p"), obj = document.createElement("object");
+            // Content
             section.classList.add("projektStepBox");
+            obj.type = "image/svg+xml";
+            obj.classList.add("step_obj");
+
             switch (i) {
                 case 0:
-                    h3.textContent = "Udfordringen"
-                    p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus."
+                    h3.textContent = "Udfordringen";
+                    p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
+                    obj.data = "/assets/images/svg/puzzle_1.svg";
                     break;
                 case 1:
-                    h3.textContent = "Scopet og Designet"
-                    p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus."
+                    h3.textContent = "Scopet og Designet";
+                    p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
+                    obj.data = "/assets/images/svg/scope_1.svg";
                     break;
                 case 2:
-                    h3.textContent = "Løsningen"
-                    p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus."
+                    h3.textContent = "Løsningen";
+                    p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
+                    obj.data = "/assets/images/svg/cog_1.svg";
                     break;
             }
             // Append
-            section.append(h3, p);
+            section.append(obj, h3, p);
             step_section.appendChild(section);
         }
     // For Each IMG
@@ -660,16 +671,19 @@ function PROJEKTERcreate () {
     // Hero
         hero_section = document.createElement("section"), h1 = document.createElement("h1"), hero_p = document.createElement("p"),
     // Skoleprojekter
-        sko_section = document.createElement("section"),
+        sko_section = document.createElement("section"), sko_h2 = document.createElement("h2"), sko_h2_box = document.createElement ("section"),
     // Mini Projekter
-        mini_section = document.createElement("section"), pink_section = document.createElement("section"), pink_main = document.createElement("section"), pink_h2 = document.createElement("h2"), pink_h4 = document.createElement("h4"), 
-        pink_box = document.createElement("section"), pink_logo = document.createElement("img"), pink_img = document.createElement("img"), pink_a = document.createElement("a");
+        mini_section = document.createElement("section"), mini_h2 = document.createElement("h2"), mini_h2_box = document.createElement("section"), pink_section = document.createElement("section"), pink_main = document.createElement("section"), pink_h2 = document.createElement("h2"), pink_h4 = document.createElement("h4"), 
+        pink_box = document.createElement("section"), pink_logo = document.createElement("object"), pink_img = document.createElement("img"), pink_a = document.createElement("a");
 
+    //Append H2
+        sko_h2_box.appendChild(sko_h2);
+        sko_section.appendChild(sko_h2_box);
     //Same loop from Index(Forside), will be a forEach loop later on. 
         for (let i = 0; i < 2; i++) {
             let
             // Create elements
-            section = document.createElement("section"), pMain = document.createElement("section"), h2 = document.createElement("h2"), h4 = document.createElement("h4"), imgLogo_box = document.createElement("section"), logo = document.createElement("img"), img = document.createElement("img"), a = document.createElement("a");
+            section = document.createElement("section"), pMain = document.createElement("section"), h2 = document.createElement("h2"), h4 = document.createElement("h4"), imgLogo_box = document.createElement("section"), logo = document.createElement("object"), img = document.createElement("img"), a = document.createElement("a");
             // Changes content after point in loop(i).
             switch (i) {
                 case 0:
@@ -677,18 +691,22 @@ function PROJEKTERcreate () {
                     h2.textContent = "SNV.dk";
                     h4.textContent = "MAJ - JUNI 2021";
                     
-                    logo.src = "";
-                    img.src = "";
+                    logo.data = "/assets/images/svg/snv_logo_white.svg";
+                    logo.type = "image/svg+xml";
+                    img.src = "/assets/images/images_projekter/snvdk_small.png";
                     a.href = "?snv";
+                    imgLogo_box.id = "snv_imgBox";
                     break;
                 case 1:
                     section.id = "englerod";
                     h2.textContent = "Englerod.dk";
                     h4.textContent = "APRIL 2021";
                     
-                    logo.src = "";
-                    img.src = "";
+                    logo.data = "/assets/images/svg/englerod_logo_white.svg";
+                    logo.type = "image/svg+xml";
+                    img.src = "/assets/images/images_projekter/englerod_small.png";
                     a.href = "?englerod";
+                    imgLogo_box.id = "englerod_imgBox";
                     break;
             }
             //General Items Content
@@ -713,8 +731,13 @@ function PROJEKTERcreate () {
             hero_section.classList.add("flex-center")
             hero_section.id = "heroTextSection";
             hero.appendChild(hero_section);
-        // SKole
+        // Skole
+            sko_h2.textContent = "Skoleprojekter";
+            sko_h2.classList.add("pro_h2s");
+            sko_h2_box.classList.add("pro_h2_box", "flex-center")
+            sko_section.classList.add("flex-center");
             main.appendChild(sko_section);
+
         // Mini
             // Pink Tree Projekt
             pink_a.textContent = "SE PROJEKTET";
@@ -725,14 +748,23 @@ function PROJEKTERcreate () {
             pink_section.id ="pinkTree";
             pink_h2.textContent = "Pink Tree";
             pink_h4.textContent = "AUGUST 2021";
-            pink_img.src = "";
-            pink_logo.src = "";
+            pink_img.src = "/assets/images/images_projekter/PINKTREE_small.png";
+            pink_logo.data = "/assets/images/svg/pinktree_logo_1white.svg";
+            pink_logo.type = "image/svg+xml";
             pink_a.href = "?pinktree";
+            pink_box.id = "pinktree_imgBox";
+
+            mini_section.id = "mini_projekter";
+            mini_section.classList.add("flex-center")
+            mini_h2.textContent = "Mini Projekter";
+            mini_h2.classList.add("pro_h2s");
+            mini_h2_box.classList.add("pro_h2_box", "flex-center");
         
             pink_box.append(pink_logo, pink_img);
             pink_main.append(pink_h2, pink_h4, pink_box, pink_a);
             pink_section.appendChild(pink_main);
-            mini_section.appendChild(pink_section);
+            mini_h2_box.appendChild(mini_h2);
+            mini_section.append(mini_h2_box, pink_section);
             main.appendChild(mini_section)
 
     // Add ID to Body for dynamic styling.
