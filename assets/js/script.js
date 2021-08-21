@@ -390,7 +390,11 @@ function FORSIDEcreate () {
         // Personlig
             forPer_h2.textContent = "Slow is smooth, smooth is fast!";
             forPer_p.textContent = "Mauris ac pretium turpis. Aenean pharetra condimentum felis, eu iaculis massa. Mauris in vestibulum libero. Maecenas blandit hendrerit libero, id dignissim nisi malesuada et. Nulla ipsum dui, aliquam bibendum lacus id, fermentum cursus massa. Quisque diam nisl, congue sed arcu in, vestibulum tristique mi. In posuere egestas sapien id pellentesque. Donec varius risus suscipit dapibus viverra. Duis ultrices feugiat sollicitudin. Nulla efficitur ornare ante, at eleifend purus. Fusce massa risus, interdum nec interdum sit amet, faucibus non dolor. Nulla facilisi. Nulla vel luctus erat, vel fringilla turpis. Ut vitae malesuada augue. Curabitur non sollicitudin augue.";
-            forPer_obj.data = "";
+            
+            forPer_obj.data = "/assets/images/svg/desk_nr1.svg";
+            forPer_obj.type = "image/svg+xml";
+            forPer_obj.id = "obj_desk";
+            
             link_ommig.href = "?om-mig";
             link_ommig.textContent = "LÆS MERE";
 

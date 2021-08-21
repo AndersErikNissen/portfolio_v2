@@ -249,6 +249,11 @@ UCN MMDA0920*/
             height: 200px;
             background-color: rgb(255, 230, 230);
         }
+        #obj_desk {
+            width: 50%;
+            height: auto;
+        }
+
     /* Forside - Projekter */
         /* Intro */
         #forsideProjekter {
