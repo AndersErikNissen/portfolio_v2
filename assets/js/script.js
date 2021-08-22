@@ -2,17 +2,6 @@
 //UCN MMDA0920
 
 
-// IKKE NØDVENDIG, MEN NICE!
-function footerPosition() {
-    let
-    footer = document.querySelector("footer"),
-    main = document.querySelector("main"),
-    mainH = main.offsetHeight,
-    windowH = window.innerHeight;
-
-    document.documentElement.style.setProperty("--footer-position", (windowH + mainH) + "px");
-}
-
 // ====================
 // === Create Sites ===
 // ====================
@@ -121,14 +110,18 @@ function footerPosition() {
         nav = document.querySelector("#globalHeader"),
         main = document.querySelector("main"),
         top = main.getBoundingClientRect().top;
-    
+        
+        
         if (top < 0) {
             nav.classList.remove("nav_fadeOut");
             nav.classList.add("nav_fadeIn");
         } 
         if (top > 0) {
+            //Prevents JS from adding nav_fadeOut on first scroll down.
+            if (nav.classList.contains("nav_fadeIn")) {
+                nav.classList.add("nav_fadeOut");
+            }
             nav.classList.remove("nav_fadeIn");
-            nav.classList.add("nav_fadeOut");
         }
     }
     document.addEventListener("scroll", globalNAV);
@@ -171,19 +164,19 @@ function footerPosition() {
                 break;
 
             case "snv":
-                PROJEKTcreate_template ()
+                PROJEKTcreate_template (check)
                 break;
             case "englerod":
-                PROJEKTcreate_template ()
+                PROJEKTcreate_template (check)
                 break;
 
             case "pinktree":
-                PROJEKTcreate_template ()
+                PROJEKTcreate_template (check)
                 break;
 
             default:
                 FORSIDEcreate();
-                console.log("DEFAULT - HTMLcreate")
+                console.log("()HTMLcreate using Default-Switch")
         }
     }
     function SITEcreate () {
@@ -194,16 +187,6 @@ function footerPosition() {
     
         switch (check) {
             // Note to self: Don't use ; in a Case, that is why there is a break. :)
-            // Undefined is not really needed, but..
-            case undefined:
-                titleCreate("Forside")
-                NAVcreate ()
-                GlobalNAVactive()
-                HTMLcreate()
-                FOOTERcreate ()
-                footerPosition()
-                console.log("false!!")
-                break;
 
             case "om-mig":
                 titleCreate(check)
@@ -211,8 +194,7 @@ function footerPosition() {
                 GlobalNAVactive(check)
                 HTMLcreate(check)
                 FOOTERcreate ()
-                footerPosition()
-                console.log("SITEcreate",check)
+                console.log(check)
                 break;
 
             case "projekter":
@@ -221,7 +203,6 @@ function footerPosition() {
                 GlobalNAVactive(check)
                 HTMLcreate(check)
                 FOOTERcreate ()
-                footerPosition()
                 console.log(check)
                 break;
 
@@ -231,7 +212,6 @@ function footerPosition() {
                 GlobalNAVactive(check)
                 HTMLcreate(check)
                 FOOTERcreate ()
-                footerPosition()
                 console.log(check)
                 break;
 
@@ -241,7 +221,6 @@ function footerPosition() {
                 GlobalNAVactive(check)
                 HTMLcreate(check)
                 FOOTERcreate ()
-                footerPosition()
                 console.log(check)
                 break;
 
@@ -251,7 +230,6 @@ function footerPosition() {
                 GlobalNAVactive(check)
                 HTMLcreate(check)
                 FOOTERcreate ()
-                footerPosition()
                 console.log(check)
                 break;
 
@@ -261,7 +239,6 @@ function footerPosition() {
                 GlobalNAVactive(check)
                 HTMLcreate(check)
                 FOOTERcreate ()
-                footerPosition()
                 console.log(check)
                 break;
                 
@@ -269,12 +246,9 @@ function footerPosition() {
                 titleCreate("Forside")
                 NAVcreate ()
                 HTMLcreate()
-                FOOTERcreate ()
-                footerPosition()
-                console.log("DEFAULT: HTML-CREATE")
+                FOOTERcreate()
+                console.log("()SITEcreate using Default-Switch")
         }
-        // "Forside", ommig, projekter, kontakt, snv, englerod
-        
     }
     SITEcreate();
 
@@ -472,13 +446,13 @@ function FORSIDEcreate () {
         document.querySelector("body").id = "forside";
 }
 
-function PROJEKTcreate_template () {
+function PROJEKTcreate_template (check) {
     // ---------------
     // Create Elements
     // ---------------
     let
     // Hero
-        hero_section = document.createElement("section"), hero_h2 = document.createElement("h2"), hero_kode_block = document.createElement("section"), hero_arrow_block = document.createElement("section"), hero_arrow_div = document.createElement("div"), hero_arrow_img = document.createElement("img"),
+        hero_section = document.createElement("section"), hero_color_cover = document.createElement("div"), hero_h2 = document.createElement("h2"), hero_kode_block = document.createElement("section"), hero_arrow_block = document.createElement("section"), hero_arrow_div = document.createElement("div"), hero_arrow_img = document.createElement("img"),
     // Projekt - Intro
         intro_section = document.createElement("section"), intro_block = document.createElement("section"), intro_h2 = document.createElement("h2"), intro_p = document.createElement("p"),
     // Projekt - Værdier
@@ -538,6 +512,7 @@ function PROJEKTcreate_template () {
             }
             // Append
             section.append(obj, h3, p);
+            section.classList.add("flex-center")
             step_section.appendChild(section);
         }
     // For Each IMG
@@ -555,7 +530,6 @@ function PROJEKTcreate_template () {
         });
     //2nd round of Append and Content
         // Hero
-            hero_h2.textContent = "MÅNED????"
             hero_arrow_img.src = "/assets/images/icons/arrow_down_white.png";
             hero_arrow_img.alt = "Nedad vendende pil";
             hero_arrow_div.appendChild(hero_arrow_img); 
@@ -564,41 +538,63 @@ function PROJEKTcreate_template () {
             hero_section.classList.add("flex-center"); 
             hero_section.append(hero_kode_block, hero_arrow_block);
 
-            hero.appendChild(hero_section)
+            hero_color_cover.id = "template_color_cover";
+
+            hero.append(hero_section, hero_color_cover)
         // Intro
             intro_h2.textContent = "PLACEHOLDER: HVAD ER????";
             intro_p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
             
             intro_block.append(intro_h2, intro_p); intro_section.appendChild(intro_block);
+            intro_section.id = "template_intro";
+            intro_section.classList.add("flex-center");
             main.appendChild(intro_section);
         // Step
             step_h1.textContent = "Forløb";
+
+            step_section.id = "step_section";
+            step_section.classList.add("flex-center")
+
             main.appendChild(step_section);
         // Galleri
             galleri_h2.textContent = "Galleri";
+
+            galleri_section.id = "template_galleri";
+            galleri_section.classList.add("flex-center");
+
             main.appendChild(galleri_section);
         // Next
             next_a.href = "";
             next_a.textContent = "NÆSTE PROJEKT";
             next_section.appendChild(next_a);
+
+            next_section.id = "template_next";
+            next_section.classList.add("flex-center");
+
             main.appendChild(next_section);
 
-    // Add ID to Body for dynamic styling.
-        document.querySelector("body").id = "";
-}   
 
-function FOOTERcreate () {
-    let
-    // Create Elements
-        section = document.createElement("section"), h2 = document.createElement("h2"), a = document.createElement("a");
-    // Finish    
-        section.classList.add("flex-center");
-        h2.textContent = "Vil du vide mere om mig, eller i kontakt?";
-        a.href = "?kontakt";
-        a.textContent = "KONTAKT";
-        section.append(h2, a);
-        document.querySelector("footer").appendChild(section);
-}
+
+
+        // Switch content depending on URL.
+        switch (check) {
+            case "snv":
+                hero_h2.textContent = "MAJ - JUNI 2021";
+                // Add ID to Body for dynamic styling.
+                    document.querySelector("body").id = "template_snv";
+                break;
+            case "englerod":
+                hero_h2.textContent = "APRIL 2021";
+                // Add ID to Body for dynamic styling.
+                    document.querySelector("body").id = "template_englerod";
+                break;
+            case "pinktree":
+                hero_h2.textContent = "AUGUST 2021";
+                // Add ID to Body for dynamic styling.
+                    document.querySelector("body").id = "template_pinktree";
+                break;
+        }
+}   
 
 function KONTAKTcreate () {
     let
@@ -771,19 +767,39 @@ function PROJEKTERcreate () {
     document.querySelector("body").id = "projekter";
 }
 
+// --------------------------------
+// ----------- FOOTER -------------
+// --------------------------------
+function FOOTERcreate () {
+    let
+    // Create Elements
+        section = document.createElement("section"), h2 = document.createElement("h2"), a = document.createElement("a");
+    // Finish    
+        section.classList.add("flex-center");
+        h2.textContent = "Vil du vide mere om mig, eller i kontakt?";
+        a.href = "?kontakt";
+        a.textContent = "KONTAKT";
+        a.classList.add("button");
+        section.append(h2, a);
+        document.querySelector("footer").appendChild(section);
+}
+function footerPosition() {
+    let
+    mainn = document.querySelector("main"),
+    mainH = mainn.offsetHeight,
+    windowH = window.innerHeight;
 
-
-
-
-
-
-
-
-
-
-
-
-
+    document.documentElement.style.setProperty("--footer-position", (mainH + windowH) + "px");
+    // document.querySelector("footer").style.top = mainH + windowH * 1.5 + "px";
+    console.log(mainH);
+    console.log(windowH)
+}
+// Set position after every item has been created and has the right height.
+// Didn't work when used together with HTMLcreate, unless I set the height to something specific in CSS. 
+// I think it has something to do in what order HTML is drawn and the height of elements are calculated(? Might be wrong).
+window.addEventListener("load", ()=> {
+    footerPosition();
+})
 
 
 // Fetch Token
