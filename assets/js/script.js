@@ -159,6 +159,7 @@
             case "projekter":
                 PROJEKTERcreate ()
                 break;
+
             case "kontakt":
                 KONTAKTcreate ()
                 break;
@@ -308,19 +309,19 @@ function OMMIGcreate (check) {
                     //Switch to change content depending where in the loop(i) we are.
                         switch(i) {
                             case 0:
-                                h3.textContent = "Udfordringen";
+                                h3.textContent = "Fundamentet";
                                 p.textContent = "";
                                 img.src = "";
                                 img.alt = "Billede til " + h3.textContent;
                                 break;
                             case 1:
-                                h3.textContent = "Scopet og Designet";
+                                h3.textContent = "Filosofi";
                                 p.textContent = "";
                                 img.src = "";
                                 img.alt = "Billede til " + h3.textContent;
                                 break;
                             case 2:
-                                h3.textContent = "Løsningen";
+                                h3.textContent = "Nysgerrighed";
                                 p.textContent = "";
                                 img.src = "";
                                 img.alt = "Billede til " + h3.textContent;
