@@ -258,11 +258,12 @@
 // Fades out Hero Content with the scrollY.
 document.addEventListener("scroll", ()=> {
     let 
-    heroo = document.querySelector("#heroTextSection");
+    heroo = document.querySelector("#heroTextSection"),
+    half = (window.innerHeight / 2);
     //Stops when going below 0.
     if (document.querySelector("#heroTextSection")) {
-        if (window.scrollY < 400) {
-            heroo.style.opacity = 1 - (window.scrollY / 400);
+        if (window.scrollY < half) {
+            heroo.style.opacity = 1 - (window.scrollY / half);
         }
     }
 })
@@ -344,7 +345,8 @@ function OMMIGcreate (check) {
 function FORSIDEcreate () {
     let
     //Hero Area
-    hero_section = document.createElement("section"), h1 = document.createElement("h1"), hero_h2 = document.createElement("h2"), cv = document.createElement("a"),
+        hero_section = document.createElement("section"), h1 = document.createElement("h1"), hero_h2 = document.createElement("h2"), cv = document.createElement("a"),
+        obj_box = document.createElement("section"), obj_div = document.createElement("div"), obj = document.createElement("object"),
     // Main Area
         // Personlig
             forPer_section = document.createElement("section"), forPer_cover = document.createElement("section"), forPer_textBox = document.createElement("section"), forPer_h2 = document.createElement("h2"), forPer_p = document.createElement("p"), forPer_obj = document.createElement("object"), link_ommig = document.createElement("a"),
@@ -361,6 +363,15 @@ function FORSIDEcreate () {
             hero_section.id = "heroTextSection";
             hero_section.classList.add("flex-center");
             hero_section.append(h1, hero_h2, cv);
+            // Object
+                obj_div.appendChild(obj);
+                obj_box.appendChild(obj_div);
+                obj_div.id = "forsideHeroObjDiv";
+                obj.data = "assets/images/svg/code_city_1.svg";
+                obj.type = "image/svg+xml";
+                obj_box.id = "forsideHeroObjBox";
+
+                hero.classList.remove("flex-center")
 
         // Personlig
             forPer_h2.textContent = "Slow is smooth, smooth is fast!";
@@ -440,7 +451,7 @@ function FORSIDEcreate () {
             forPro_alle_container.appendChild(forPro_alle);
             forPro_section.appendChild(forPro_alle_container);
         // Append to Hero / Main
-        hero.appendChild(hero_section);
+        hero.append(hero_section, obj_box);
         main.append(forPer_section, forPro_section);
 
     // Add ID to Body for dynamic styling.
