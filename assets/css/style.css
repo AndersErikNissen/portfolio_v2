@@ -128,12 +128,13 @@ UCN MMDA0920*/
                     main > * {
                         background-color: rgb(249, 255, 246);
                     }
-                    main section:nth-child(1) {
+                    main section#main_skyline {
                         background-color: transparent;
                     }
                     main section#main_skyline_footer {
                         background-color: #ffab03;
                     }
+
                     footer {
                         /* background-color: #050817; */
                         background-color: #ffab03;
