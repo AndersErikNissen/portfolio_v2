@@ -150,6 +150,19 @@
             }
         })
     }
+
+    function SKYcreate () {
+        let obj = document.createElement("object"), section = document.createElement("section");
+
+        obj.data = "assets/images/svg/skyline_1_large.svg";
+        obj.type = "image/svg+xml";
+        
+        section.appendChild(obj);
+        section.id = "main_skyline";
+        main.appendChild(section);
+    }
+
+
     function HTMLcreate (check) {
         switch(check) {
             case "om-mig":
@@ -176,6 +189,7 @@
                 break;
 
             default:
+                SKYcreate();
                 FORSIDEcreate();
                 console.log("()HTMLcreate using Default-Switch")
         }
