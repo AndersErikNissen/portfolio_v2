@@ -161,6 +161,16 @@
         section.id = "main_skyline";
         main.appendChild(section);
     }
+    function SKYcreate_footer () {
+        let obj = document.createElement("object"), section = document.createElement("section");
+
+        obj.data = "assets/images/svg/skyline_footer_1.svg";
+        obj.type = "image/svg+xml";
+        
+        section.appendChild(obj);
+        section.id = "main_skyline_footer";
+        main.appendChild(section);
+    }
 
 
     function HTMLcreate (check) {
@@ -191,6 +201,7 @@
             default:
                 SKYcreate();
                 FORSIDEcreate();
+                SKYcreate_footer();
                 console.log("()HTMLcreate using Default-Switch")
         }
     }

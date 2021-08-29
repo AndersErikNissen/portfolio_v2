@@ -131,6 +131,9 @@ UCN MMDA0920*/
                     main section:nth-child(1) {
                         background-color: transparent;
                     }
+                    main section#main_skyline_footer {
+                        background-color: #ffab03;
+                    }
                     footer {
                         /* background-color: #050817; */
                         background-color: #ffab03;
