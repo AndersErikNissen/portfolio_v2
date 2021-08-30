@@ -237,7 +237,7 @@
                 NAVcreate ()
                 GlobalNAVactive(check)
                 HTMLcreate(check)
-                FOOTERcreate ()
+                // FOOTERcreate ()
                 console.log(check)
                 break;
 
@@ -296,17 +296,11 @@ document.addEventListener("scroll", ()=> {
 
 
 
-
-
-
-
-
-
 // Create HTML for EACH page
 function OMMIGcreate (check) {
     let
     // Hero Content
-        intro = document.createElement("section"), h1 = document.createElement("h1"), intro_p = document.createElement("p"),
+        h1 = document.createElement("h1"), intro_p = document.createElement("p"),
         introIMG_container = document.createElement("section"), introIMG_div = document.createElement("div"), introIMG = document.createElement("img"),
         intro_section = document.createElement("section"),
     // Main Content    
@@ -315,52 +309,64 @@ function OMMIGcreate (check) {
     // Add Content / Append
         // Intro
             h1.textContent = "MOJN";
-            intro_p.textContent = "";
+            intro_p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dolor id justo luctus euismod. Aliquam sem urna, sollicitudin in lobortis et, aliquet eget mi. Pellentesque maximus tempus quam id venenatis. Vivamus feugiat elit ac velit consequat, eu pellentesque velit condimentum. ";
             introIMG.src = "/assets/images/fluffy_desk.jpg"; // Placeholder!!!!!!!!!!
 
-            intro.append(h1, intro_p);
+
             introIMG_div.appendChild(introIMG);
             introIMG_container.appendChild(introIMG_div);
             introIMG_container.id = "om-mig_intro_img";
-            intro_section.append(intro, introIMG_container);
+            
+
+            intro_section.append(h1, intro_p);
             intro_section.id = "heroTextSection";
-            hero.append(intro_section);
+
+            hero.append(intro_section, introIMG_container);
+
+            // Remove Flex-center
+                hero.classList.remove("flex-center");
         
         // Main
             main_outer.appendChild(main_h2);
+            main_h2.textContent = "Kærneværdier";
             // Creates 3 container with "Values" content
                 for (let i = 0; i < 3; i++) {
                     let
-                    outer = document.createElement("section"), h3 = document.createElement("h3"), p = document.createElement("p"), img = document.createElement("img");
+                    outer = document.createElement("section"), inner = document.createElement("section"), h3 = document.createElement("h3"), p = document.createElement("p"), img = document.createElement("img");
                     //Switch to change content depending where in the loop(i) we are.
                         switch(i) {
                             case 0:
                                 h3.textContent = "Fundamentet";
-                                p.textContent = "";
-                                img.src = "";
+                                p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dolor id justo luctus euismod. Aliquam sem urna, sollicitudin in lobortis et, aliquet eget mi. Pellentesque maximus tempus quam id venenatis. Vivamus feugiat elit ac velit consequat, eu pellentesque velit condimentum. ";
+                                img.src = "assets/images/svg/puzzle_1.svg";
                                 img.alt = "Billede til " + h3.textContent;
                                 break;
                             case 1:
                                 h3.textContent = "Filosofi";
-                                p.textContent = "";
-                                img.src = "";
+                                p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dolor id justo luctus euismod. Aliquam sem urna, sollicitudin in lobortis et, aliquet eget mi. Pellentesque maximus tempus quam id venenatis. Vivamus feugiat elit ac velit consequat, eu pellentesque velit condimentum. ";
+                                img.src = "assets/images/svg/puzzle_1.svg";
                                 img.alt = "Billede til " + h3.textContent;
                                 break;
                             case 2:
                                 h3.textContent = "Nysgerrighed";
-                                p.textContent = "";
-                                img.src = "";
+                                p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dolor id justo luctus euismod. Aliquam sem urna, sollicitudin in lobortis et, aliquet eget mi. Pellentesque maximus tempus quam id venenatis. Vivamus feugiat elit ac velit consequat, eu pellentesque velit condimentum. ";
+                                img.src = "assets/images/svg/puzzle_1.svg";
                                 img.alt = "Billede til " + h3.textContent;
                                 break;
                         }
                     //Add Class
-                        outer.classList.add("vaerdiBox");
+                        inner.classList.add("vaerdiBox", "flex-center");
                     //Append the content
-                        outer.append(h3, p, img);
+                        inner.append(h3, p, img);
+                        outer.appendChild(inner);
+                        outer.classList.add("outer_vaerdiBox","flex-center");
+
+
                         main_outer.appendChild(outer);
                 }
             //Append and Add Id
             main_outer.id = "om-mig_main";
+            main_outer.classList.add("flex-center");
             main.appendChild(main_outer);
 
     // Add ID to Body for dynamic styling.
@@ -679,24 +685,31 @@ function KONTAKTcreate () {
                 // Obfuscate Email
                     h2.innerHTML = '<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#110;&#100;&#101;&#114;&#115;&#101;&#114;&#105;&#107;&#110;&#105;&#115;&#115;&#101;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#97;&#110;&#100;&#101;&#114;&#115;&#101;&#114;&#105;&#107;&#110;&#105;&#115;&#115;&#101;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>';
                 text_area.append(h1, p, h2);
-                outer.appendChild(text_area);
+                non_img.appendChild(text_area);
+                non_img.id = "kontakt-info_box";
                 outer.id = "kontakt-outer_container";
             // SoMi
                 soMi_h2.textContent = "Følg mig på:";
                 soMi.append(soMi_h2, soMi_ul);
                 soMi.id = "kontakt-soMi";
                 soMi_ul.id = "kontakt-soMi_ul";
-                outer.appendChild(soMi);
+                non_img.appendChild(soMi);
             // SoMi Li
                 img_img.src = "/assets/images/fluffy_desk.jpg";
+                img_img.id = "kontakt-img";
 
                 img_div.appendChild(img_img);
                 img_outer.appendChild(img_div);
+                img_outer.id = "kontakt-img_container";
                 outer.appendChild(img_outer);
             
+                outer.appendChild(non_img);
             hero.appendChild(outer);
     // Add ID to Body for dynamic styling.
         document.querySelector("body").id = "kontakt";
+    
+    // Remove Footer
+        document.querySelector("footer").remove();
 }
 
 function PROJEKTERcreate () {
