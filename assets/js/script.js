@@ -376,7 +376,7 @@ function OMMIGcreate (check) {
 function FORSIDEcreate () {
     let
     //Hero Area
-        hero_section = document.createElement("section"), h1 = document.createElement("h1"), hero_h2 = document.createElement("h2"), cv = document.createElement("a"),
+        outer_hero = document.createElement("section"), hero_section = document.createElement("section"), h1 = document.createElement("h1"), hero_h2 = document.createElement("h2"), cv = document.createElement("a"),
         obj_box = document.createElement("section"), obj_div = document.createElement("div"), obj = document.createElement("object"),
     // Main Area
         // Personlig
@@ -394,6 +394,8 @@ function FORSIDEcreate () {
             hero_section.id = "heroTextSection";
             hero_section.classList.add("flex-center");
             hero_section.append(h1, hero_h2, cv);
+            outer_hero.appendChild(hero_section);
+            outer_hero.id = "outer_hero";
             // Object
                 obj_div.appendChild(obj);
                 obj_box.appendChild(obj_div);
@@ -401,8 +403,8 @@ function FORSIDEcreate () {
                 obj.data = "assets/images/svg/code_city_1.svg";
                 obj.type = "image/svg+xml";
                 obj_box.id = "forsideHeroObjBox";
-
-                hero.classList.remove("flex-center")
+                
+                outer_hero.appendChild(obj_box)
 
         // Personlig
             forPer_h2.textContent = "Slow is smooth, smooth is fast!";
@@ -482,7 +484,7 @@ function FORSIDEcreate () {
             forPro_alle_container.appendChild(forPro_alle);
             forPro_section.appendChild(forPro_alle_container);
         // Append to Hero / Main
-        hero.append(hero_section, obj_box);
+        hero.appendChild(outer_hero);
         main.append(forPer_section, forPro_section);
 
     // Add ID to Body for dynamic styling.

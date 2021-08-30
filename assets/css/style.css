@@ -285,26 +285,31 @@ UCN MMDA0920*/
         #heroTextSection {
             display: flex;
         }
-        body#forside #hero {
+        /* body#forside #hero {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
+        } */
+        #outer_hero {
+            width: 80%;
+
+            display: flex;
         }
         body#forside #heroTextSection {
             z-index: 1;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             color: black;
-            width: 30%;
+            width: 35%;
         }
 
         body#forside #heroTextSection h1 {
             font-size: 2.5rem;
         }
         #forsideHeroObjBox {
-            width: 70%;
-            height: 100vh;
+            width: 65%;
+            height: auto;
             /* position:absolute; */
             top: 20%;
             left: 0;
@@ -317,8 +322,8 @@ UCN MMDA0920*/
             height: 100%;
         }
         #forsideHeroObjBox object {
-            width: auto;
-            height: 100%;
+            width: 100%;
+            height: auto;
         }
     
     /* Forside - Personlig */
