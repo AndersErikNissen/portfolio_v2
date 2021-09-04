@@ -12,6 +12,7 @@ UCN MMDA0920*/
         font-size: 16px;
         font-family: 'Lato', sans-serif;
         /* position: relative; */
+        color: black;
     }
     h1 {
         font-size: calc(1rem * 2);
@@ -38,13 +39,22 @@ UCN MMDA0920*/
 
         --footer-position: 0;
 
+        /* Global */
         --global-outer-height: 50vh;
+        --global-inner-width: 50vw;
+        --global-min-width-center: 900px;
 
         /* Padding */
         --global-padding-text: 3%;
 
         --outer-projekt-padding: 3%;
 
+    /*  ------------------
+        ----- Colors -----
+        ------------------  */
+        --color-bg-main: white;
+        --color-bg-sec: rgb(2, 2, 2);
+        
     /* 
         ----- Projekt Colors
     */
@@ -104,9 +114,10 @@ UCN MMDA0920*/
                         z-index: 3;
                     }
                     #hero {
-                        background-color: #ffab03;
+                        /* background-color: #ffab03; */
                         /* background-color: rgb(249, 255, 246); */
                         /* background: linear-gradient(180deg, rgba(255,171,3,1) 0%, rgba(255,127,241,1) 100%); */
+                        background-color: var(--color-bg-main);
                         position: fixed;
                         top: 0;
                         left: 0;
@@ -128,18 +139,20 @@ UCN MMDA0920*/
                         z-index: 1;
                     }
                     main > * {
-                        background-color: rgb(249, 255, 246);
+                        background-color: var(--color-bg-sec);
                     }
                     main section#main_skyline {
                         background-color: transparent;
                     }
                     main section#main_skyline_footer {
-                        background-color: #ffab03;
+                        /* background-color: #ffab03; */
+                        background-color: var(--color-bg-main);
                     }
 
                     footer {
                         /* background-color: #050817; */
-                        background-color: #ffab03;
+                        /* background-color: #ffab03; */
+                        background-color: var(--color-bg-main);
                         position: absolute;
                         top: var(--footer-position);
                         left: 0;
@@ -158,10 +171,10 @@ UCN MMDA0920*/
         }
         .button {
             display: block;
-            border: 1px solid #22CCBF;
+            border: 1px solid var(--color-bg-main);
             border-radius: 100px;
             padding: .6rem;
-            color: #22CCBF;
+            color: var(--color-bg-main);
             /* font-weight: bold; */
             text-decoration: none;
             font-size: .8rem;
@@ -176,12 +189,12 @@ UCN MMDA0920*/
         }
         /* Diffent Buttons */
         #hero .button, footer .button {
-            border: 1px solid white;
-            color: white;
+            border: 1px solid var(--color-bg-sec);
+            color: var(--color-bg-sec);
         }
         #hero .button:hover, footer .button:hover {
-            background-color: white;
-            color: black;
+            background-color: var(--color-bg-sec);
+            color: var(--color-bg-main);
         }
         a.button {
             display: inline-block;
@@ -246,13 +259,13 @@ UCN MMDA0920*/
             }
             @keyframes nav_fadeIn {
                 from {background-color: rgba(255,171,3,0);}
-                to {background-color: rgba(255,171,3,1);}
+                to {background-color: var(--color-bg-main);}
             }
             .nav_fadeOut {
                 animation: nav_fadeOut .8s ease-in forwards;
             }
             @keyframes nav_fadeOut {
-                from {background-color: rgba(255,171,3,1);}
+                from {background-color: var(--color-bg-main);}
                 to {background-color: rgba(255,171,3,0);}
             }
     
@@ -269,12 +282,6 @@ UCN MMDA0920*/
             display: block;
             width: 100%;
             height: auto;
-        }
-
-
-    /* Footer */
-        footer {
-            color: white;
         }
        
 /*      --------------- 
@@ -303,10 +310,6 @@ UCN MMDA0920*/
             color: black;
             width: 35%;
         }
-
-        body#forside #heroTextSection h1 {
-            font-size: 2.5rem;
-        }
         #forsideHeroObjBox {
             width: 65%;
             height: auto;
@@ -332,18 +335,21 @@ UCN MMDA0920*/
             min-height: var(--global-outer-height);
 
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            color: var(--color-bg-main);
         }
         #forPer_cover {
             display: flex;
-            justify-content: space-between;
-            width: 100%;
+            min-height: var(--global-outer-height);
+            width: var(--global-inner-width);
+            min-width: var(--global-min-width-center);
         }
         #forPer_cover > section {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
+            padding: var(--global-padding-text);
         }
         #forsidePersonlig div {
             width: 200px;
@@ -364,7 +370,7 @@ UCN MMDA0920*/
             height: 20vh;
         }
         /* Projekter */
-        #snv, #englerod, #pinkTree{
+        #snv, #englerod, #pinkTree {
             min-height: var(--global-outer-height);
             padding: var(--outer-projekt-padding);
             width: 100%;
@@ -379,6 +385,7 @@ UCN MMDA0920*/
             border-radius: 20px;
             width: 50vw;
             height: auto;
+            min-width: var(--global-min-width-center);
 
             display: flex;
             

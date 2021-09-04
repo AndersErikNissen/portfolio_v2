@@ -154,7 +154,7 @@
     function SKYcreate () {
         let obj = document.createElement("object"), section = document.createElement("section");
 
-        obj.data = "assets/images/svg/skyline_1_large.svg";
+        obj.data = "assets/images/svg/skyline_dark_top.svg";
         obj.type = "image/svg+xml";
         
         section.appendChild(obj);
@@ -164,7 +164,7 @@
     function SKYcreate_footer () {
         let obj = document.createElement("object"), section = document.createElement("section");
 
-        obj.data = "assets/images/svg/skyline_footer_1.svg";
+        obj.data = "assets/images/svg/skyline_dark_bot.svg";
         obj.type = "image/svg+xml";
         
         section.appendChild(obj);
@@ -424,7 +424,7 @@ function FORSIDEcreate () {
             link_ommig.classList.add("button");
             forPer_cover.id = "forPer_cover";
             forPer_section.id = "forsidePersonlig";
-            forPer_section.classList.add("flex-center");
+            // forPer_section.classList.add("flex-center");
         // Projekter
             forPro_info_h2.textContent = "SE SKOLE PROJEKTER";
             forPro_info_p.textContent = "Mauris ac pretium turpis. Aenean pharetra condimentum felis, eu iaculis massa. Mauris in vestibulum libero. Maecenas blandit hendrerit libero, id dignissim nisi malesuada et.";
