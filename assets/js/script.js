@@ -289,6 +289,9 @@ document.addEventListener("scroll", ()=> {
     if (document.querySelector("#heroTextSection")) {
         if (window.scrollY < half) {
             heroo.style.opacity = 1 - (window.scrollY / half);
+            if (document.querySelector("#forsideHeroObjBox")) {
+                document.querySelector("#forsideHeroObjBox").style.opacity = 1 - (window.scrollY / half);
+            }
         }
     }
 })
