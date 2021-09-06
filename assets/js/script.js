@@ -42,7 +42,7 @@
             soMi.id = "globalHeader_soMiIcons";
         // Logo
             logo_a.href = "index.html";
-            logo_img.src = "/assets/images/logo/aen_logo_simple_2_2px.png";
+            logo_img.src = "/assets/images/logo/aen_logo_underedge_black_1.png";
             logo_div.id = "logo_div";
             logo_div.classList.add("flex-center")
             logo_div.appendChild(logo_img);
@@ -80,17 +80,17 @@
                     switch (i) {
                         case 0:
                             soMi_a.href = "https://github.com/AndersErikNissen";
-                            soMi_img.src = "/assets/images/icons/github_round_white.png";
+                            soMi_img.src = "assets/images/icons/github_round_black.png";
                             soMi_img.alt = "Link og Billede til Github";
                             break;
                         case 1:
                             soMi_a.href = "https://www.instagram.com/aendersledes/";
-                            soMi_img.src = "/assets/images/icons/instagram_round_white.png";
+                            soMi_img.src = "assets/images/icons/instagram_round_black.png";
                             soMi_img.alt = "Link og Billede til Instagram";
                             break;
                         case 2:
                             soMi_a.href = "https://www.linkedin.com/in/anders-erik-nissen/";
-                            soMi_img.src = "/assets/images/icons/linkedin_round_white.png";
+                            soMi_img.src = "assets/images/icons/linkedin_round_black.png";
                             soMi_img.alt = "Link og Billede til LinkedIn";
                             break;
                     }
@@ -383,9 +383,11 @@ function FORSIDEcreate () {
         obj_box = document.createElement("section"), obj_div = document.createElement("div"), obj = document.createElement("object"),
     // Main Area
         // Personlig
-            forPer_section = document.createElement("section"), forPer_cover = document.createElement("section"), forPer_textBox = document.createElement("section"), forPer_h2 = document.createElement("h2"), forPer_p = document.createElement("p"), forPer_obj = document.createElement("object"), link_ommig = document.createElement("a"),
+            forPer_section = document.createElement("section"), forPer_cover = document.createElement("section"), forPer_textBox = document.createElement("section"), 
+            forPer_h2 = document.createElement("h2"), forPer_p = document.createElement("p"), forPer_obj = document.createElement("object"), link_ommig = document.createElement("a"),
         // Projekter
-            forPro_section = document.createElement("section"), forPro_info = document.createElement("section"), forPro_info_h2 = document.createElement("h2"), forPro_info_p = document.createElement("p"), forPro_alle = document.createElement("a"), forPro_alle_container = document.createElement("section");
+            forPro_section = document.createElement("section"), forPro_info = document.createElement("section"), forPro_info_h2 = document.createElement("h2"), 
+            forPro_info_p = document.createElement("p"), forPro_alle = document.createElement("a"), forPro_alle_container = document.createElement("section");
     //Append + Content
         // Hero
             h1.textContent = "FRONT-END PÅ ET STÆRKT FUNDAMENT";
@@ -440,7 +442,8 @@ function FORSIDEcreate () {
         // Loop to make 2 projekt containers with content.
         for (let i = 0; i < 2; i++) {
             let
-            section = document.createElement("section"), pMain = document.createElement("section"), h2 = document.createElement("h2"), h4 = document.createElement("h4"), imgLogo_box = document.createElement("section"), logo = document.createElement("object"), img = document.createElement("img"), a = document.createElement("a");
+            section = document.createElement("section"), pMain = document.createElement("section"), h2 = document.createElement("h2"), h4 = document.createElement("h4"), 
+            imgLogo_box = document.createElement("section"), logo = document.createElement("object"), img = document.createElement("img"), a = document.createElement("a");
             // Changes content after point in loop(i).
             switch (i) {
                 case 0:
@@ -467,14 +470,15 @@ function FORSIDEcreate () {
                     break;
             }
             //General Items Content
-                a.textContent = "SE PROJEKTET";
-                a.classList.add("button");
+                // a.textContent = "SE PROJEKTET";
+                // a.classList.add("button");
                 section.classList.add("flex-center");
                 pMain.classList.add("projektMain");
 
             //Append 
                 imgLogo_box.append(logo, img);
-                pMain.append(h2, h4, imgLogo_box, a);
+                a.appendChild(imgLogo_box);
+                pMain.append(h2, h4, a);
                 section.appendChild(pMain);
                 forPro_section.appendChild(section);
         }
@@ -545,17 +549,17 @@ function PROJEKTcreate_template (check) {
                 case 0:
                     h3.textContent = "Udfordringen";
                     p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
-                    obj.data = "/assets/images/svg/puzzle_1.svg";
+                    obj.data = "/assets/images/icons/challenge_icon.svg";
                     break;
                 case 1:
                     h3.textContent = "Scopet og Designet";
                     p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
-                    obj.data = "/assets/images/svg/scope_1.svg";
+                    obj.data = "/assets/images/icons/design_icon.svg";
                     break;
                 case 2:
                     h3.textContent = "Løsningen";
                     p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
-                    obj.data = "/assets/images/svg/cog_1.svg";
+                    obj.data = "/assets/images/icons/process_icon_v2.svg";
                     break;
             }
             // Append
@@ -663,17 +667,17 @@ function KONTAKTcreate () {
                     switch (i) {
                         case 0:
                             soMi_a.href = "https://github.com/AndersErikNissen";
-                            soMi_img.src = "/assets/images/icons/github_round_white.png";
+                            soMi_img.src = "/assets/images/icons/github_round_black.png";
                             soMi_img.alt = "Link og Billede til Github";
                             break;
                         case 1:
                             soMi_a.href = "https://www.instagram.com/aendersledes/";
-                            soMi_img.src = "/assets/images/icons/instagram_round_white.png";
+                            soMi_img.src = "/assets/images/icons/instagram_round_black.png";
                             soMi_img.alt = "Link og Billede til Instagram";
                             break;
                         case 2:
                             soMi_a.href = "https://www.linkedin.com/in/anders-erik-nissen/";
-                            soMi_img.src = "/assets/images/icons/linkedin_round_white.png";
+                            soMi_img.src = "/assets/images/icons/linkedin_round_black.png";
                             soMi_img.alt = "Link og Billede til LinkedIn";
                             break;
                     }
