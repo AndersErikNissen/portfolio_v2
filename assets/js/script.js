@@ -559,7 +559,7 @@ function PROJEKTcreate_template (check) {
                 case 2:
                     h3.textContent = "Løsningen";
                     p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
-                    obj.data = "/assets/images/icons/process_icon_v2.svg";
+                    obj.data = "/assets/images/icons/process_icon_v3.svg";
                     break;
             }
             // Append
