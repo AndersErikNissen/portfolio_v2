@@ -42,7 +42,7 @@
             soMi.id = "globalHeader_soMiIcons";
         // Logo
             logo_a.href = "index.html";
-            logo_img.src = "/assets/images/logo/aen_logo_underedge_black_1.png";
+            logo_img.src = "assets/images/logo/aen_logo_underedge_black_1.png";
             logo_div.id = "logo_div";
             logo_div.classList.add("flex-center")
             logo_div.appendChild(logo_img);
@@ -313,7 +313,7 @@ function OMMIGcreate (check) {
         // Intro
             h1.textContent = "MOJN";
             intro_p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dolor id justo luctus euismod. Aliquam sem urna, sollicitudin in lobortis et, aliquet eget mi. Pellentesque maximus tempus quam id venenatis. Vivamus feugiat elit ac velit consequat, eu pellentesque velit condimentum. ";
-            introIMG.src = "/assets/images/fluffy_desk.jpg"; // Placeholder!!!!!!!!!!
+            introIMG.src = "assets/images/fluffy_desk.jpg"; // Placeholder!!!!!!!!!!
 
 
             introIMG_div.appendChild(introIMG);
@@ -415,7 +415,7 @@ function FORSIDEcreate () {
             forPer_h2.textContent = "Slow is smooth, smooth is fast!";
             forPer_p.textContent = "Mauris ac pretium turpis. Aenean pharetra condimentum felis, eu iaculis massa. Mauris in vestibulum libero. Maecenas blandit hendrerit libero, id dignissim nisi malesuada et. Nulla ipsum dui, aliquam bibendum lacus id, fermentum cursus massa. Quisque diam nisl, congue sed arcu in, vestibulum tristique mi. In posuere egestas sapien id pellentesque. Donec varius risus suscipit dapibus viverra. Duis ultrices feugiat sollicitudin. Nulla efficitur ornare ante, at eleifend purus. Fusce massa risus, interdum nec interdum sit amet, faucibus non dolor. Nulla facilisi. Nulla vel luctus erat, vel fringilla turpis. Ut vitae malesuada augue. Curabitur non sollicitudin augue.";
             
-            forPer_obj.data = "/assets/images/svg/desk_nr1.svg";
+            forPer_obj.data = "assets/images/svg/desk_nr1.svg";
             forPer_obj.type = "image/svg+xml";
             forPer_obj.id = "obj_desk";
             
@@ -451,9 +451,9 @@ function FORSIDEcreate () {
                     h2.textContent = "SNV.dk";
                     h4.textContent = "MAJ - JUNI 2021";
                     
-                    logo.data = "/assets/images/svg/snv_logo_white.svg";
+                    logo.data = "assets/images/svg/snv_logo_white.svg";
                     logo.type = "image/svg+xml";
-                    img.src = "/assets/images/images_projekter/snvdk_small.png";
+                    img.src = "assets/images/images_projekter/snvdk_small.png";
                     a.href = "?snv";
                     imgLogo_box.id = "snv_imgBox";
                     break;
@@ -462,9 +462,9 @@ function FORSIDEcreate () {
                     h2.textContent = "Englerod.dk";
                     h4.textContent = "APRIL 2021";
                     
-                    logo.data = "/assets/images/svg/englerod_logo_white.svg";
+                    logo.data = "assets/images/svg/englerod_logo_white.svg";
                     logo.type = "image/svg+xml";
-                    img.src = "/assets/images/images_projekter/englerod_small.png";
+                    img.src = "assets/images/images_projekter/englerod_small.png";
                     a.href = "?englerod";
                     imgLogo_box.id = "englerod_imgBox";
                     break;
@@ -549,17 +549,17 @@ function PROJEKTcreate_template (check) {
                 case 0:
                     h3.textContent = "Udfordringen";
                     p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
-                    obj.data = "/assets/images/icons/challenge_icon.svg";
+                    obj.data = "assets/images/icons/challenge_icon.svg";
                     break;
                 case 1:
                     h3.textContent = "Scopet og Designet";
                     p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
-                    obj.data = "/assets/images/icons/design_icon.svg";
+                    obj.data = "assets/images/icons/design_icon.svg";
                     break;
                 case 2:
                     h3.textContent = "Løsningen";
                     p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
-                    obj.data = "/assets/images/icons/process_icon_v3.svg";
+                    obj.data = "assets/images/icons/process_icon_v3.svg";
                     break;
             }
             // Append
@@ -582,7 +582,7 @@ function PROJEKTcreate_template (check) {
         });
     //2nd round of Append and Content
         // Hero
-            hero_arrow_img.src = "/assets/images/icons/arrow_down_white.png";
+            hero_arrow_img.src = "assets/images/icons/arrow_down_white.png";
             hero_arrow_img.alt = "Nedad vendende pil";
             hero_arrow_div.appendChild(hero_arrow_img); 
             hero_arrow_block.appendChild(hero_arrow_div);
@@ -667,17 +667,17 @@ function KONTAKTcreate () {
                     switch (i) {
                         case 0:
                             soMi_a.href = "https://github.com/AndersErikNissen";
-                            soMi_img.src = "/assets/images/icons/github_round_black.png";
+                            soMi_img.src = "assets/images/icons/github_round_black.png";
                             soMi_img.alt = "Link og Billede til Github";
                             break;
                         case 1:
                             soMi_a.href = "https://www.instagram.com/aendersledes/";
-                            soMi_img.src = "/assets/images/icons/instagram_round_black.png";
+                            soMi_img.src = "assets/images/icons/instagram_round_black.png";
                             soMi_img.alt = "Link og Billede til Instagram";
                             break;
                         case 2:
                             soMi_a.href = "https://www.linkedin.com/in/anders-erik-nissen/";
-                            soMi_img.src = "/assets/images/icons/linkedin_round_black.png";
+                            soMi_img.src = "assets/images/icons/linkedin_round_black.png";
                             soMi_img.alt = "Link og Billede til LinkedIn";
                             break;
                     }
@@ -704,7 +704,7 @@ function KONTAKTcreate () {
                 soMi_ul.id = "kontakt-soMi_ul";
                 non_img.appendChild(soMi);
             // SoMi Li
-                img_img.src = "/assets/images/fluffy_desk.jpg";
+                img_img.src = "assets/images/fluffy_desk.jpg";
                 img_img.id = "kontakt-img";
 
                 img_div.appendChild(img_img);
@@ -746,9 +746,9 @@ function PROJEKTERcreate () {
                     h2.textContent = "SNV.dk";
                     h4.textContent = "MAJ - JUNI 2021";
                     
-                    logo.data = "/assets/images/svg/snv_logo_white.svg";
+                    logo.data = "assets/images/svg/snv_logo_white.svg";
                     logo.type = "image/svg+xml";
-                    img.src = "/assets/images/images_projekter/snvdk_small.png";
+                    img.src = "assets/images/images_projekter/snvdk_small.png";
                     a.href = "?snv";
                     imgLogo_box.id = "snv_imgBox";
                     break;
@@ -757,9 +757,9 @@ function PROJEKTERcreate () {
                     h2.textContent = "Englerod.dk";
                     h4.textContent = "APRIL 2021";
                     
-                    logo.data = "/assets/images/svg/englerod_logo_white.svg";
+                    logo.data = "assets/images/svg/englerod_logo_white.svg";
                     logo.type = "image/svg+xml";
-                    img.src = "/assets/images/images_projekter/englerod_small.png";
+                    img.src = "assets/images/images_projekter/englerod_small.png";
                     a.href = "?englerod";
                     imgLogo_box.id = "englerod_imgBox";
                     break;
@@ -803,8 +803,8 @@ function PROJEKTERcreate () {
             pink_section.id ="pinkTree";
             pink_h2.textContent = "Pink Tree";
             pink_h4.textContent = "AUGUST 2021";
-            pink_img.src = "/assets/images/images_projekter/PINKTREE_small.png";
-            pink_logo.data = "/assets/images/svg/pinktree_logo_1white.svg";
+            pink_img.src = "assets/images/images_projekter/PINKTREE_small.png";
+            pink_logo.data = "assets/images/svg/pinktree_logo_1white.svg";
             pink_logo.type = "image/svg+xml";
             pink_a.href = "?pinktree";
             pink_box.id = "pinktree_imgBox";
