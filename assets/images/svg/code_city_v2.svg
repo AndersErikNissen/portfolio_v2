@@ -29,10 +29,7 @@
     100% {transform: translateX(0px);}
 }
 
-/* Animate House Area */
-.cls-25 {
-    fill: red;
-}
+
 
 
 

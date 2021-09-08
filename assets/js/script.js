@@ -405,7 +405,7 @@ function FORSIDEcreate () {
                 obj_div.appendChild(obj);
                 obj_box.appendChild(obj_div);
                 obj_div.id = "forsideHeroObjDiv";
-                obj.data = "assets/images/svg/code_city_v2.svg";
+                obj.data = "assets/images/svg/code_city_v3.svg";
                 obj.type = "image/svg+xml";
                 obj_box.id = "forsideHeroObjBox";
                 
