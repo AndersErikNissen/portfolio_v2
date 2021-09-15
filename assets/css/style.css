@@ -31,7 +31,7 @@ UCN MMDA0920*/
     body#forside #heroTextSection h2 {
         font-size: calc(1rem * 1.5);
     }
-    main {
+    body#forside main, body#projekter main {
         color: white;
     }
 
@@ -64,8 +64,8 @@ UCN MMDA0920*/
     /*  ------------------
         ----- Colors -----
         ------------------  */
-        --color-bg-main: white;
-        --color-bg-sec: rgb(2, 2, 2);
+        --color-bg-main: rgb(2, 2, 2);
+        --color-bg-sec: rgb(255, 255, 255);
         
     /* 
         ----- Projekt Colors
@@ -115,11 +115,9 @@ UCN MMDA0920*/
         }
     }
 
-                    /* TEMP */
+  
 
-                    svg {
-                        border: 1px solid transparent;
-                    }
+                 
 
                     header {
                         /* background-color: #050817; */
@@ -134,7 +132,7 @@ UCN MMDA0920*/
                         /* background-color: #ffab03; */
                         /* background-color: rgb(249, 255, 246); */
                         /* background: linear-gradient(180deg, rgba(255,171,3,1) 0%, rgba(255,127,241,1) 100%); */
-                        background-color: var(--color-bg-main);
+                        background-color: var(--color-bg-sec);
                         position: fixed;
                         top: 0;
                         left: 0;
@@ -146,8 +144,6 @@ UCN MMDA0920*/
                     }
                     
                     main {
-                        /* background-color: rgb(249, 255, 246); */
-
                         margin: 0;
                         top: 100vh;
                         left: 0;
@@ -155,26 +151,32 @@ UCN MMDA0920*/
                         width: 100%;
                         z-index: 1;
                     }
-                    body#forside main > * {
-                        background-color: var(--color-bg-sec);
+
+                    body main > * {
+                        background-color: var(--color-bg-main);
                     }
-                    main section#main_skyline {
+                   
+
+                    /* Skyline */
+                    main section#main_skyline{
                         background-color: transparent;
                     }
-                    main section#main_skyline_footer {
-                        /* background-color: #ffab03; */
+                    section#main_skyline_footer {
                         background-color: var(--color-bg-main);
+                    }
+                    body#forside #main_skyline_footer, body#projekter #main_skyline_footer {
+                        background-color: var(--color-bg-sec);
                     }
 
                     footer {
-                        /* background-color: #050817; */
-                        /* background-color: #ffab03; */
-                        background-color: var(--color-bg-main);
+                        background-color: var(--color-bg-sec);
+                        color: var(--color-bg-main);
+
                         position: absolute;
                         top: var(--footer-position);
                         left: 0;
                         z-index: 1;
-                        height: 50vh;
+                        min-height: 50vh;
                         width: 100%;
                     }
 
@@ -188,10 +190,10 @@ UCN MMDA0920*/
         }
         .button {
             display: block;
-            border: 1px solid var(--color-bg-main);
+            border: 1px solid var(--color-bg-sec);
             border-radius: 3px;
             padding: .6rem;
-            color: var(--color-bg-main);
+            color: var(--color-bg-sec);
             /* font-weight: bold; */
             text-decoration: none;
             font-size: .8rem;
@@ -200,18 +202,18 @@ UCN MMDA0920*/
             text-align: center;
             margin: .8rem 0;
         }
-        .button:hover {
-            background-color: #22CCBF;
-            color: white;
-        }
         /* Diffent Buttons */
         #hero .button, footer .button {
-            border: 1px solid var(--color-bg-sec);
-            color: var(--color-bg-sec);
+            border: 1px solid var(--color-bg-main);
+            color: var(--color-bg-main);
         }
-        #hero .button:hover, footer .button:hover {
+        .button:hover {
             background-color: var(--color-bg-sec);
             color: var(--color-bg-main);
+        }
+        #hero .button:hover, footer .button:hover {
+            background-color: var(--color-bg-main);
+            color: var(--color-bg-sec);
         }
         a.button {
             display: inline-block;
@@ -221,9 +223,9 @@ UCN MMDA0920*/
         #globalHeader {
             display: flex;
             justify-content: space-between;
-            background-color: rgba(255,171,3,0);
+            background-color: transparent;
             padding: 0 3vw;
-            height: 60px;
+            min-height: 60px;
         }
         #globalHeader > nav {
             display: flex;
@@ -237,7 +239,7 @@ UCN MMDA0920*/
         }
         /* Logo */
         #logo_div {
-            height: 100%;
+            height: 60px;
             width: auto;
         }
         #logo_div img {
@@ -245,6 +247,11 @@ UCN MMDA0920*/
             height: 80%;
         }
         /* Links */
+            /* Active */
+            #globalHeader_links .active_nav {
+                text-decoration: underline;
+            }
+
             #globalHeader_links {
                 display: flex;
                 align-items: center;
@@ -276,13 +283,13 @@ UCN MMDA0920*/
             }
             @keyframes nav_fadeIn {
                 from {background-color: rgba(255,171,3,0);}
-                to {background-color: var(--color-bg-main);}
+                to {background-color: var(--color-bg-sec);}
             }
             .nav_fadeOut {
                 animation: nav_fadeOut .8s ease-in forwards;
             }
             @keyframes nav_fadeOut {
-                from {background-color: var(--color-bg-main);}
+                from {background-color: var(--color-bg-sec);}
                 to {background-color: rgba(255,171,3,0);}
             }
     
@@ -339,7 +346,7 @@ UCN MMDA0920*/
             display: flex;
             justify-content: center;
             width: 100%;
-            height: 100%;
+            min-height: 100%;
         }
         #forsideHeroObjBox object {
             width: 100%;
@@ -353,7 +360,7 @@ UCN MMDA0920*/
 
             display: flex;
             justify-content: center;
-            color: var(--color-bg-main);
+            color: var(--color-bg-sec);
         }
         #forPer_cover {
             display: flex;
@@ -384,7 +391,7 @@ UCN MMDA0920*/
             width: 100%;
         }
         #forPro_info {
-            height: 20vh;
+            height: 20%;
         }
         /* Projekter */
         #snv, #englerod, #pinkTree {
@@ -464,7 +471,7 @@ UCN MMDA0920*/
     }
     .projektIntro_container {
         width: 100%;
-        height: 50vh;
+        min-height: 50vh;
     }
     .prokjektIntro {
 

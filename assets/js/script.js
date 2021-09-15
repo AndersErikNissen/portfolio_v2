@@ -151,20 +151,22 @@
         })
     }
 
-    function SKYcreate () {
+    function SKYcreate (version) {
         let obj = document.createElement("object"), section = document.createElement("section");
 
         obj.data = "assets/images/svg/skyline_dark_top.svg";
+        if (version == "white") obj.data = "assets/images/svg/skyline_white_top.svg";
         obj.type = "image/svg+xml";
         
         section.appendChild(obj);
         section.id = "main_skyline";
         main.appendChild(section);
     }
-    function SKYcreate_footer () {
+    function SKYcreate_footer (version) {
         let obj = document.createElement("object"), section = document.createElement("section");
 
         obj.data = "assets/images/svg/skyline_dark_bot.svg";
+        if (version == "white") obj.data = "assets/images/svg/skyline_white_bot.svg";
         obj.type = "image/svg+xml";
         
         section.appendChild(obj);
@@ -176,11 +178,13 @@
     function HTMLcreate (check) {
         switch(check) {
             case "om-mig":
-                OMMIGcreate(check);
+                OMMIGcreate(check)
                 break;
 
             case "projekter":
+                SKYcreate()
                 PROJEKTERcreate ()
+                SKYcreate_footer()
                 break;
 
             case "kontakt":
@@ -188,20 +192,26 @@
                 break;
 
             case "snv":
+                SKYcreate("white")
                 PROJEKTcreate_template (check)
+                SKYcreate_footer("white")
                 break;
             case "englerod":
+                SKYcreate("white")
                 PROJEKTcreate_template (check)
+                SKYcreate_footer("white")
                 break;
 
             case "pinktree":
+                SKYcreate("white")
                 PROJEKTcreate_template (check)
+                SKYcreate_footer("white")
                 break;
 
             default:
-                SKYcreate();
-                FORSIDEcreate();
-                SKYcreate_footer();
+                SKYcreate()
+                FORSIDEcreate()
+                SKYcreate_footer()
                 console.log("()HTMLcreate using Default-Switch")
         }
     }
