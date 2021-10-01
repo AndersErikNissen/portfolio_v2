@@ -32,7 +32,7 @@ UCN MMDA0920*/
         font-size: calc(1rem * 1.5);
     }
     body#forside main, body#projekter main {
-        color: white;
+        color: rgba(5, 5, 5);
     }
 
 
@@ -53,7 +53,7 @@ UCN MMDA0920*/
 
         /* Global */
         --global-outer-height: 50vh;
-        --global-inner-width: 50vw;
+        --global-inner-width: 1600px;
         --global-min-width-center: 900px;
 
         /* Padding */
@@ -64,7 +64,8 @@ UCN MMDA0920*/
     /*  ------------------
         ----- Colors -----
         ------------------  */
-        --color-bg-main: rgb(2, 2, 2);
+        /* --color-bg-main: rgb(2, 2, 2); */
+        --color-bg-main: #ffecd9;
         --color-bg-sec: rgb(255, 255, 255);
         
     /* 
@@ -170,7 +171,7 @@ UCN MMDA0920*/
 
                     footer {
                         background-color: var(--color-bg-sec);
-                        color: var(--color-bg-main);
+                        /* color: var(--color-bg-main); */
 
                         position: absolute;
                         top: var(--footer-position);
@@ -360,20 +361,22 @@ UCN MMDA0920*/
 
             display: flex;
             justify-content: center;
-            color: var(--color-bg-sec);
+            /* color: var(--color-bg-sec); */
         }
         #forPer_cover {
             display: flex;
-            min-height: var(--global-outer-height);
-            width: var(--global-inner-width);
+            flex-direction: column;
             min-width: var(--global-min-width-center);
+            max-width: var(--global-inner-width);
+
+            margin-top: 5rem;
         }
         #forPer_cover > section {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
-            padding: var(--global-padding-text);
+            padding: var(--global-padding-text) 0;
         }
         #forsidePersonlig div {
             width: 200px;
@@ -381,8 +384,8 @@ UCN MMDA0920*/
             background-color: rgb(255, 230, 230);
         }
         #obj_desk {
-            width: 50%;
-            height: auto;
+            height: 100%;
+            width: auto;
         }
 
     /* Forside - Projekter */

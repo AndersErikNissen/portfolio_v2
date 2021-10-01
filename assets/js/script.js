@@ -154,7 +154,7 @@
     function SKYcreate (version) {
         let obj = document.createElement("object"), section = document.createElement("section");
 
-        obj.data = "assets/images/svg/skyline_dark_top.svg";
+        obj.data = "assets/images/svg/clouds_cover_v1.svg";
         if (version == "white") obj.data = "assets/images/svg/skyline_white_top.svg";
         obj.type = "image/svg+xml";
         
@@ -391,6 +391,7 @@ function FORSIDEcreate () {
     //Hero Area
         outer_hero = document.createElement("section"), hero_section = document.createElement("section"), h1 = document.createElement("h1"), hero_h2 = document.createElement("h2"), cv = document.createElement("a"),
         obj_box = document.createElement("section"), obj_div = document.createElement("div"), obj = document.createElement("object"),
+        arrow_sec = document.createElement("section"), arrow_obj = document.createElement("object");
     // Main Area
         // Personlig
             forPer_section = document.createElement("section"), forPer_cover = document.createElement("section"), forPer_textBox = document.createElement("section"), 
@@ -425,7 +426,7 @@ function FORSIDEcreate () {
             forPer_h2.textContent = "Slow is smooth, smooth is fast!";
             forPer_p.textContent = "Mauris ac pretium turpis. Aenean pharetra condimentum felis, eu iaculis massa. Mauris in vestibulum libero. Maecenas blandit hendrerit libero, id dignissim nisi malesuada et. Nulla ipsum dui, aliquam bibendum lacus id, fermentum cursus massa. Quisque diam nisl, congue sed arcu in, vestibulum tristique mi. In posuere egestas sapien id pellentesque. Donec varius risus suscipit dapibus viverra. Duis ultrices feugiat sollicitudin. Nulla efficitur ornare ante, at eleifend purus. Fusce massa risus, interdum nec interdum sit amet, faucibus non dolor. Nulla facilisi. Nulla vel luctus erat, vel fringilla turpis. Ut vitae malesuada augue. Curabitur non sollicitudin augue.";
             
-            forPer_obj.data = "assets/images/svg/flyingDesk_v2point1.svg";
+            forPer_obj.data = "assets/images/svg/flyingDesk_v3_1.svg";
             forPer_obj.type = "image/svg+xml";
             forPer_obj.id = "obj_desk";
             
