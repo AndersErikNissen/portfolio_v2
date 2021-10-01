@@ -308,6 +308,20 @@ UCN MMDA0920*/
             width: 100%;
             height: auto;
         }
+
+    /* Scroll Down */
+    #scroll_down {
+        position: absolute;
+        z-index: 1;
+        bottom: 3rem;
+
+        display: flex;
+        justify-content: center;
+    }
+    #scroll_down > div > object {
+        width: 30px;
+        height: auto;
+    }
        
 /*      --------------- 
         --- FORSIDE ---
@@ -575,6 +589,12 @@ UCN MMDA0920*/
             height: 100%;
             opacity: .7;
             z-index: -1;
+        }
+        /* Template "Global" */
+        body#template_snv,
+        body#template_englerod,
+        body#template_pinktree h2 {
+            color: white;
         }
         /* --- Diffrent Content after body id --- */
         /* SNV */

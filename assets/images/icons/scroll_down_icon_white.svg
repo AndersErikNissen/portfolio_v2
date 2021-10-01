@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61.49 137.45">
+    <defs>
+        <style>
+            .cls-1 {
+                fill: rgba(255,255,255, 1);
+                animation: move_dot 2.5s infinite ease-in-out;
+                transform-origin: center;
+            }
+
+            @keyframes move_dot {
+                0% {
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 1;
+                }
+                90% {
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(59px);
+                    opacity: 0;
+                    height: 30.6px;
+                }
+            }
+
+            .cls-1,
+            .cls-2 {
+                stroke: rgba(255,255,255, 1);
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            .cls-2 {
+                fill: none;
+                stroke-width: 4px;
+            }
+        </style>
+    </defs>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="icons">
+            <g id="scroll_down_icon">
+                <rect class="cls-1" x="23.1" y="22.4" width="15.3" height="15.3" rx="7.65" />
+                <rect class="cls-2" x="2" y="2" width="57.49" height="133.45" rx="28.75" />
+            </g>
+        </g>
+    </g>
+</svg>

@@ -151,6 +151,9 @@
         })
     }
 
+    // --------------------------------------------------------------------
+    // ------------------------ CREATE MINI THINGS ------------------------
+    // --------------------------------------------------------------------
     function SKYcreate (version) {
         let obj = document.createElement("object"), section = document.createElement("section");
 
@@ -174,38 +177,68 @@
         main.appendChild(section);
     }
 
+    function SCROLLDOWNcreate (typeOf) {
+        let 
+        // Create elements
+        outer = document.createElement("section"),
+        div = document.createElement("div"),
+        obj = document.createElement("object");
 
+        // Content
+        if (typeOf == "white") {
+            obj.data = "assets/images/icons/scroll_down_icon_white.svg";
+        } else {
+            obj.data = "assets/images/icons/scroll_down_icon.svg";
+        }
+        outer.id = "scroll_down";
+
+        // Append
+        div.appendChild(obj); outer.appendChild(div); hero.appendChild(outer);
+    };
+    SCROLLDOWNcreate();
+
+
+
+
+    // --------------------------------------------------------------------
+    // ----------------------- CREATE MAIN CONTENT! -----------------------
+    // --------------------------------------------------------------------
     function HTMLcreate (check) {
         switch(check) {
             case "om-mig":
                 OMMIGcreate(check)
+                SCROLLDOWNcreate()
                 break;
-
             case "projekter":
                 SKYcreate()
                 PROJEKTERcreate ()
                 SKYcreate_footer()
+                SCROLLDOWNcreate()
                 break;
 
             case "kontakt":
                 KONTAKTcreate ()
+                SCROLLDOWNcreate();
                 break;
 
             case "snv":
                 SKYcreate("white")
                 PROJEKTcreate_template (check)
                 SKYcreate_footer("white")
+                SCROLLDOWNcreate("white")
                 break;
             case "englerod":
                 SKYcreate("white")
                 PROJEKTcreate_template (check)
                 SKYcreate_footer("white")
+                SCROLLDOWNcreate("white")
                 break;
 
             case "pinktree":
                 SKYcreate("white")
                 PROJEKTcreate_template (check)
                 SKYcreate_footer("white")
+                SCROLLDOWNcreate("white")
                 break;
 
             default:
@@ -390,8 +423,7 @@ function FORSIDEcreate () {
     let
     //Hero Area
         outer_hero = document.createElement("section"), hero_section = document.createElement("section"), h1 = document.createElement("h1"), hero_h2 = document.createElement("h2"), cv = document.createElement("a"),
-        obj_box = document.createElement("section"), obj_div = document.createElement("div"), obj = document.createElement("object"),
-        arrow_sec = document.createElement("section"), arrow_obj = document.createElement("object");
+        obj_box = document.createElement("section"), obj_div = document.createElement("div"), obj = document.createElement("object");
     // Main Area
         // Personlig
             forPer_section = document.createElement("section"), forPer_cover = document.createElement("section"), forPer_textBox = document.createElement("section"), 
@@ -515,7 +547,7 @@ function PROJEKTcreate_template (check) {
     // ---------------
     let
     // Hero
-        hero_section = document.createElement("section"), hero_color_cover = document.createElement("div"), hero_h2 = document.createElement("h2"), hero_kode_block = document.createElement("section"), hero_arrow_block = document.createElement("section"), hero_arrow_div = document.createElement("div"), hero_arrow_img = document.createElement("img"),
+        hero_section = document.createElement("section"), hero_color_cover = document.createElement("div"), hero_h2 = document.createElement("h2"), hero_kode_block = document.createElement("section"),
     // Projekt - Intro
         intro_section = document.createElement("section"), intro_block = document.createElement("section"), intro_h2 = document.createElement("h2"), intro_p = document.createElement("p"),
     // Projekt - Værdier
@@ -593,13 +625,9 @@ function PROJEKTcreate_template (check) {
         });
     //2nd round of Append and Content
         // Hero
-            hero_arrow_img.src = "assets/images/icons/arrow_down_white.png";
-            hero_arrow_img.alt = "Nedad vendende pil";
-            hero_arrow_div.appendChild(hero_arrow_img); 
-            hero_arrow_block.appendChild(hero_arrow_div);
             hero_section.id = "heroTextSection";
             hero_section.classList.add("flex-center"); 
-            hero_section.append(hero_kode_block, hero_arrow_block);
+            hero_section.appendChild(hero_kode_block);
 
             hero_color_cover.id = "template_color_cover";
 
