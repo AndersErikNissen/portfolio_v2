@@ -433,8 +433,13 @@ function FORSIDEcreate () {
             forPro_info_p = document.createElement("p"), forPro_alle = document.createElement("a"), forPro_alle_container = document.createElement("section");
     //Append + Content
         // Hero
-            h1.textContent = "FRONT-END PÅ ET STÆRKT FUNDAMENT";
-            hero_h2.textContent = "Mit navn er Anders Erik Nissen, og jeg studerer til Multimediedesigner hos UCN i Aalborg.";
+            h1.textContent = "Nysgerig Webudvikling";
+            h1.textContent = "HOKUS POKUS, FRONT-END I FOKUS";
+            // h1.textContent = "Hokus Pokus, Front-end i fokus";
+            // h1.textContent = "Strukturet, Kreativitet";
+
+            // hero_h2.textContent = "Mit navn er Anders Erik Nissen, og jeg studerer til Multimediedesigner hos UCN i Aalborg.";
+            hero_h2.textContent = "En webportfolio af Anders Erik Nissen.";
             cv.href = "";
             cv.textContent = "DOWNLOAD CV"
             cv.download;
