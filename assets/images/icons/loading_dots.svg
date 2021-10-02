@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -5 100 25">
+    <defs>
+        <style>
+            .cls-1 {
+                fill: rgba(255,255,255,.5);
+                position: absolute;
+            }
+
+            #one {
+                animation: one 1.5s linear infinite;
+            }
+            #two {
+                animation: two 1.5s linear infinite;
+            }
+            #three {
+                animation: three 1.5s linear infinite;
+            }
+
+            @keyframes one {
+                16.5% {
+                    r: 10px;
+                    fill: rgba(255, 255, 255, 1);
+                }
+                33% {
+                    r: 8.31px;
+                    fill: rgba(255,255,255,.5);
+                }
+            }
+            @keyframes two {
+                33% {
+                    r: 8.31px;
+                    fill: rgba(255,255,255,.5);
+                }
+                49.5% {
+                    r: 10px;
+                    fill: rgba(255, 255, 255, 1);
+                }
+                66% {
+                    r: 8.31px;
+                    fill: rgba(255,255,255,.5);
+                }
+            }
+            @keyframes three {
+                66% {
+                    r: 8.31px;
+                    fill: rgba(255,255,255,.5);
+                }
+                82.5% {
+                    r: 10px;
+                    fill: rgba(255, 255, 255, 1);
+                }
+                99% {
+                    r: 8.31px;
+                    fill: rgba(255,255,255,.5);
+                }
+            }
+        </style>
+    </defs>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="icons">
+            <g id="loading">
+                <circle id="one" class="cls-1" cx="8.31" cy="8.31" r="8.31" />
+                <circle id="two" class="cls-1" cx="45.1" cy="8.31" r="8.31" />
+                <circle id="three" class="cls-1" cx="81.89" cy="8.31" r="8.31" />
+            </g>
+        </g>
+    </g>
+</svg>

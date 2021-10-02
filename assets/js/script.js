@@ -57,7 +57,7 @@
                     switch (i) {
                         case 0:
                             // a.href = "?om-mig";
-                            a.href = "../ommig.html"
+                            a.href = "../om-mig.html"
                             a.textContent = "Om Mig";
                             break;
                         case 1:
@@ -208,7 +208,9 @@
     function HTMLcreate (check) {
         switch(check) {
             case "om-mig":
+                SKYcreate()
                 OMMIGcreate(check)
+                SKYcreate_footer()
                 SCROLLDOWNcreate()
                 break;
             case "projekter":
@@ -220,26 +222,26 @@
 
             case "kontakt":
                 KONTAKTcreate ()
-                SCROLLDOWNcreate();
+                // SCROLLDOWNcreate();
                 break;
 
             case "snv":
-                SKYcreate("white")
+                SKYcreate()
                 PROJEKTcreate_template (check)
                 SKYcreate_footer("white")
-                SCROLLDOWNcreate("white")
+                SCROLLDOWNcreate()
                 break;
             case "englerod":
-                SKYcreate("white")
+                SKYcreate()
                 PROJEKTcreate_template (check)
-                SKYcreate_footer("white")
+                SKYcreate_footer()
                 SCROLLDOWNcreate("white")
                 break;
 
             case "pinktree":
-                SKYcreate("white")
+                SKYcreate()
                 PROJEKTcreate_template (check)
-                SKYcreate_footer("white")
+                SKYcreate_footer()
                 SCROLLDOWNcreate("white")
                 break;
 
@@ -247,14 +249,18 @@
                 SKYcreate()
                 FORSIDEcreate()
                 SKYcreate_footer()
+                SCROLLDOWNcreate()
                 console.log("()HTMLcreate using Default-Switch")
         }
     }
     function SITEcreate () {
         let 
         //Check in URL
-        checkSplit = thisURL.split("?"),
-        check = checkSplit[1];
+        checkSplit = thisURL.split("/"),
+        checkArray = checkSplit.length - 1, // Should be where the URL name matches. The last in the array.
+        splitLast = checkSplit[checkArray].split(".html"),
+
+        check = splitLast[0];
     
         switch (check) {
             // Note to self: Don't use ; in a Case, that is why there is a break. :)
@@ -481,13 +487,15 @@ function FORSIDEcreate () {
             forPer_section.id = "forsidePersonlig";
             // forPer_section.classList.add("flex-center");
         // Projekter
-            forPro_info_h2.textContent = "SE SKOLE PROJEKTER";
+            forPro_info_h2.textContent = "PROJEKTER";
             forPro_info_p.textContent = "Mauris ac pretium turpis. Aenean pharetra condimentum felis, eu iaculis massa. Mauris in vestibulum libero. Maecenas blandit hendrerit libero, id dignissim nisi malesuada et.";
             forPro_info.append(forPro_info_h2, forPro_info_p);
         
             forPro_info.id = "forPro_info";
             forPro_info.classList.add("flex-center");
             forPro_section.id = "forsideProjekter";
+
+            forPro_section.appendChild(forPro_info);
 
         // Loop to make 2 projekt containers with content.
         for (let i = 0; i < 2; i++) {
@@ -504,7 +512,7 @@ function FORSIDEcreate () {
                     logo.data = "assets/images/svg/snv_logo_white.svg";
                     logo.type = "image/svg+xml";
                     img.src = "assets/images/images_projekter/snvdk_small.png";
-                    a.href = "?snv";
+                    a.href = "../snv.html";
                     imgLogo_box.id = "snv_imgBox";
                     break;
                 case 1:
@@ -515,13 +523,11 @@ function FORSIDEcreate () {
                     logo.data = "assets/images/svg/englerod_logo_white.svg";
                     logo.type = "image/svg+xml";
                     img.src = "assets/images/images_projekter/englerod_small.png";
-                    a.href = "?englerod";
+                    a.href = "../englerod.html";
                     imgLogo_box.id = "englerod_imgBox";
                     break;
             }
             //General Items Content
-                // a.textContent = "SE PROJEKTET";
-                // a.classList.add("button");
                 section.classList.add("flex-center");
                 pMain.classList.add("projektMain");
 
@@ -533,7 +539,7 @@ function FORSIDEcreate () {
                 forPro_section.appendChild(section);
         }
         // View all project link.
-            forPro_alle.href = "?projekter";
+            forPro_alle.href = "../projekter.html";
             forPro_alle.classList.add("button");
             forPro_alle.textContent = "SE ALLE PROJEKTER";
             forPro_alle_container.id = "forsideSeAlleProjekter";
@@ -562,7 +568,7 @@ function PROJEKTcreate_template (check) {
     // Projekt - Galleri
         galleri_section = document.createElement("section"), galleri_h2 = document.createElement("h2"), 
     // Næste Projekt
-        next_section = document.createElement("section"), next_a = document.createElement("a");
+        next_section = document.createElement("section"), next_a = document.createElement("a"), next_h3 = document.createElement("h3"), next_div = document.createElement("div"), next_arrow = document.createElement("object");
     
     // First round of Append (Need to add some elements before, the loops create elements in the same parents).
         hero_section.appendChild(hero_h2);
@@ -662,17 +668,19 @@ function PROJEKTcreate_template (check) {
 
             main.appendChild(galleri_section);
         // Next
-            next_a.href = "";
-            next_a.textContent = "NÆSTE PROJEKT";
-            next_section.appendChild(next_a);
-
+            next_h3.textContent = "NÆSTE PROJEKT";
+            next_arrow.data = "assets/images/icons/arrow_down_v1.svg";
+            
             next_section.id = "template_next";
+            next_arrow.id = "next_project_arrow";
             next_section.classList.add("flex-center");
-
+            
+            // Append
+            next_div.append(next_h3, next_arrow);
+            next_a.appendChild(next_div);
+            next_section.appendChild(next_a);
+            
             main.appendChild(next_section);
-
-
-
 
         // Switch content depending on URL.
         switch (check) {
@@ -680,16 +688,21 @@ function PROJEKTcreate_template (check) {
                 hero_h2.textContent = "MAJ - JUNI 2021";
                 // Add ID to Body for dynamic styling.
                     document.querySelector("body").id = "template_snv";
+
+                next_a.href = "../englerod.html";
                 break;
             case "englerod":
                 hero_h2.textContent = "APRIL 2021";
                 // Add ID to Body for dynamic styling.
                     document.querySelector("body").id = "template_englerod";
+
+                next_a.href = "../pinktree.html";
                 break;
             case "pinktree":
                 hero_h2.textContent = "AUGUST 2021";
                 // Add ID to Body for dynamic styling.
                     document.querySelector("body").id = "template_pinktree";
+                next_a.href = "../englerod.html";
                 break;
         }
 }   
@@ -774,8 +787,9 @@ function PROJEKTERcreate () {
     // Skoleprojekter
         sko_section = document.createElement("section"), sko_h2 = document.createElement("h2"), sko_h2_box = document.createElement ("section"),
     // Mini Projekter
-        mini_section = document.createElement("section"), mini_h2 = document.createElement("h2"), mini_h2_box = document.createElement("section"), pink_section = document.createElement("section"), pink_main = document.createElement("section"), pink_h2 = document.createElement("h2"), pink_h4 = document.createElement("h4"), 
-        pink_box = document.createElement("section"), pink_logo = document.createElement("object"), pink_img = document.createElement("img"), pink_a = document.createElement("a");
+        mini_section = document.createElement("section"), mini_h2 = document.createElement("h2"), mini_h2_box = document.createElement("section");
+        // pink_section = document.createElement("section"), pink_main = document.createElement("section"), pink_h2 = document.createElement("h2"), pink_h4 = document.createElement("h4"), 
+        // pink_box = document.createElement("section"), pink_logo = document.createElement("object"), pink_img = document.createElement("img"), pink_a = document.createElement("a");
 
     //Append H2
         sko_h2_box.appendChild(sko_h2);
@@ -783,8 +797,8 @@ function PROJEKTERcreate () {
     //Same loop from Index(Forside), will be a forEach loop later on. 
         for (let i = 0; i < 2; i++) {
             let
-            // Create elements
-            section = document.createElement("section"), pMain = document.createElement("section"), h2 = document.createElement("h2"), h4 = document.createElement("h4"), imgLogo_box = document.createElement("section"), logo = document.createElement("object"), img = document.createElement("img"), a = document.createElement("a");
+            section = document.createElement("section"), pMain = document.createElement("section"), h2 = document.createElement("h2"), h4 = document.createElement("h4"), 
+            imgLogo_box = document.createElement("section"), logo = document.createElement("object"), img = document.createElement("img"), a = document.createElement("a");
             // Changes content after point in loop(i).
             switch (i) {
                 case 0:
@@ -795,7 +809,7 @@ function PROJEKTERcreate () {
                     logo.data = "assets/images/svg/snv_logo_white.svg";
                     logo.type = "image/svg+xml";
                     img.src = "assets/images/images_projekter/snvdk_small.png";
-                    a.href = "?snv";
+                    a.href = "../snv.html";
                     imgLogo_box.id = "snv_imgBox";
                     break;
                 case 1:
@@ -806,19 +820,18 @@ function PROJEKTERcreate () {
                     logo.data = "assets/images/svg/englerod_logo_white.svg";
                     logo.type = "image/svg+xml";
                     img.src = "assets/images/images_projekter/englerod_small.png";
-                    a.href = "?englerod";
+                    a.href = "../englerod.html";
                     imgLogo_box.id = "englerod_imgBox";
                     break;
             }
             //General Items Content
-                a.textContent = "SE PROJEKTET";
-                a.classList.add("button");
                 section.classList.add("flex-center");
                 pMain.classList.add("projektMain");
 
             //Append 
                 imgLogo_box.append(logo, img);
-                pMain.append(h2, h4, imgLogo_box, a);
+                a.appendChild(imgLogo_box);
+                pMain.append(h2, h4, a);
                 section.appendChild(pMain);
                 sko_section.appendChild(section);
         }
@@ -840,33 +853,47 @@ function PROJEKTERcreate () {
             main.appendChild(sko_section);
 
         // Mini
-            // Pink Tree Projekt
-            pink_a.textContent = "SE PROJEKTET";
-            pink_a.classList.add("button");
-            pink_section.classList.add("flex-center");
-            pink_main.classList.add("projektMain");
-
-            pink_section.id ="pinkTree";
-            pink_h2.textContent = "Pink Tree";
-            pink_h4.textContent = "AUGUST 2021";
-            pink_img.src = "assets/images/images_projekter/PINKTREE_small.png";
-            pink_logo.data = "assets/images/svg/pinktree_logo_1white.svg";
-            pink_logo.type = "image/svg+xml";
-            pink_a.href = "?pinktree";
-            pink_box.id = "pinktree_imgBox";
-
             mini_section.id = "mini_projekter";
             mini_section.classList.add("flex-center")
             mini_h2.textContent = "Mini Projekter";
             mini_h2.classList.add("pro_h2s");
             mini_h2_box.classList.add("pro_h2_box", "flex-center");
         
-            pink_box.append(pink_logo, pink_img);
-            pink_main.append(pink_h2, pink_h4, pink_box, pink_a);
-            pink_section.appendChild(pink_main);
+            // pink_box.append(pink_logo, pink_img);
+            // pink_main.append(pink_h2, pink_h4, pink_box, pink_a);
+            // pink_section.appendChild(pink_main);
             mini_h2_box.appendChild(mini_h2);
-            mini_section.append(mini_h2_box, pink_section);
-            main.appendChild(mini_section)
+            mini_section.append(mini_h2_box);
+            main.appendChild(mini_section);
+            for (let i = 0; i < 1; i++) {
+                let
+                section = document.createElement("section"), pMain = document.createElement("section"), h2 = document.createElement("h2"), h4 = document.createElement("h4"), 
+                imgLogo_box = document.createElement("section"), logo = document.createElement("object"), img = document.createElement("img"), a = document.createElement("a");
+                // Changes content after point in loop(i).
+                switch (i) {
+                    case 0:
+                        section.id = "pinkTree";
+                        h2.textContent = "PINKTREE";
+                        h4.textContent = "AUGUST 2021";
+                     
+                        img.src = "assets/images/images_projekter/PINKTREE_small.png";
+                        logo.type = "image/svg+xml";
+                        logo.data = "assets/images/svg/pinktree_logo_1white.svg";
+                        a.href = "../pinktree.html";
+                        imgLogo_box.id = "pinktree_imgBox";
+                    break;
+                }
+                //General Items Content
+                    section.classList.add("flex-center");
+                    pMain.classList.add("projektMain");
+    
+                //Append 
+                    imgLogo_box.append(logo, img);
+                    a.appendChild(imgLogo_box);
+                    pMain.append(h2, h4, a);
+                    section.appendChild(pMain);
+                    mini_section.appendChild(section);
+            }
 
     // Add ID to Body for dynamic styling.
     document.querySelector("body").id = "projekter";
@@ -882,7 +909,7 @@ function FOOTERcreate () {
     // Finish    
         section.classList.add("flex-center");
         h2.textContent = "Vil du vide mere om mig, eller i kontakt?";
-        a.href = "?kontakt";
+        a.href = "../kontakt.html";
         a.textContent = "KONTAKT";
         a.classList.add("button");
         section.append(h2, a);
@@ -905,6 +932,19 @@ function footerPosition() {
 window.addEventListener("load", ()=> {
     footerPosition();
 })
+
+
+// Loading Screen
+window.onload = () => {
+    // To do:
+    // After fully loading, stay for 1sec to make sure footer have been placed.
+    // After the loading is done remove the div, after the animation
+    const loadingClass = ()=> document.querySelector("#loading_div").classList.add("loading");
+    loadingClass();
+    setTimeout(()=> document.querySelector("#loading_dots").style.display = "none", 1000);
+    setTimeout(()=> document.querySelector("#loading_div").remove(), 2000);
+
+}
 
 
 // Fetch Token
