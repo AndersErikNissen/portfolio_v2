@@ -56,15 +56,16 @@
                     a.classList.add("globalNAVli");
                     switch (i) {
                         case 0:
-                            a.href = "?om-mig";
+                            // a.href = "?om-mig";
+                            a.href = "../ommig.html"
                             a.textContent = "Om Mig";
                             break;
                         case 1:
-                            a.href = "?projekter";
+                            a.href = "../projekter.html";
                             a.textContent = "Projekter";
                             break;
                         case 2:
-                            a.href = "?kontakt";
+                            a.href = "../kontakt.html";
                             a.textContent = "Kontakt";
                             break;
                     }
@@ -168,8 +169,8 @@
     function SKYcreate_footer (version) {
         let obj = document.createElement("object"), section = document.createElement("section");
 
-        obj.data = "assets/images/svg/skyline_dark_bot.svg";
-        if (version == "white") obj.data = "assets/images/svg/skyline_white_bot.svg";
+        obj.data = "assets/images/svg/bottom_clouds.svg";
+        // if (version == "white") obj.data = "assets/images/svg/bottom_clouds.svg";
         obj.type = "image/svg+xml";
         
         section.appendChild(obj);
@@ -185,17 +186,18 @@
         obj = document.createElement("object");
 
         // Content
+        let objData;
         if (typeOf == "white") {
-            obj.data = "assets/images/icons/scroll_down_icon_white.svg";
+            objData = "assets/images/icons/arrow_down_v1_white.svg";
         } else {
-            obj.data = "assets/images/icons/scroll_down_icon.svg";
+            objData = "assets/images/icons/arrow_down_v1.svg";
         }
+        obj.data = objData;
         outer.id = "scroll_down";
 
         // Append
         div.appendChild(obj); outer.appendChild(div); hero.appendChild(outer);
     };
-    SCROLLDOWNcreate();
 
 
 

@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 125">
+    <defs>
+        <style>
+            .cls-1 {
+                fill: rgba(4, 4, 4, 1);
+                stroke: rgba(4, 4, 4, 1);
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-width: 2px;
+            }
+
+            /* Animation */
+            rect {
+                animation: rect_move 4s ease-in-out infinite;
+            }
+
+            path {
+                animation: path_move 4s ease-in-out infinite;
+            }
+
+            @keyframes rect_move {
+                20% {
+                    height: 121.1px;
+                }
+
+                30% {
+                    height: 121.1px;
+                }
+
+                40% {
+                    height: 81.1px;
+                }
+
+                50% {
+                    height: 111.1px;
+                }
+
+                60% {
+                    height: 81.1px;
+                }
+
+                70% {
+                    height: 96.1px;
+                }
+
+                80% {
+                    height: 86.1px;
+                }
+
+                90% {
+                    height: 91.1px;
+                }
+            }
+
+            @keyframes path_move {
+                20% {
+                    transform: translateY(30px);
+                }
+
+                30% {
+                    transform: translateY(30px);
+                }
+
+                40% {
+                    transform: translateY(-10px);
+                }
+
+                50% {
+                    transform: translateY(20px);
+                }
+
+                60% {
+                    transform: translateY(-10px);
+                }
+
+                70% {
+                    transform: translateY(5px);
+                }
+
+                80% {
+                    transform: translateY(-5px);
+                }
+
+                90% {
+                    transform: translateY(0px);
+                }
+
+            }
+        </style>
+    </defs>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="icons">
+            <g id="arrow_down">
+                <rect class="cls-1" x="36.85" y="1" width="15.3" height="91.01" rx="7.65" />
+                <path class="cls-1"
+                    d="M85.77,43.1A7.67,7.67,0,0,0,75,43.1L44.5,73.55,14.05,43.1A7.65,7.65,0,1,0,3.23,53.91L38.91,89.59l.17.19h0a7.7,7.7,0,0,0,10.84,0l.17-.19L85.77,53.91A7.67,7.67,0,0,0,85.77,43.1Z" />
+            </g>
+        </g>
+    </g>
+</svg>

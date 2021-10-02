@@ -78,6 +78,10 @@ UCN MMDA0920*/
         /* --color-bg-main: rgb(2, 2, 2); */
         --color-bg-main: #ffecd9;
         --color-bg-sec: rgb(255, 255, 255);
+
+        /* Buttons */
+        --color-btn-cta: #ef7443;
+        --color-btn-main: rgb(2,2,2);
         
     /* 
         ----- Projekt Colors
@@ -202,10 +206,10 @@ UCN MMDA0920*/
         }
         .button {
             display: block;
-            border: 1px solid var(--color-bg-sec);
+            border: 1px solid var(--color-btn-main);
             border-radius: 3px;
             padding: .6rem;
-            color: var(--color-bg-sec);
+            color: var(--color-btn-main);
             /* font-weight: bold; */
             text-decoration: none;
             font-size: .8rem;
@@ -214,18 +218,23 @@ UCN MMDA0920*/
             text-align: center;
             margin: .8rem 0;
         }
+        .button:hover {
+            background-color: var(--color-btn-cta);
+            color: var(--color-btn-main);
+        }
+        .button:active {
+            transform: scale(.95);
+        }
+
         /* Diffent Buttons */
         #hero .button, footer .button {
-            border: 1px solid var(--color-bg-main);
-            color: var(--color-bg-main);
-        }
-        .button:hover {
-            background-color: var(--color-bg-sec);
-            color: var(--color-bg-main);
+            border: 1px solid var( --color-btn-cta);
+            background-color: var( --color-btn-cta);
+            color: white;
         }
         #hero .button:hover, footer .button:hover {
-            background-color: var(--color-bg-main);
-            color: var(--color-bg-sec);
+            background-color: white;
+            color: var(--color-btn-cta);
         }
         a.button {
             display: inline-block;
@@ -391,6 +400,7 @@ UCN MMDA0920*/
         #forPer_cover {
             display: flex;
             flex-direction: column;
+            align-items: center;
             min-width: var(--global-min-width-center);
             max-width: var(--global-inner-width);
 
@@ -457,7 +467,7 @@ UCN MMDA0920*/
             height: auto;
         }
         .projektMain section img {
-            border-radius: 0 20px 20px 0;
+            border-radius: 0 3px 3px 0;
         }
         .projektMain section object {
             padding: 5%;
