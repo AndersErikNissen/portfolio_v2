@@ -343,11 +343,12 @@ document.addEventListener("scroll", ()=> {
             if (document.querySelector("#forsideHeroObjBox")) {
                 document.querySelector("#forsideHeroObjBox").style.opacity = 1 - (window.scrollY / half);
             }
+            if (document.querySelector("#om-mig_intro_img")) {
+                document.querySelector("#om-mig_intro_img").style.opacity = 1 - (window.scrollY / half);
+            }
         }
     }
 })
-
-
 
 
 // Create HTML for EACH page
@@ -356,7 +357,7 @@ function OMMIGcreate (check) {
     // Hero Content
         h1 = document.createElement("h1"), intro_p = document.createElement("p"),
         introIMG_container = document.createElement("section"), introIMG_div = document.createElement("div"), introIMG = document.createElement("img"),
-        intro_section = document.createElement("section"), intro_inner = document.createElement("section"),
+        intro_section = document.createElement("section"), intro_inner = document.createElement("section"), hero_frame = document.createElement("section"),
     // Main Content    
         main_outer = document.createElement("section"), main_h2 = document.createElement("h2");
 
@@ -375,8 +376,10 @@ function OMMIGcreate (check) {
             intro_inner.append(h1, intro_p);
             intro_section.appendChild(intro_inner);
             intro_section.id = "heroTextSection";
+            hero_frame.id = "hero_frame_ommig";
 
-            hero.append(intro_section, introIMG_container);
+            hero_frame.append(intro_section, introIMG_container);
+            hero.appendChild(hero_frame);
 
             // Remove Flex-center
                 hero.classList.remove("flex-center");
@@ -412,7 +415,7 @@ function OMMIGcreate (check) {
                     //Add Class
                         inner.classList.add("vaerdiBox", "flex-center");
                     //Append the content
-                        inner.append(h3, p, img);
+                        inner.append(h3, p); // Left out, img.
                         outer.appendChild(inner);
                         outer.classList.add("outer_vaerdiBox","flex-center");
 

@@ -508,30 +508,6 @@ UCN MMDA0920*/
         }
 
 /*      --------------- 
-        --- OM MIG ----
-        ---------------     */
-    .vaerdiBox {
-        height: auto;
-        width: 100%;
-    }
-
-    #om-mig_intro_img {
-        display: flex;
-        justify-content: center;
-         align-items: center;
-    }
-    #om-mig_intro_img div {
-        max-width: 500px;
-        height: auto;
-    }
-    #ommig_profile_picture {
-        width: 100%;
-        height: auto;
-        border-radius: 3px;
-    }
-
-
-/*      --------------- 
         -- PROJEKTER --
         ---------------     */
     .kodeSprogBox {
@@ -631,29 +607,52 @@ UCN MMDA0920*/
             min-height: 100vh;
             width: 100%;
         }
-        #om-mig_intro_img {
-            width: 50%;
-        }
-        #om-mig_intro_img > div {
-            width: 100%;
-        }
-        #om-mig_intro_img img {
-            width: 100%;
-            height: auto;
-        }
         /* Hero */
         body#om-mig #hero {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Hero Content */
+        #hero_frame_ommig {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        body#om-mig #heroTextSection {
-            width: 50%;
+            body#om-mig #heroTextSection {
+                width: 50%;
 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            #om-mig_intro_img {
+                width: 50%;
+                display: flex;
+                justify-content: end;
+                align-items: center;
+            }
+            #om-mig_intro_img > div {
+                width: 100%;
+                max-width: 500px;
+                height: auto;
+            }
+            #om-mig_intro_img img {
+                max-width: 500px;
+                height: auto;
+            }
+            #ommig_profile_picture {
+                width: 100%;
+                height: auto;
+                border-radius: 3px;
+            }
+
+        .vaerdiBox {
+            height: auto;
+            width: 100%;
         }
 
 /*      ---------------------------- 
