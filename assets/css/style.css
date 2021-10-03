@@ -338,6 +338,8 @@ UCN MMDA0920*/
         position: absolute;
         z-index: 1;
         bottom: 3rem;
+        left: 0;
+        width: 100%;
 
         display: flex;
         justify-content: center;
@@ -511,12 +513,21 @@ UCN MMDA0920*/
     .vaerdiBox {
         height: auto;
         width: 100%;
-        background-color: red;
     }
-    #placeholderProfilPicture {
-        width: 40vw;
-        height: 20vw;
-        background-color: red;
+
+    #om-mig_intro_img {
+        display: flex;
+        justify-content: center;
+         align-items: center;
+    }
+    #om-mig_intro_img div {
+        max-width: 500px;
+        height: auto;
+    }
+    #ommig_profile_picture {
+        width: 100%;
+        height: auto;
+        border-radius: 3px;
     }
 
 

@@ -93,24 +93,28 @@
     opacity: 0;
 }
 #smoke1 {
-    animation: smokey1 12s ease-in-out infinite;
+    animation: smokey1 8s ease-in-out infinite;
 }
 #smoke2 {
-    animation: smokey2 12s ease-in-out infinite;
+    animation: smokey2 8s ease-in-out infinite;
 }
 #smoke3 {
-    animation: smokey3 12s ease-in-out infinite;
+    animation: smokey3 8s ease-in-out infinite;
 }
 @keyframes smokey1 {
-    50% {opacity: 1;}
+    0% {opacity: 0;}
+    20% {opacity: 1;}
+    45% {opacity: 0;}
 }
 @keyframes smokey2 {
-    10% {opacity: 0;}
-    50% {opacity: 1;}
+    20% {opacity: 0;}
+    40% {opacity: 1;}
+    65% {opacity: 0;}
 }
 @keyframes smokey3 {
-    20% {opacity: 0;}
-    50% {opacity: 1;}
+    40% {opacity: 0;}
+    60% {opacity: 1;}
+    85% {opacity: 0;}
 }
 
 /* Fluffy Eyes */
@@ -135,6 +139,115 @@
     64% {opacity: 0;}
     65% {opacity: 1;}
 }
+
+/* Light Chain */
+#LightBulb > image {
+    animation: light_img 5s infinite linear;
+}
+#LightBulb > circle {
+    animation: light_circle 5s infinite linear;
+}
+#LightBulb-4 > image {
+    animation: light_img 7s infinite linear;
+}
+#LightBulb-4 > circle {
+    animation: light_circle 7s infinite linear;
+}
+#LightBulb-11 > image {
+    animation: light_img 4s infinite linear;
+    animation-delay: 2s;
+}
+#LightBulb-11 > circle {
+    animation: light_circle 4s infinite linear;
+    animation-delay: 2s;
+}
+#LightBulb-7 > image {
+    animation: light_img 5s infinite linear;
+    animation-delay: 2s;
+}
+#LightBulb-7 > circle {
+    animation: light_circle 5s infinite linear;
+    animation-delay: 2s;
+}
+
+@keyframes light_img {
+    29% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 0;
+    }
+    39% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    59% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+    64% {
+        opacity: 0;
+    }
+    65% {
+        opacity: 1;
+    }
+    69% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0;
+    }
+    74% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 1;
+    }
+}
+@keyframes light_circle {
+    29% {
+        fill: #ffe650;
+    }
+    30% {
+        fill: rgb(203, 221, 228);
+    }
+    39% {
+        fill: rgb(203, 221, 228);
+    }
+    40% {
+        fill: #ffe650;
+    }
+    59% {
+        fill: #ffe650;
+    }
+    60% {
+        fill: rgb(203, 221, 228);
+    }
+    64% {
+        fill: rgb(203, 221, 228);
+    }
+    65% {
+        fill: #ffe650;
+    }
+    69% {
+        fill: #ffe650;
+    }
+    70% {
+        fill: rgb(203, 221, 228);
+    }
+    74% {
+        fill: rgb(203, 221, 228);
+    }
+    75% {
+        fill: #ffe650;
+    }
+}
+
+
 
 </style>
 

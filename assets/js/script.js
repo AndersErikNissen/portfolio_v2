@@ -356,7 +356,7 @@ function OMMIGcreate (check) {
     // Hero Content
         h1 = document.createElement("h1"), intro_p = document.createElement("p"),
         introIMG_container = document.createElement("section"), introIMG_div = document.createElement("div"), introIMG = document.createElement("img"),
-        intro_section = document.createElement("section"),
+        intro_section = document.createElement("section"), intro_inner = document.createElement("section"),
     // Main Content    
         main_outer = document.createElement("section"), main_h2 = document.createElement("h2");
 
@@ -364,15 +364,16 @@ function OMMIGcreate (check) {
         // Intro
             h1.textContent = "MOJN";
             intro_p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dolor id justo luctus euismod. Aliquam sem urna, sollicitudin in lobortis et, aliquet eget mi. Pellentesque maximus tempus quam id venenatis. Vivamus feugiat elit ac velit consequat, eu pellentesque velit condimentum. ";
-            introIMG.src = "assets/images/fluffy_desk.jpg"; // Placeholder!!!!!!!!!!
+            introIMG.src = "assets/images/profile_picture_v2.jpg"; // Placeholder!!!!!!!!!!
 
-
+            introIMG.id = "ommig_profile_picture";
             introIMG_div.appendChild(introIMG);
             introIMG_container.appendChild(introIMG_div);
             introIMG_container.id = "om-mig_intro_img";
             
 
-            intro_section.append(h1, intro_p);
+            intro_inner.append(h1, intro_p);
+            intro_section.appendChild(intro_inner);
             intro_section.id = "heroTextSection";
 
             hero.append(intro_section, introIMG_container);
