@@ -156,7 +156,7 @@ UCN MMDA0920*/
                         position: fixed;
                         top: 0;
                         left: 0;
-                        height: 100vh;
+                        min-height: 100%;
                         width: 100%;
                         z-index: 0;
 
@@ -571,6 +571,8 @@ UCN MMDA0920*/
         
     #kontakt-outer_container {
         display: flex;
+        width: 100%;
+        max-width: 1200px;
     }
     #kontakt-soMi_ul {
         display: flex;
@@ -582,13 +584,18 @@ UCN MMDA0920*/
         align-items: center;
         list-style-type: none;
     }
-    #kontakt-img {
-        width: 40vw;
+    #kontakt-object_container {
+        width: 50%;
+
+        display: flex;
+        justify-content: center;
+    }
+    #kontakt-object {
+        width: 50%;
         height: auto;
     }
-    #kontakt-img img {
+    #kontakt-object object {
         width: 100%;
-        object-fit: contain;
     }
 
     #kontakt-info_box {

@@ -720,7 +720,7 @@ function KONTAKTcreate () {
         // SoMi
             soMi = document.createElement("section"), soMi_ul = document.createElement("ul"), soMi_h2 = document.createElement("h2"),
         // Img
-            img_outer = document.createElement("section"), img_div = document.createElement("div"), img_img = document.createElement("img");
+            img_outer = document.createElement("section"), object = document.createElement("object");
         // SoMI LI   
             for (let i = 0; i < 3; i++) {
                 let
@@ -767,12 +767,13 @@ function KONTAKTcreate () {
                 soMi_ul.id = "kontakt-soMi_ul";
                 non_img.appendChild(soMi);
             // SoMi Li
-                img_img.src = "assets/images/fluffy_desk.jpg";
-                img_img.id = "kontakt-img";
+                object.data = "assets/images/svg/balloon.svg";
+                object.type = "image/svg+xml";
+                object.id = "kontakt-object";
 
-                img_div.appendChild(img_img);
-                img_outer.appendChild(img_div);
-                img_outer.id = "kontakt-img_container";
+
+                img_outer.appendChild(object);
+                img_outer.id = "kontakt-object_container";
                 outer.appendChild(img_outer);
             
                 outer.appendChild(non_img);
