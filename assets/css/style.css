@@ -571,10 +571,11 @@ UCN MMDA0920*/
 
     /* Background Image */
         body#kontakt section#hero {
-            background-image: url(../images/svg/balloon.svg);
+            background-image: url(../images/svg/cloud_background_large.svg);
             background-position: center;
             background-repeat: no-repeat;
-            background-size: contain;
+            background-size: cover;
+            height: 100%;
         }
         
     #kontakt-outer_container {
