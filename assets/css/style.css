@@ -568,6 +568,14 @@ UCN MMDA0920*/
 /*      --------------- 
         --- KONTAKT ---
         ---------------     */
+
+    /* Background Image */
+        body#kontakt section#hero {
+            background-image: url(../images/svg/balloon.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
         
     #kontakt-outer_container {
         display: flex;
@@ -591,7 +599,7 @@ UCN MMDA0920*/
         justify-content: center;
     }
     #kontakt-object {
-        width: 50%;
+        width: 90%;
         height: auto;
     }
     #kontakt-object object {

@@ -767,7 +767,7 @@ function KONTAKTcreate () {
                 soMi_ul.id = "kontakt-soMi_ul";
                 non_img.appendChild(soMi);
             // SoMi Li
-                object.data = "assets/images/svg/balloon.svg";
+                object.data = "assets/images/svg/balloon_with_clouds.svg";
                 object.type = "image/svg+xml";
                 object.id = "kontakt-object";
 
