@@ -703,6 +703,9 @@ function PROJEKTcreate_template (check) {
                 // Intro
                     intro_h2.textContent = intro_h2_start + "SNV.dk?";
                     intro_p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
+
+                    a_github.href = "https://github.com/AndersErikNissen/MMD2-Gruppe3";
+                    a_live.href = "https://mmd.ucn.dk/class/mmda0920/1086088/Sem2/eksamen/Rubrics/Gruppe3-MMDA0920-MMD2/";
                 
                 // Add ID to Body for dynamic styling.
                     document.querySelector("body").id = "template_snv";
@@ -719,6 +722,8 @@ function PROJEKTcreate_template (check) {
                  // Intro
                      intro_h2.textContent = intro_h2_start + "Englerod.dk?";
                      intro_p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
+
+                     a_live.href = "https://mmd.ucn.dk/class/mmda0920/1086088/Sem2/Tem3/Rubrics/Englerod-Gruppe3/";
                 // Add ID to Body for dynamic styling.
                     document.querySelector("body").id = "template_englerod";
 
@@ -732,6 +737,9 @@ function PROJEKTcreate_template (check) {
                 // Intro
                     intro_h2.textContent = intro_h2_start + "Englerod.dk?";
                     intro_p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
+
+                    a_github.href = "https://github.com/AndersErikNissen/mini_pinkTree";
+                    a_live.href = "https://mini-pink-tree.vercel.app/";
                 // Add ID to Body for dynamic styling.
                     document.querySelector("body").id = "template_pinktree";
                 next_a.href = "snv.html";

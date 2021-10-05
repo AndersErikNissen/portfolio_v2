@@ -85,23 +85,26 @@
             /* ------------------------------------------------------------ */
 
             /* Clouds */
-            #bc1,#fc3 {
+            /* #bc1, */
+            #fc3 {
                 animation: cloud_fast 20s infinite linear;
             }
             #bc2, #bc_grp2 {
                 animation: cloud_fast 25s infinite linear;
             }
-            #bc3, #fc2 {
+            /* #bc3,  */
+            #fc2 {
                 animation: cloud_medium 26s infinite linear;
                 animation-delay: 3s;
             }
-            #bc4, #fc1 {
+            /* #bc4,  */
+            #fc1 {
                 animation: cloud_fast 14s infinite linear;
             }
-            #bc_grp1 {
+            /* #bc_grp1 {
                 animation: cloud_slow 14s infinite linear;
-                animation-delay: 2s; /* Only works onload (the first time) */
-            }
+                animation-delay: 2s; 
+            } */
 
             /* Clouds */
             @keyframes cloud_fast {
