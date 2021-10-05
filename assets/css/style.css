@@ -58,7 +58,8 @@ UCN MMDA0920*/
     /* 
         ----- Styling of Elements
     */
-
+        /* Center Flex */
+        --center-flex: row;
         /* Corners */
         --corners-mid: 20px;
         --corners-round: 50%;
@@ -136,69 +137,60 @@ UCN MMDA0920*/
     }
 
   
+/* --------------------------------------------------------- */
+/* ----------------------- MAIN HTML ----------------------- */
+/* --------------------------------------------------------- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* height: 10vh; */
+    width: 100%;
+    z-index: 3;
+}
+#hero {
+    background-color: var(--color-bg-sec);
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    width: 100%;
+    z-index: 0;
+}
 
-                 
+main {
+    margin: 0;
+    top: 100vh;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
 
-                    header {
-                        /* background-color: #050817; */
-                        position: fixed;
-                        top: 0;
-                        left: 0;
-                        /* height: 10vh; */
-                        width: 100%;
-                        z-index: 3;
-                    }
-                    #hero {
-                        /* background-color: #ffab03; */
-                        /* background-color: rgb(249, 255, 246); */
-                        /* background: linear-gradient(180deg, rgba(255,171,3,1) 0%, rgba(255,127,241,1) 100%); */
-                        background-color: var(--color-bg-sec);
-                        position: fixed;
-                        top: 0;
-                        left: 0;
-                        min-height: 100%;
-                        width: 100%;
-                        z-index: 0;
+body main > * {
+    background-color: var(--color-bg-main);
+}
 
-                        /* color: white; */
-                    }
-                    
-                    main {
-                        margin: 0;
-                        top: 100vh;
-                        left: 0;
-                        position: absolute;
-                        width: 100%;
-                        z-index: 1;
-                    }
+/* Skyline */
+main section#main_skyline{
+    background-color: transparent;
+}
+section#main_skyline_footer {
+    background-color: var(--color-bg-sec);
+}
+body#forside #main_skyline_footer, body#projekter #main_skyline_footer {
+    background-color: var(--color-bg-sec);
+}
 
-                    body main > * {
-                        background-color: var(--color-bg-main);
-                    }
-                   
-
-                    /* Skyline */
-                    main section#main_skyline{
-                        background-color: transparent;
-                    }
-                    section#main_skyline_footer {
-                        background-color: var(--color-bg-sec);
-                    }
-                    body#forside #main_skyline_footer, body#projekter #main_skyline_footer {
-                        background-color: var(--color-bg-sec);
-                    }
-
-                    footer {
-                        background-color: var(--color-bg-sec);
-                        /* color: var(--color-bg-main); */
-
-                        position: absolute;
-                        top: var(--footer-position);
-                        left: 0;
-                        z-index: 1;
-                        min-height: 50vh;
-                        width: 100%;
-                    }
+footer {
+    background-color: var(--color-bg-sec);
+    position: absolute;
+    top: var(--footer-position);
+    left: 0;
+    z-index: 1;
+    min-height: 50vh;
+    width: 100%;
+}
 
 
 /*      ---------------- 
@@ -392,6 +384,7 @@ UCN MMDA0920*/
             width: 80%;
 
             display: flex;
+            flex-direction: var(--center-flex);
         }
         body#forside #heroTextSection {
             z-index: 1;
@@ -403,9 +396,6 @@ UCN MMDA0920*/
         #forsideHeroObjBox {
             width: 65%;
             height: auto;
-            /* position:absolute; */
-            top: 20%;
-            left: 0;
             z-index: -1;
         }
         #forsideHeroObjDiv {
@@ -581,13 +571,17 @@ UCN MMDA0920*/
         --- KONTAKT ---
         ---------------     */
 
+    #aen_email {
+        color: var(--color-btn-cta);
+    }
+
     /* Background Image */
         body#kontakt section#hero, body#projekter section#hero {
             background-image: url(../images/svg/cloud_background_large.svg);
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            height: 100%;
+            min-height: 100%;
         }
         body#kontakt section#hero {
             background-color: var(--color-bg-main);
@@ -730,4 +724,36 @@ UCN MMDA0920*/
         body#template_pinktree #template_color_cover {
             background-color: #2cbdd0;;
         }
+/* ------------------------------------------------------------- */
+/* ----------------------- Media Queries ----------------------- */
+/* ------------------------------------------------------------- */
+
+@media screen and (min-width: 320px) and (max-width: 1024px) {
+    :root {
+        --center-flex: column;
+        --global-min-width-center: unset;
+    }
+
+    /* Forside */
+    #outer_hero {
+        width: auto;
+    }
+    body#forside #heroTextSection {
+        width: 100%;
+        align-items: center;
+    }
+    #forsideHeroObjBox {
+        width: 100%;
+    }
+        /* Main */
+        .projektMain {
+            width: 100%;
+        }
+        .projektMain section {
+            width: 100%;
+
+        }
+}
+
+
 
