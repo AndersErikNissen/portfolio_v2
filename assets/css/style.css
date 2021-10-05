@@ -209,6 +209,7 @@ UCN MMDA0920*/
             max-width: 70ch;
         }
         .button {
+            cursor: pointer;
             display: block;
             border: 1px solid var(--color-btn-main);
             border-radius: 3px;
@@ -294,7 +295,7 @@ UCN MMDA0920*/
                 display: flex;
                 align-items: center;
             }
-            #globalHeader_soMiIcons div {
+            #globalHeader_soMiIcons div, #intro_github_icon {
                 width: 27px;
                 margin: 0 1vw;
             }
@@ -541,6 +542,17 @@ UCN MMDA0920*/
             width: 300px;
             height: auto;
         }
+        #intro_a_container {
+            display: flex;
+
+            justify-content: space-between;
+        }
+
+        .projectTemplate_intro_links {
+            border: solid 1px var(--color-bg-sec);
+
+            display: flex;
+        }
     /* Next Project */
     #template_next a {
        color: black;
@@ -693,7 +705,7 @@ UCN MMDA0920*/
         /* --- Diffrent Content after body id --- */
         /* SNV */
         body#template_snv #hero {
-            background-image: url(/assets/images/images_projekter/snvdk.png);
+            background-image: url(../images/images_projekter/snvdk.png);
             background-color: var(--snv-color-main);
         }
         body#template_snv #template_color_cover {
@@ -701,7 +713,7 @@ UCN MMDA0920*/
         }
         /* Englerod */
         body#template_englerod #hero {
-            background-image: url(/assets/images/images_projekter/englerod.png);
+            background-image: url(../images/images_projekter/englerod.png);
             background-color: var(--englerod-color-main);
         }
         body#template_englerod #template_color_cover {
@@ -709,7 +721,7 @@ UCN MMDA0920*/
         }
         /* PinkTree */
         body#template_pinktree #hero {
-            background-image: url(/assets/images/images_projekter/PINKTREE.png);
+            background-image: url(../images/images_projekter/PINKTREE.png);
             background-color: #2cbdd0;;
         }
         body#template_pinktree #template_color_cover {

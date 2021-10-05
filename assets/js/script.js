@@ -57,15 +57,15 @@
                     switch (i) {
                         case 0:
                             // a.href = "?om-mig";
-                            a.href = "../om-mig.html"
+                            a.href = "om-mig.html"
                             a.textContent = "Om Mig";
                             break;
                         case 1:
-                            a.href = "../projekter.html";
+                            a.href = "projekter.html";
                             a.textContent = "Projekter";
                             break;
                         case 2:
-                            a.href = "../kontakt.html";
+                            a.href = "kontakt.html";
                             a.textContent = "Kontakt";
                             break;
                     }
@@ -516,7 +516,7 @@ function FORSIDEcreate () {
                     logo.data = "assets/images/svg/snv_logo_white.svg";
                     logo.type = "image/svg+xml";
                     img.src = "assets/images/images_projekter/snvdk_small.png";
-                    a.href = "../snv.html";
+                    a.href = "snv.html";
                     imgLogo_box.id = "snv_imgBox";
                     break;
                 case 1:
@@ -527,7 +527,7 @@ function FORSIDEcreate () {
                     logo.data = "assets/images/svg/englerod_logo_white.svg";
                     logo.type = "image/svg+xml";
                     img.src = "assets/images/images_projekter/englerod_small.png";
-                    a.href = "../englerod.html";
+                    a.href = "englerod.html";
                     imgLogo_box.id = "englerod_imgBox";
                     break;
             }
@@ -543,7 +543,7 @@ function FORSIDEcreate () {
                 forPro_section.appendChild(section);
         }
         // View all project link.
-            forPro_alle.href = "../projekter.html";
+            forPro_alle.href = "projekter.html";
             forPro_alle.classList.add("button");
             forPro_alle.textContent = "SE ALLE PROJEKTER";
             forPro_alle_container.id = "forsideSeAlleProjekter";
@@ -569,8 +569,6 @@ function PROJEKTcreate_template (check) {
         intro_section = document.createElement("section"), intro_block = document.createElement("section"), intro_h2 = document.createElement("h2"), intro_p = document.createElement("p"),
         // Links
         a_github = document.createElement("a"), a_live = document.createElement("a"), a_container = document.createElement("section"),
-        // Icons
-        i_github = document.createElement("img"), i_live = document.createElement("img"),
     // Projekt - Værdier
         step_section = document.createElement("section"), step_h1 = document.createElement("h2"), 
     // Projekt - Galleri
@@ -655,17 +653,13 @@ function PROJEKTcreate_template (check) {
 
             hero.append(hero_section, hero_color_cover);
         // Intro
-            //Links with Icons
-            i_github.src = "../images/icons/github_round_black.png"
-            a_github.appendChild(i_github);
+            // Links            
+                a_live.textContent = "SE PROJEKTET ONLINE"
+                a_github.textContent = "SE PROJEKTET PÅ GITHUB"
+                a_live.classList.add("button");
+                a_github.classList.add("button");
 
-            // Don't have Github if Englerod( Has no Github)
-            if (document.querySelector("body").id = "template_englerod") {
-                a_container.appendChild(a_live)
-            } else {
-                a_container.append(a_github, a_live);
-            }
-            a_github.textContent = "View on Github";
+                a_container.id = "intro_a_container";
 
             intro_block.append(intro_h2, intro_p, a_container); intro_section.appendChild(intro_block);
             intro_section.id = "template_intro";
@@ -712,8 +706,12 @@ function PROJEKTcreate_template (check) {
                 
                 // Add ID to Body for dynamic styling.
                     document.querySelector("body").id = "template_snv";
+                // Links
+                a_live.href = "";
+                a_github.href = "";
+                next_a.href = "englerod.html";
 
-                next_a.href = "../englerod.html";
+                a_container.append(a_github, a_live);
                 break;
             case "englerod":
                 // Hero
@@ -724,7 +722,9 @@ function PROJEKTcreate_template (check) {
                 // Add ID to Body for dynamic styling.
                     document.querySelector("body").id = "template_englerod";
 
-                next_a.href = "../pinktree.html";
+                next_a.href = "pinktree.html";
+
+                a_container.appendChild(a_live);
                 break;
             case "pinktree":
                 //Hero
@@ -734,7 +734,9 @@ function PROJEKTcreate_template (check) {
                     intro_p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
                 // Add ID to Body for dynamic styling.
                     document.querySelector("body").id = "template_pinktree";
-                next_a.href = "../snv.html";
+                next_a.href = "snv.html";
+
+                a_container.append(a_github, a_live);
                 break;
         }
 }   
@@ -842,7 +844,7 @@ function PROJEKTERcreate () {
                     logo.data = "assets/images/svg/snv_logo_white.svg";
                     logo.type = "image/svg+xml";
                     img.src = "assets/images/images_projekter/snvdk_small.png";
-                    a.href = "../snv.html";
+                    a.href = "snv.html";
                     imgLogo_box.id = "snv_imgBox";
                     break;
                 case 1:
@@ -853,7 +855,7 @@ function PROJEKTERcreate () {
                     logo.data = "assets/images/svg/englerod_logo_white.svg";
                     logo.type = "image/svg+xml";
                     img.src = "assets/images/images_projekter/englerod_small.png";
-                    a.href = "../englerod.html";
+                    a.href = "englerod.html";
                     imgLogo_box.id = "englerod_imgBox";
                     break;
             }
@@ -912,7 +914,7 @@ function PROJEKTERcreate () {
                         img.src = "assets/images/images_projekter/PINKTREE_small.png";
                         logo.type = "image/svg+xml";
                         logo.data = "assets/images/svg/pinktree_logo_1white.svg";
-                        a.href = "../pinktree.html";
+                        a.href = "pinktree.html";
                         imgLogo_box.id = "pinktree_imgBox";
                     break;
                 }
@@ -942,7 +944,7 @@ function FOOTERcreate () {
     // Finish    
         section.classList.add("flex-center");
         h2.textContent = "Vil du vide mere om mig, eller i kontakt?";
-        a.href = "../kontakt.html";
+        a.href = "kontakt.html";
         a.textContent = "KONTAKT";
         a.classList.add("button");
         section.append(h2, a);
