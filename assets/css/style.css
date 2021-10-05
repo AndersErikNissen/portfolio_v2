@@ -674,6 +674,9 @@ UCN MMDA0920*/
 /*      ---------------------------- 
         --- PROJETKER - TEMPLATE ---
         ----------------------------     */
+        .template_hero_h2 {
+            color: white;
+        }
         .projektStepBox {
             width: 50vw;
         }

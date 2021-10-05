@@ -567,6 +567,10 @@ function PROJEKTcreate_template (check) {
         hero_section = document.createElement("section"), hero_color_cover = document.createElement("div"), hero_h2 = document.createElement("h2"), hero_kode_block = document.createElement("section"),
     // Projekt - Intro
         intro_section = document.createElement("section"), intro_block = document.createElement("section"), intro_h2 = document.createElement("h2"), intro_p = document.createElement("p"),
+        // Links
+        a_github = document.createElement("a"), a_live = document.createElement("a"), a_container = document.createElement("section"),
+        // Icons
+        i_github = document.createElement("img"), i_live = document.createElement("img"),
     // Projekt - Værdier
         step_section = document.createElement("section"), step_h1 = document.createElement("h2"), 
     // Projekt - Galleri
@@ -643,17 +647,27 @@ function PROJEKTcreate_template (check) {
     //2nd round of Append and Content
         // Hero
             hero_section.id = "heroTextSection";
+            hero_h2.classList.add("template_hero_h2");
             hero_section.classList.add("flex-center"); 
             hero_section.appendChild(hero_kode_block);
 
             hero_color_cover.id = "template_color_cover";
 
-            hero.append(hero_section, hero_color_cover)
+            hero.append(hero_section, hero_color_cover);
         // Intro
-            intro_h2.textContent = "PLACEHOLDER: HVAD ER????";
-            intro_p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
-            
-            intro_block.append(intro_h2, intro_p); intro_section.appendChild(intro_block);
+            //Links with Icons
+            i_github.src = "../images/icons/github_round_black.png"
+            a_github.appendChild(i_github);
+
+            // Don't have Github if Englerod( Has no Github)
+            if (document.querySelector("body").id = "template_englerod") {
+                a_container.appendChild(a_live)
+            } else {
+                a_container.append(a_github, a_live);
+            }
+            a_github.textContent = "View on Github";
+
+            intro_block.append(intro_h2, intro_p, a_container); intro_section.appendChild(intro_block);
             intro_section.id = "template_intro";
             intro_section.classList.add("flex-center");
             main.appendChild(intro_section);
@@ -687,26 +701,40 @@ function PROJEKTcreate_template (check) {
             main.appendChild(next_section);
 
         // Switch content depending on URL.
+        let intro_h2_start = "Hvad er ";
         switch (check) {
             case "snv":
-                hero_h2.textContent = "MAJ - JUNI 2021";
+                // Hero
+                    hero_h2.textContent = "MAJ - JUNI 2021";
+                // Intro
+                    intro_h2.textContent = intro_h2_start + "SNV.dk?";
+                    intro_p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
+                
                 // Add ID to Body for dynamic styling.
                     document.querySelector("body").id = "template_snv";
 
                 next_a.href = "../englerod.html";
                 break;
             case "englerod":
-                hero_h2.textContent = "APRIL 2021";
+                // Hero
+                    hero_h2.textContent = "APRIL 2021";
+                 // Intro
+                     intro_h2.textContent = intro_h2_start + "Englerod.dk?";
+                     intro_p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
                 // Add ID to Body for dynamic styling.
                     document.querySelector("body").id = "template_englerod";
 
                 next_a.href = "../pinktree.html";
                 break;
             case "pinktree":
-                hero_h2.textContent = "AUGUST 2021";
+                //Hero
+                    hero_h2.textContent = "AUGUST 2021";
+                // Intro
+                    intro_h2.textContent = intro_h2_start + "Englerod.dk?";
+                    intro_p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
                 // Add ID to Body for dynamic styling.
                     document.querySelector("body").id = "template_pinktree";
-                next_a.href = "../englerod.html";
+                next_a.href = "../snv.html";
                 break;
         }
 }   
