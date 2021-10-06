@@ -148,6 +148,9 @@ header {
     width: 100%;
     z-index: 3;
 }
+header object {
+    pointer-events: none;
+}
 #hero {
     background-color: var(--color-bg-sec);
     position: fixed;
@@ -277,21 +280,29 @@ footer {
             #globalHeader_links li {
                 margin: 0 1vw;
             }
+            #globalHeader_links li:active {
+                transform: scale(.95);
+            }
             #globalHeader_links a {
                 color: black;
                 /* font-weight: bold; */
                 text-decoration: none;
             }
+            #globalHeader_links a:hover {
+                color: #f27720;
+            }
+    
         /* Icons */
             #globalHeader_soMiIcons {
                 display: flex;
                 align-items: center;
             }
             #globalHeader_soMiIcons div, #intro_github_icon {
-                width: 27px;
+                width: 36px;
+                height: 36px;
                 margin: 0 1vw;
             }
-            #globalHeader_soMiIcons img {
+            #globalHeader_soMiIcons object {
                 width: 100%;
                 height: auto;
             }
@@ -576,7 +587,7 @@ footer {
     }
 
     /* Background Image */
-        body#kontakt section#hero, body#projekter section#hero {
+        body#kontakt section#hero, body#projekter section#hero, body#om-mig section#hero {
             background-image: url(../images/svg/cloud_background_large.svg);
             background-position: center;
             background-repeat: no-repeat;
@@ -603,25 +614,24 @@ footer {
         list-style-type: none;
     }
     #kontakt-object_container {
-        width: 50%;
+        width: 60%;
 
         display: flex;
         justify-content: center;
     }
     #kontakt-object {
-        width: 90%;
+        width: 100%;
         height: auto;
     }
     #kontakt-object object {
         width: 100%;
     }
-
     #kontakt-info_box {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
 
-        padding: 0 var(--global-padding-text);
+        /* padding: 0 var(--global-padding-text); */
     }
         
 

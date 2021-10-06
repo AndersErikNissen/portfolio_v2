@@ -445,21 +445,26 @@
 
             /* Clouds */
             #bg_cloud_grp {
+                opacity: 0;
                 animation: cloud_fast 20s infinite linear;
             }
             #bg_cloudRight {
+                opacity: 0;
                 animation: cloud_fast 25s infinite linear;
             }
             #bg_cloud_leftLarge {
+                opacity: 0;
                 animation: cloud_medium 26s infinite linear;
                 animation-delay: 3s;
             }
             #front_cloud_right {
-                animation: cloud_fast 14s infinite linear;
+                opacity: 0;
+                animation: cloud_slow2 18s infinite linear;
             }
             #front_cloud_small {
-                animation: cloud_slow 14s infinite linear;
-                animation-delay: 2s; /* Only works onload (the first time) */
+                opacity: 0;
+                animation: cloud_slow 20s infinite linear;
+                animation-delay: 2s;
             }
 
             /* Desk */
@@ -479,17 +484,47 @@
 
             /* Clouds */
             @keyframes cloud_fast {
-                80% {transform: translateX(-1000px);}
-                100% {transform: translateX(-1000px);}
+                28% {opacity: 0;}
+                31% {opacity: 1;}
+                67% {opacity: 1;}
+                70% {opacity: 0;}
+                100% {
+                    opacity: 0;
+                    transform: translateX(-1000px);
+                }
             }
             @keyframes cloud_medium {
+                38% {opacity: 0;}
+                41% {opacity: 1;}
                 10% {transform: translateX(0px);}
-                70% {transform: translateX(-1000px);}
-                100% {transform: translateX(-1000px);}
+                67% {opacity: 1;}
+                70% {opacity: 0;}
+                100% {
+                    transform: translateX(-1000px);
+                    opacity: 0;
+                }
             }
             @keyframes cloud_slow {
-                30% {transform: translateX(0px);}
-                100% {transform: translateX(-1000px);}
+                40% {opacity: 0;}
+                42% {opacity: 1;}
+                72% {opacity: 1;}
+                75% {opacity: 0;}
+                10% {transform: translateX(0px);}
+                100% {
+                    transform: translateX(-1000px);
+                    opacity: 0;
+                }
+            }
+            @keyframes cloud_slow2 {
+                40% {opacity: 0;}
+                42% {opacity: 1;}
+                68% {opacity: 1;}
+                70% {opacity: 0;}
+                10% {transform: translateX(0px);}
+                100% {
+                    transform: translateX(-1000px);
+                    opacity: 0;
+                }
             }
 
             @keyframes cloud_small {
