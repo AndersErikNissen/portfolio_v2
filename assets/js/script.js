@@ -42,6 +42,7 @@
             soMi.id = "globalHeader_soMiIcons";
         // Logo
             logo_a.href = "index.html";
+            // logo_img.src = "assets/images/logo/aen_logo_underedge_black_1.png";
             logo_img.src = "assets/images/logo/aen_logo_simple_1.png";
             logo_div.id = "logo_div";
             logo_div.classList.add("flex-center")
@@ -75,26 +76,28 @@
             }
             for (let i = 0; i < 3; i++) {
                 let
-                soMi_li = document.createElement("li"), soMi_a = document.createElement("a"), soMi_div = document.createElement("div"), soMi_obj = document.createElement("object");
+                soMi_li = document.createElement("li"), soMi_a = document.createElement("a"), soMi_div = document.createElement("div"), soMi_img = document.createElement("img");
                 //Add class and more
                     
                     switch (i) {
                         case 0:
                             soMi_a.href = "https://github.com/AndersErikNissen";
-                            soMi_obj.data = "assets/images/icons/github_round_fill.svg";
+                            soMi_img.src = "assets/images/icons/github_round_black.png";
+                            soMi_img.alt = "Link og Billede til Github";
                             break;
                         case 1:
                             soMi_a.href = "https://www.instagram.com/aendersledes/";
-                            soMi_obj.data = "assets/images/icons/instagram_round_fill.svg";
+                            soMi_img.src = "assets/images/icons/instagram_round_black.png";
+                            soMi_img.alt = "Link og Billede til Instagram";
                             break;
                         case 2:
                             soMi_a.href = "https://www.linkedin.com/in/anders-erik-nissen/";
-                            soMi_obj.data = "assets/images/icons/linkedin_round_fill.svg";
+                            soMi_img.src = "assets/images/icons/linkedin_round_black.png";
+                            soMi_img.alt = "Link og Billede til LinkedIn";
                             break;
                     }
-                    soMi_obj.type = "image/svg+xml";
                 //Append
-                    soMi_div.appendChild(soMi_obj)
+                    soMi_div.appendChild(soMi_img)
                     soMi_a.appendChild(soMi_div);
                     soMi_li.appendChild(soMi_a);
                     soMi.appendChild(soMi_li);
