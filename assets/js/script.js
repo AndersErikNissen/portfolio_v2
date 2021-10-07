@@ -9,7 +9,11 @@
     thisURL = document.location.href,
     hero = document.querySelector("#hero"),
     main = document.querySelector("main"),
-    nav = document.querySelector("#globalHeader");
+    nav = document.querySelector("#globalHeader"),
+    // Match Media
+    mmtablet = matchMedia("(max-width: 1024px"),
+    mobile = matchMedia('(max-width: 478px')
+    ;
 
     //Changes URL without Reloading
     // function URLcreate () {
@@ -31,12 +35,58 @@
         document.title = newTitle + " - Anders Erik Nissen - Portfolio"
     }
 
+    function burgerIcon() {
+        let
+        // Create 3 div in a container
+        container = document.createElement("section"),
+        div1 = document.createElement("div"),
+        div2 = document.createElement("div"),
+        div3 = document.createElement("div");
+
+        // Add Ids and Class'
+        container.id = "burgerContainer";
+        container.classList.add("neutral");
+        
+        div1.id = "burgerDiv1"; div1.classList.add("c_burgerDiv");
+        div2.id = "burgerDiv2"; div2.classList.add("c_burgerDiv");
+        div3.id = "burgerDiv3"; div3.classList.add("c_burgerDiv");
+
+        container.append(div1,div2,div3);
+        nav.appendChild(container);
+
+        container.addEventListener("click", (e) => {
+            if (container.classList.contains("neutral")) {
+                // Remove
+                container.classList.remove("neutral");
+                div1.classList.remove("ani_burger1_neutral");
+                div2.classList.remove("ani_burger2_neutral");
+                div3.classList.remove("ani_burger3_neutral");
+                // Add
+                container.classList.add("animated");
+                div1.classList.add("ani_burger1_animated");
+                div2.classList.add("ani_burger2_animated");
+                div3.classList.add("ani_burger3_animated");
+            } else {
+                // Remove
+                container.classList.remove("animated");
+                div1.classList.remove("ani_burger1_animated");
+                div2.classList.remove("ani_burger2_animated");
+                div3.classList.remove("ani_burger3_animated");
+                // Add
+                container.classList.add("neutral");
+                div1.classList.add("ani_burger1_neutral");
+                div2.classList.add("ani_burger2_neutral");
+                div3.classList.add("ani_burger3_neutral");
+            }
+        })
+    }
+
     function NAVcreate () {
         let
         // Logo ( LEFT )
             logo_a = document.createElement("a"), logo_div = document.createElement("div"), logo_img = document.createElement("img"),
         // NAV ( RIGHT )
-            gNAV = document.createElement("nav"), links = document.createElement("ul"), soMi = document.createElement("ul");
+            desktopNAV = document.createElement("nav"), links = document.createElement("ul"), soMi = document.createElement("ul");
         // Add ID's
             links.id = "globalHeader_links";
             soMi.id = "globalHeader_soMiIcons";
@@ -100,8 +150,13 @@
                     soMi.appendChild(soMi_li);
             }
             //Append all to header
-                gNAV.append(links, soMi);
-                document.querySelector("#globalHeader").append(logo_a, gNAV);
+            if () {
+
+            } else {
+
+            }
+                desktopNAV.append(links, soMi);
+                document.querySelector("#globalHeader").append(logo_a, desktopNAV);
     }
 
     function globalNAV () {
@@ -226,8 +281,8 @@
             case "snv":
                 SKYcreate()
                 PROJEKTcreate_template (check)
-                SKYcreate_footer("white")
-                SCROLLDOWNcreate()
+                SKYcreate_footer()
+                SCROLLDOWNcreate("white")
                 break;
             case "englerod":
                 SKYcreate()
@@ -477,7 +532,7 @@ function FORSIDEcreate () {
             forPer_obj.type = "image/svg+xml";
             forPer_obj.id = "obj_desk";
             
-            link_ommig.href = "?om-mig";
+            link_ommig.href = "om-mig.html";
             link_ommig.textContent = "LÆS MERE";
 
             forPer_textBox.append(forPer_h2, forPer_p, link_ommig);
@@ -972,6 +1027,11 @@ function footerPosition() {
 // I think it has something to do in what order HTML is drawn and the height of elements are calculated(? Might be wrong).
 window.addEventListener("load", ()=> {
     footerPosition();
+
+    let h1Height = document.querySelector("#globalHeader").offsetHeight;
+
+    document.documentElement.style.setProperty('--mobile-h1-margin-top', h1Height + "px");
+
 })
 
 
@@ -982,7 +1042,7 @@ window.onload = () => {
     // After the loading is done remove the div, after the animation
     const loadingClass = ()=> document.querySelector("#loading_div").classList.add("loading");
     loadingClass();
-    setTimeout(()=> document.querySelector("#loading_dots").style.display = "none", 1000);
+    setTimeout(()=> document.querySelector("#loading_clouds").style.display = "none", 1000);
     setTimeout(()=> document.querySelector("#loading_div").remove(), 2000);
 
 }

@@ -455,7 +455,6 @@
             #bg_cloud_leftLarge {
                 opacity: 0;
                 animation: cloud_medium 26s infinite linear;
-                animation-delay: 3s;
             }
             #front_cloud_right {
                 opacity: 0;
@@ -464,7 +463,6 @@
             #front_cloud_small {
                 opacity: 0;
                 animation: cloud_slow 20s infinite linear;
-                animation-delay: 2s;
             }
 
             /* Desk */

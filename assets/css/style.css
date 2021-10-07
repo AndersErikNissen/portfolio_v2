@@ -3,6 +3,8 @@ UCN MMDA0920*/
 @charset "uft-8";
 * {box-sizing: border-box; margin: 0; padding: 0}
 
+ html {font-size: 100%;} /*16px*/
+
 
 /*      -------------
         --- FONTS ---
@@ -43,9 +45,9 @@ UCN MMDA0920*/
 
     p {margin-bottom: 1rem;}
 
-    body#forside #heroTextSection h2 {
+    /* body#forside #heroTextSection h2 {
         font-size: calc(1rem * 1.5);
-    }
+    } */
     body#forside main, body#projekter main {
         color: rgba(5, 5, 5);
     }
@@ -58,8 +60,16 @@ UCN MMDA0920*/
     /* 
         ----- Styling of Elements
     */
+        /* Burger Value */ 
+        --burger-value: 3px;
+        --burger-time: .7s;
+        --burger-translateY: calc(var(--burger-value) * 2);
+        
         /* Center Flex */
         --center-flex: row;
+        /* Center Content Flex */
+        --center-flex-content: row;
+
         /* Corners */
         --corners-mid: 20px;
         --corners-round: 50%;
@@ -199,6 +209,133 @@ footer {
 /*      ---------------- 
         ---- GLOBAL ----
         ----------------    */ 
+/* Burger Menu */
+#burgerContainer {
+    cursor: pointer;
+    width: calc(var(--burger-value) * 9);
+    height: calc(var(--burger-value) * 9);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+.c_burgerDiv {
+    display: block;
+    height: var(--burger-value);
+    width: calc(var(--burger-value) * 6);
+    border-radius: calc(var(--burger-value) * 3);
+    margin: var(--burger-value) auto;
+    background-color: black;
+}
+/* Animate Icon */
+    /* Animated - from = to X */
+    .ani_burger1_animated {
+        animation: ani_burger1 var(--burger-time) linear forwards;
+        transform-origin: center center;
+    }
+    .ani_burger2_animated {
+        animation: ani_burger2 var(--burger-time) linear forwards;
+    }
+    .ani_burger3_animated {
+        animation: ani_burger3 var(--burger-time) linear forwards;
+        transform-origin: center center;
+    }
+    @keyframes ani_burger1 {
+        30% {transform: translateY(var(--burger-translateY));}
+        40% {transform: translateY(var(--burger-translateY));}
+        80% {
+            transform: translateY(var(--burger-translateY)) rotate(70deg);
+        }
+        90% {
+            transform: translateY(var(--burger-translateY)) rotate(25deg);
+        }
+        100% {
+            transform: translateY(var(--burger-translateY)) rotate(45deg);
+        }
+    }
+    @keyframes ani_burger2 {
+        29% {opacity: 1;}
+        30% {opacity: 0;}
+        100% {opacity: 0;}
+    }
+    @keyframes ani_burger3 {
+        30% {transform: translateY(calc(0px - var(--burger-translateY)));}
+        40% {transform: translateY(calc(0px - var(--burger-translateY)));}
+        80% {
+            transform: translateY(calc(0px - var(--burger-translateY))) rotate(160deg);
+        }
+        90% {
+            transform: translateY(calc(0px - var(--burger-translateY))) rotate(115deg);
+        }
+        100% {
+            transform: translateY(calc(0px - var(--burger-translateY))) rotate(135deg);
+        }
+    }
+    /* Neutral - from X to = */
+    .ani_burger1_neutral {
+        animation: ani_burger1n var(--burger-time) linear forwards;
+        transform-origin: center center;
+    }
+    .ani_burger2_neutral {
+        animation: ani_burger2n var(--burger-time) linear forwards;
+    }
+    .ani_burger3_neutral {
+        animation: ani_burger3n var(--burger-time) linear forwards;
+        transform-origin: center center;
+    }
+    @keyframes ani_burger1n {
+        /* Rember to always have 0% in the out-keyframe, because otherwise it will start from the original position */
+        0% {
+            transform: translateY(var(--burger-translateY)) rotate(45deg);
+        }
+        40% {
+            transform: translateY(var(--burger-translateY)) rotate(-25deg);
+        }
+        50% {
+            transform: translateY(var(--burger-translateY)) rotate(20deg);
+        }
+        60% {
+            transform: translateY(var(--burger-translateY)) rotate(0deg);
+        }
+        70% {
+            transform: translateY(var(--burger-translateY)) rotate(0deg);
+        }
+        90% {
+            transform: translateY(calc(0px - var(--burger-value))) rotate(0deg);
+        }
+        100% {
+            transform: translateY(0px) rotate(0deg);
+        }
+    }
+    @keyframes ani_burger2n {
+        0% {opacity: 0;}
+        70% {opacity: 0;}
+        71% {opacity: 1;}
+    }
+    @keyframes ani_burger3n {
+        0% {
+            transform: translateY(calc(0px - var(--burger-translateY))) rotate(135deg);
+        }
+        40% {
+            transform: translateY(calc(0px - var(--burger-translateY))) rotate(-25deg);
+        }
+        50% {
+            transform: translateY(calc(0px - var(--burger-translateY))) rotate(20deg);
+        }
+        60% {
+            transform: translateY(calc(0px - var(--burger-translateY))) rotate(0deg);
+        }
+        70% {
+            transform: translateY(calc(0px - var(--burger-translateY))) rotate(0deg);
+        }
+        90% {
+            transform: translateY(var(--burger-value)) rotate(0deg);
+        }
+        100% {
+            transform: translateY(0px) rotate(0deg);
+        }
+    }
+
+
     /* Styling  */
         p {
             max-width: 70ch;
@@ -413,7 +550,7 @@ footer {
             display: flex;
             justify-content: center;
             width: 100%;
-            min-height: 100%;
+            /* min-height: 100%; */
         }
         #forsideHeroObjBox object {
             width: 100%;
@@ -488,6 +625,7 @@ footer {
             min-width: var(--global-min-width-center);
 
             display: flex; 
+            flex-direction: var(--center-flex-content);
         }
 
         #englerod_imgBox {background-color: #f27720;}
@@ -553,6 +691,11 @@ footer {
             border: solid 1px var(--color-bg-sec);
 
             display: flex;
+        }
+
+        /* Intro */
+        #template_intro {
+            padding: 3rem 0;
         }
     /* Next Project */
     #template_next a {
@@ -744,13 +887,40 @@ footer {
         --global-min-width-center: unset;
     }
 
+    /* Font Size */
+    h1 {
+        font-size: 2.488rem;
+    }
+
+    h2 {
+        font-size: 2.074rem;
+        margin: .2rem 0;
+    }
+
+    h3 {font-size: 1.728rem;}
+
+    h4 {font-size: 1.44rem;}
+
+    h5 {font-size: 1.2rem;}
+
+    /* Global */
+    #scroll_down {
+        justify-content: start;
+        padding: 0 0 0 1rem;
+        bottom: .5rem;
+    }
+    .button {
+        margin: 0 0 0 1rem;
+    }
     /* Forside */
     #outer_hero {
         width: auto;
+        height: 100%;
     }
     body#forside #heroTextSection {
         width: 100%;
         align-items: center;
+        justify-content: start;
     }
     #forsideHeroObjBox {
         width: 100%;
@@ -758,11 +928,43 @@ footer {
         /* Main */
         .projektMain {
             width: 100%;
+            max-width: 600px;
         }
         .projektMain section {
             width: 100%;
 
         }
+}
+@media screen and (max-width: 479px) {
+    :root {
+        --center-flex-content: column;
+        --mobile-h1-margin-top: 0px;
+    }
+
+    /* More Spacing */
+        h1 {
+            margin-top: calc(var(--mobile-h1-margin-top) + 1rem);
+        }
+        h1, h2, p {
+            padding: 0 1rem;
+        }
+
+        /* Forside */
+        body#forside h1 {
+            background-color: white;
+        }
+
+        /* Object */
+        #forsideHeroObjBox {
+            display: none;
+        }
+
+
+    /* Projekt Sections */
+    .projektMain section img, .projektMain section object {
+        width: 100%;
+    }
+    
 }
 
 
