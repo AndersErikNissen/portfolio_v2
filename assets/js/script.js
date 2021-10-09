@@ -11,8 +11,8 @@
     main = document.querySelector("main"),
     nav = document.querySelector("#globalHeader"),
     // Match Media
-    mmtablet = matchMedia("(max-width: 1024px"),
-    mobile = matchMedia('(max-width: 478px')
+    mm_Tablet = matchMedia("(max-width: 1024px"),
+    mm_Mobile = matchMedia('(max-width: 478px')
     ;
 
     //Changes URL without Reloading
@@ -150,11 +150,12 @@
                     soMi.appendChild(soMi_li);
             }
             //Append all to header
-            if () {
+            burgerIcon();
+            // if () {
 
-            } else {
+            // } else {
 
-            }
+            // }
                 desktopNAV.append(links, soMi);
                 document.querySelector("#globalHeader").append(logo_a, desktopNAV);
     }
