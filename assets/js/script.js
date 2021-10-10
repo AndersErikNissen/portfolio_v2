@@ -267,8 +267,8 @@
         list.forEach( each => {
             let 
             //Check each href + slice "?"
-            att = each.getAttribute("href"),
-            attCut = att.slice(1);
+            att = each.getAttribute("href").split(".html"),
+            attCut = att[0];
             // First remove if there is any .active_nav, then add to the matching nav-li-element.
             each.classList.remove("active_nav");
             if (attCut === act) {

@@ -418,7 +418,7 @@ footer {
         }
         /* Links */
             /* Active */
-            #globalHeader_links .active_nav a {
+            #globalHeader_links a.active_nav {
                 text-decoration: underline;
             }
 
