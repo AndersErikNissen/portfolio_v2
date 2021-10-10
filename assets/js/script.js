@@ -11,8 +11,8 @@
     main = document.querySelector("main"),
     nav = document.querySelector("#globalHeader"),
     // Match Media
-    mm_Tablet = matchMedia("(max-width: 1024px"),
-    mm_Mobile = matchMedia('(max-width: 478px')
+    mm_Tablet = window.matchMedia('(max-width: 1024px)'),
+    mm_Mobile = window.matchMedia('(max-width: 478px)')
     ;
 
     //Changes URL without Reloading
@@ -61,6 +61,7 @@
                 div1.classList.remove("ani_burger1_neutral");
                 div2.classList.remove("ani_burger2_neutral");
                 div3.classList.remove("ani_burger3_neutral");
+                
                 // Add
                 container.classList.add("animated");
                 div1.classList.add("ani_burger1_animated");
@@ -131,15 +132,27 @@
                     switch (i) {
                         case 0:
                             soMi_a.href = "https://github.com/AndersErikNissen";
-                            soMi_obj.data = "assets/images/icons/github_round_fill.svg";
+                            if (mm_Tablet.matches) {
+                                soMi_obj.data = "assets/images/icons/github_white_round.svg";
+                            } else {
+                                soMi_obj.data = "assets/images/icons/github_round_fill.svg";
+                            }
                             break;
                         case 1:
                             soMi_a.href = "https://www.instagram.com/aendersledes/";
-                            soMi_obj.data = "assets/images/icons/instagram_round_fill.svg";
+                            if (mm_Tablet.matches) {
+                                soMi_obj.data = "assets/images/icons/instagram_white_round.svg";
+                            } else {
+                                soMi_obj.data = "assets/images/icons/instagram_round_fill.svg";
+                            }
                             break;
                         case 2:
                             soMi_a.href = "https://www.linkedin.com/in/anders-erik-nissen/";
-                            soMi_obj.data = "assets/images/icons/linkedin_round_fill.svg";
+                            if (mm_Tablet.matches) {
+                                soMi_obj.data = "assets/images/icons/linkedin_white_round.svg";
+                            } else {
+                                soMi_obj.data = "assets/images/icons/linkedin_round_fill.svg";
+                            }
                             break;
                     }
                     soMi_obj.type = "image/svg+xml";
@@ -150,14 +163,60 @@
                     soMi.appendChild(soMi_li);
             }
             //Append all to header
-            burgerIcon();
-            // if () {
+            if (mm_Tablet.matches) {
+                let
+                // Build Curtain
+                    curtain_outer = document.createElement("section"), curtain_main = document.createElement("section");
+                
+                curtain_main.append(links, soMi);
+                curtain_main.id = "burgerCurtain_main";
 
-            // } else {
+                curtain_outer.appendChild(curtain_main);
+                curtain_outer.id = "burgerCurtain_outer";
+                curtain_outer.classList.add("hide_curtain");
 
-            // }
+
+                nav.appendChild(logo_a);
+                burgerIcon();
+
+                document.querySelector("body").appendChild(curtain_outer);
+
+                // Show / Hide the curtain
+                let
+                // To check if fadeIn/Out should be used after closing the curtain.
+                main = document.querySelector("main"),
+                top;
+
+                document.querySelector("#burgerContainer").addEventListener("click", (e)=> {
+                    if (curtain_outer.classList.contains("hide_curtain")) {
+                        curtain_outer.classList.remove("hide_curtain");
+                        curtain_outer.classList.add("show_curtain");
+
+                        curtain_main.style.display = "flex";
+                        curtain_main.classList.add("show_curtain_main");
+
+                        nav.classList.remove("nav_fadeOut");
+                        nav.classList.add("nav_fadeIn");
+                    } else {
+                        curtain_outer.classList.remove("show_curtain");
+                        curtain_outer.classList.add("hide_curtain");
+
+                        top = main.getBoundingClientRect().top;
+                        
+                        nav.classList.remove("nav_fadeIn");
+                        nav.classList.remove("nav_fadeOut");
+                        
+                        if (top < 0) {
+                            nav.classList.add("nav_fadeIn");
+                        } else {
+                            nav.classList.add("nav_fadeOut");
+                        }
+                    }
+                })
+            } else {
                 desktopNAV.append(links, soMi);
                 document.querySelector("#globalHeader").append(logo_a, desktopNAV);
+            }
     }
 
     function globalNAV () {
@@ -170,14 +229,17 @@
         if (top < 0) {
             nav.classList.remove("nav_fadeOut");
             nav.classList.add("nav_fadeIn");
-        } 
-        if (top > 0) {
-            //Prevents JS from adding nav_fadeOut on first scroll down.
-            if (nav.classList.contains("nav_fadeIn")) {
-                nav.classList.add("nav_fadeOut");
-            }
+        } else {
             nav.classList.remove("nav_fadeIn");
+            nav.classList.add("nav_fadeOut");
         }
+        // if (top > 0) {
+        //     //Prevents JS from adding nav_fadeOut on first scroll down.
+        //     if (nav.classList.contains("nav_fadeIn")) {
+        //         nav.classList.add("nav_fadeOut");
+        //     }
+        //     nav.classList.remove("nav_fadeIn");
+        // }
     }
     document.addEventListener("scroll", globalNAV);
 
@@ -592,7 +654,7 @@ function FORSIDEcreate () {
             //Append 
                 imgLogo_box.append(logo, img);
                 a.appendChild(imgLogo_box);
-                pMain.append(h2, h4, a);
+                pMain.appendChild(a);
                 section.appendChild(pMain);
                 forPro_section.appendChild(section);
         }
@@ -813,35 +875,6 @@ function KONTAKTcreate () {
             soMi = document.createElement("section"), soMi_ul = document.createElement("ul"), soMi_h2 = document.createElement("h2"),
         // Img
             img_outer = document.createElement("section"), object = document.createElement("object");
-        // SoMI LI   
-            for (let i = 0; i < 3; i++) {
-                let
-                soMi_li = document.createElement("li"), soMi_a = document.createElement("a"), soMi_div = document.createElement("div"), soMi_img = document.createElement("img");
-                //Add class and more
-                    
-                    switch (i) {
-                        case 0:
-                            soMi_a.href = "https://github.com/AndersErikNissen";
-                            soMi_img.src = "assets/images/icons/github_round_black.png";
-                            soMi_img.alt = "Link og Billede til Github";
-                            break;
-                        case 1:
-                            soMi_a.href = "https://www.instagram.com/aendersledes/";
-                            soMi_img.src = "assets/images/icons/instagram_round_black.png";
-                            soMi_img.alt = "Link og Billede til Instagram";
-                            break;
-                        case 2:
-                            soMi_a.href = "https://www.linkedin.com/in/anders-erik-nissen/";
-                            soMi_img.src = "assets/images/icons/linkedin_round_black.png";
-                            soMi_img.alt = "Link og Billede til LinkedIn";
-                            break;
-                    }
-                //Append
-                    soMi_div.appendChild(soMi_img)
-                    soMi_a.appendChild(soMi_div);
-                    soMi_li.appendChild(soMi_a);
-                    soMi_ul.appendChild(soMi_li);
-            }
         // Add and Append
             // Text Area
                 h1.textContent = "LAD OS TAGE EN SNAK!";
@@ -852,13 +885,7 @@ function KONTAKTcreate () {
                 non_img.appendChild(text_area);
                 non_img.id = "kontakt-info_box";
                 outer.id = "kontakt-outer_container";
-            // SoMi
-                soMi_h2.textContent = "Følg mig på:";
-                soMi.append(soMi_h2, soMi_ul);
-                soMi.id = "kontakt-soMi";
-                soMi_ul.id = "kontakt-soMi_ul";
-                non_img.appendChild(soMi);
-            // SoMi Li
+      
                 object.data = "assets/images/svg/balloon_with_clouds.svg";
                 object.type = "image/svg+xml";
                 object.id = "kontakt-object";
@@ -928,7 +955,7 @@ function PROJEKTERcreate () {
             //Append 
                 imgLogo_box.append(logo, img);
                 a.appendChild(imgLogo_box);
-                pMain.append(h2, h4, a);
+                pMain.appendChild(a);
                 section.appendChild(pMain);
                 sko_section.appendChild(section);
         }
@@ -987,7 +1014,7 @@ function PROJEKTERcreate () {
                 //Append 
                     imgLogo_box.append(logo, img);
                     a.appendChild(imgLogo_box);
-                    pMain.append(h2, h4, a);
+                    pMain.appendChild(a);
                     section.appendChild(pMain);
                     mini_section.appendChild(section);
             }

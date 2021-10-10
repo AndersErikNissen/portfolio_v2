@@ -52,6 +52,10 @@ UCN MMDA0920*/
         color: rgba(5, 5, 5);
     }
 
+    li {
+        list-style-type: none;
+    }
+
 
 /*############### 
     VARIABLER 
@@ -166,7 +170,7 @@ header object {
     position: fixed;
     top: 0;
     left: 0;
-    min-height: 100%;
+    height: 100%;
     width: 100%;
     z-index: 0;
 }
@@ -217,6 +221,7 @@ footer {
     position: absolute;
     top: 1rem;
     right: 1rem;
+    z-index: 6;
 }
 .c_burgerDiv {
     display: block;
@@ -242,15 +247,9 @@ footer {
     @keyframes ani_burger1 {
         30% {transform: translateY(var(--burger-translateY));}
         40% {transform: translateY(var(--burger-translateY));}
-        80% {
-            transform: translateY(var(--burger-translateY)) rotate(70deg);
-        }
-        90% {
-            transform: translateY(var(--burger-translateY)) rotate(25deg);
-        }
-        100% {
-            transform: translateY(var(--burger-translateY)) rotate(45deg);
-        }
+        80% {transform: translateY(var(--burger-translateY)) rotate(70deg);}
+        90% {transform: translateY(var(--burger-translateY)) rotate(25deg);}
+        100% {transform: translateY(var(--burger-translateY)) rotate(45deg);}
     }
     @keyframes ani_burger2 {
         29% {opacity: 1;}
@@ -260,15 +259,9 @@ footer {
     @keyframes ani_burger3 {
         30% {transform: translateY(calc(0px - var(--burger-translateY)));}
         40% {transform: translateY(calc(0px - var(--burger-translateY)));}
-        80% {
-            transform: translateY(calc(0px - var(--burger-translateY))) rotate(160deg);
-        }
-        90% {
-            transform: translateY(calc(0px - var(--burger-translateY))) rotate(115deg);
-        }
-        100% {
-            transform: translateY(calc(0px - var(--burger-translateY))) rotate(135deg);
-        }
+        80% {transform: translateY(calc(0px - var(--burger-translateY))) rotate(160deg);}
+        90% {transform: translateY(calc(0px - var(--burger-translateY))) rotate(115deg);}
+        100% {transform: translateY(calc(0px - var(--burger-translateY))) rotate(135deg);}
     }
     /* Neutral - from X to = */
     .ani_burger1_neutral {
@@ -284,27 +277,13 @@ footer {
     }
     @keyframes ani_burger1n {
         /* Rember to always have 0% in the out-keyframe, because otherwise it will start from the original position */
-        0% {
-            transform: translateY(var(--burger-translateY)) rotate(45deg);
-        }
-        40% {
-            transform: translateY(var(--burger-translateY)) rotate(-25deg);
-        }
-        50% {
-            transform: translateY(var(--burger-translateY)) rotate(20deg);
-        }
-        60% {
-            transform: translateY(var(--burger-translateY)) rotate(0deg);
-        }
-        70% {
-            transform: translateY(var(--burger-translateY)) rotate(0deg);
-        }
-        90% {
-            transform: translateY(calc(0px - var(--burger-value))) rotate(0deg);
-        }
-        100% {
-            transform: translateY(0px) rotate(0deg);
-        }
+        0% {transform: translateY(var(--burger-translateY)) rotate(45deg);}
+        40% {transform: translateY(var(--burger-translateY)) rotate(-25deg);}
+        50% {transform: translateY(var(--burger-translateY)) rotate(20deg);}
+        60% {transform: translateY(var(--burger-translateY)) rotate(0deg);}
+        70% {transform: translateY(var(--burger-translateY)) rotate(0deg);}
+        90% {transform: translateY(calc(0px - var(--burger-value))) rotate(0deg);}
+        100% {transform: translateY(0px) rotate(0deg);}
     }
     @keyframes ani_burger2n {
         0% {opacity: 0;}
@@ -312,31 +291,50 @@ footer {
         71% {opacity: 1;}
     }
     @keyframes ani_burger3n {
-        0% {
-            transform: translateY(calc(0px - var(--burger-translateY))) rotate(135deg);
-        }
-        40% {
-            transform: translateY(calc(0px - var(--burger-translateY))) rotate(-25deg);
-        }
-        50% {
-            transform: translateY(calc(0px - var(--burger-translateY))) rotate(20deg);
-        }
-        60% {
-            transform: translateY(calc(0px - var(--burger-translateY))) rotate(0deg);
-        }
-        70% {
-            transform: translateY(calc(0px - var(--burger-translateY))) rotate(0deg);
-        }
-        90% {
-            transform: translateY(var(--burger-value)) rotate(0deg);
-        }
-        100% {
-            transform: translateY(0px) rotate(0deg);
-        }
+        0% {transform: translateY(calc(0px - var(--burger-translateY))) rotate(135deg);}
+        40% {transform: translateY(calc(0px - var(--burger-translateY))) rotate(-25deg);}
+        50% {transform: translateY(calc(0px - var(--burger-translateY))) rotate(20deg);}
+        60% {transform: translateY(calc(0px - var(--burger-translateY))) rotate(0deg);}
+        70% {transform: translateY(calc(0px - var(--burger-translateY))) rotate(0deg);}
+        90% {transform: translateY(var(--burger-value)) rotate(0deg);}
+        100% {transform: translateY(0px) rotate(0deg);}
     }
+    /* Burger Curtain */
+        #burgerCurtain_outer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background-color: var(--color-btn-cta);
+            z-index: 2;
 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #burgerCurtain_main {
+            display: none;
+        }
+        #burgerCurtain_outer.show_curtain {
+            transition: .7s linear;
+            height: 100%;
+        }
+        #burgerCurtain_outer.hide_curtain {
+            transition: .7s linear;
+            height: 0%;
+        }
+
+        .show_curtain_main {
+            animation: .7s show_curtain_main linear forwards;
+        }
+        @keyframes show_curtain_main {
+            30% {opacity: 0; transform: translateY(2rem);}
+            100% {opacity: 1; transform: translateY(0px);}
+        }
 
     /* Styling  */
+    /* Active Nav */
         p {
             max-width: 70ch;
         }
@@ -406,7 +404,7 @@ footer {
         }
         /* Links */
             /* Active */
-            #globalHeader_links .active_nav {
+            #globalHeader_links .active_nav a {
                 text-decoration: underline;
             }
 
@@ -590,6 +588,7 @@ footer {
         #obj_desk {
             height: 100%;
             width: auto;
+            margin: 1rem 0;
         }
 
     /* Forside - Projekter */
@@ -772,7 +771,7 @@ footer {
     #kontakt-info_box {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
 
         /* padding: 0 var(--global-padding-text); */
     }
@@ -896,12 +895,15 @@ footer {
         font-size: 2.074rem;
         margin: .2rem 0;
     }
-
     h3 {font-size: 1.728rem;}
 
     h4 {font-size: 1.44rem;}
 
     h5 {font-size: 1.2rem;}
+
+    h1, h2, p {
+        padding: 0 1rem;
+    }
 
     /* Global */
     #scroll_down {
@@ -910,10 +912,24 @@ footer {
         bottom: .5rem;
     }
     .button {
-        margin: 0 0 0 1rem;
+        margin: 1rem;
+    }
+    #globalHeader_links {
+        flex-direction: column;
+    }
+    #globalHeader_links a {
+        font-size: 2rem;
+        color: white;
+    }
+    #globalHeader_links li {
+        margin: 1rem 0;
+    }
+    #globalHeader_soMiIcons {
+        justify-content: space-between;
     }
     /* Forside */
     #outer_hero {
+        justify-content: end;
         width: auto;
         height: 100%;
     }
@@ -925,6 +941,9 @@ footer {
     #forsideHeroObjBox {
         width: 100%;
     }
+    /* #forsideHeroObjBox object {
+        max-height: 40vh;
+    } */
         /* Main */
         .projektMain {
             width: 100%;
@@ -932,8 +951,21 @@ footer {
         }
         .projektMain section {
             width: 100%;
-
         }
+
+    /* Kontakt */
+    #kontakt-outer_container {
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    #kontakt-object {
+        display: none;
+    }
+    #kontakt-info_box {
+        background-color: rgba(255, 236, 217,.7);
+        border-radius: 3px;
+    }
 }
 @media screen and (max-width: 479px) {
     :root {
@@ -955,16 +987,23 @@ footer {
         }
 
         /* Object */
-        #forsideHeroObjBox {
+        /* #forsideHeroObjBox {
             display: none;
-        }
+        } */
 
 
     /* Projekt Sections */
     .projektMain section img, .projektMain section object {
         width: 100%;
     }
-    
+    .projektMain section img {
+        min-height: 100vw;
+    }
+
+    /* Kontakt */
+    #aen_email {
+        font-size: 1.3rem;
+    }
 }
 
 
