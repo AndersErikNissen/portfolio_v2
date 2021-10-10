@@ -65,7 +65,7 @@ UCN MMDA0920*/
         ----- Styling of Elements
     */
         /* Burger Value */ 
-        --burger-value: 3px;
+        --burger-value: 4px;
         --burger-time: .7s;
         --burger-translateY: calc(var(--burger-value) * 2);
         
@@ -227,7 +227,7 @@ footer {
     display: block;
     height: var(--burger-value);
     width: calc(var(--burger-value) * 6);
-    border-radius: calc(var(--burger-value) * 3);
+    border-radius: 100px;
     margin: var(--burger-value) auto;
     background-color: black;
 }
@@ -316,7 +316,7 @@ footer {
         #burgerCurtain_main {
             display: none;
             width: 100%;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             flex-direction: column;
             opacity: 0;
@@ -940,7 +940,8 @@ footer {
     }
     #globalHeader_soMiIcons {
         justify-content: space-between;
-        width: 60%;
+        width: 50%;
+        margin: 3rem 0 0 0;
     }
     /* Forside */
     #outer_hero {
@@ -981,6 +982,10 @@ footer {
         background-color: rgba(255, 236, 217,.7);
         border-radius: 3px;
     }
+    /* Template - Projekter */
+    .pro_h2s {
+        margin: 2rem 0;
+    }
 }
 @media screen and (max-width: 479px) {
     :root {
@@ -1008,12 +1013,17 @@ footer {
 
 
     /* Projekt Sections */
-    .projektMain section img, .projektMain section object {
+    .projektMain section img {
+        display: none;
+    }
+    .projektMain section object {
         width: 100%;
+        height: 100vw;
     }
     .projektMain section img {
         min-height: 100vw;
     }
+
 
     /* Kontakt */
     #aen_email {

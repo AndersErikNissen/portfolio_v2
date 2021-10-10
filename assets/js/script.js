@@ -259,10 +259,12 @@
         //If the the site either SNV or Engelrod set active on "projekter"
         if (act === "snv") {
             act = "projekter";
-        }
-        if (act === "englerod") {
+        } else if (act === "englerod") {
+            act = "projekter";
+        } else if (act === "pinktree") {
             act = "projekter";
         }
+ 
         //Check each item in the Array.
         list.forEach( each => {
             let 
@@ -860,7 +862,7 @@ function PROJEKTcreate_template (check) {
                 //Hero
                     hero_h2.textContent = "AUGUST 2021";
                 // Intro
-                    intro_h2.textContent = intro_h2_start + "Englerod.dk?";
+                    intro_h2.textContent = intro_h2_start + "PINKTREE?";
                     intro_p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
 
                     a_github.href = "https://github.com/AndersErikNissen/mini_pinkTree";
