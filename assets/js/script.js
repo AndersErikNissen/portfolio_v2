@@ -192,8 +192,11 @@
                         curtain_outer.classList.remove("hide_curtain");
                         curtain_outer.classList.add("show_curtain");
 
-                        curtain_main.style.display = "flex";
-                        curtain_main.classList.add("show_curtain_main");
+                        setTimeout(()=> {
+                            curtain_main.style.display = "flex";
+                            curtain_main.classList.remove("hide_curtain_main");
+                            curtain_main.classList.add("show_curtain_main");
+                        },100)
 
                         nav.classList.remove("nav_fadeOut");
                         nav.classList.add("nav_fadeIn");
@@ -202,6 +205,12 @@
                         curtain_outer.classList.add("hide_curtain");
 
                         top = main.getBoundingClientRect().top;
+
+                        curtain_main.classList.remove("show_curtain_main");
+                        curtain_main.classList.add("hide_curtain_main");
+                        setTimeout(()=> {
+                            curtain_main.style.display = "none";
+                        }, 1000)
                         
                         nav.classList.remove("nav_fadeIn");
                         nav.classList.remove("nav_fadeOut");
