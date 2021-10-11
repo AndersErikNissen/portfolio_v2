@@ -490,9 +490,9 @@ function OMMIGcreate (check) {
 
     // Add Content / Append
         // Intro
-            h1.textContent = "MOJN";
-            intro_p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dolor id justo luctus euismod. Aliquam sem urna, sollicitudin in lobortis et, aliquet eget mi. Pellentesque maximus tempus quam id venenatis. Vivamus feugiat elit ac velit consequat, eu pellentesque velit condimentum. ";
-            introIMG.src = "assets/images/profile_picture_v2.jpg"; // Placeholder!!!!!!!!!!
+            h1.textContent = "MOJN.";
+            intro_p.textContent = "Jeg hedder Anders Erik Nissen, jeg er 27år gammel og studere til Multimediedesigner hos UCN – Aalborg. I foråret 2022 skal jeg i praktik i en virksomhed, hvor jeg håber på at kunne komme til at fordybe mig og lærer mere inden for faget.";
+            introIMG.src = "assets/images/profile_picture_v2.jpg"; 
 
             introIMG.id = "ommig_profile_picture";
             introIMG_div.appendChild(introIMG);
@@ -512,7 +512,7 @@ function OMMIGcreate (check) {
                 hero.classList.remove("flex-center");
         
         // Main
-            main_outer.appendChild(main_h2);
+            // main_outer.appendChild(main_h2);
             main_h2.textContent = "Kærneværdier";
             // Creates 3 container with "Values" content
                 for (let i = 0; i < 3; i++) {
@@ -521,22 +521,16 @@ function OMMIGcreate (check) {
                     //Switch to change content depending where in the loop(i) we are.
                         switch(i) {
                             case 0:
-                                h3.textContent = "Fundamentet";
-                                p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dolor id justo luctus euismod. Aliquam sem urna, sollicitudin in lobortis et, aliquet eget mi. Pellentesque maximus tempus quam id venenatis. Vivamus feugiat elit ac velit consequat, eu pellentesque velit condimentum. ";
-                                img.src = "assets/images/svg/puzzle_1.svg";
-                                img.alt = "Billede til " + h3.textContent;
+                                h3.textContent = "Inden studiet.";
+                                p.textContent = "Inden jeg begyndte på studiet, vidste jeg ikke hvad jeg kunne tænke mig at blive, men håbede at Multimedie-uddannelsen kunne vise mig noget jeg kunne synke tænderne i. Jeg ville ikke have troet at det ville blive front-end og kode delen, men det vidste sig at være noget jeg var meget nysgerrig på og noget som nu bringer en stor glæde at arbejde med.";
                                 break;
                             case 1:
-                                h3.textContent = "Filosofi";
-                                p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dolor id justo luctus euismod. Aliquam sem urna, sollicitudin in lobortis et, aliquet eget mi. Pellentesque maximus tempus quam id venenatis. Vivamus feugiat elit ac velit consequat, eu pellentesque velit condimentum. ";
-                                img.src = "assets/images/svg/puzzle_1.svg";
-                                img.alt = "Billede til " + h3.textContent;
+                                h3.textContent = "Et fundament, at bygge på.";
+                                p.innerHTML = "Jeg finder en stor glæde i at lærer tingene fra bunden af og op, også for at når jeg skal bygge ting på den viden har jeg en forståelse for hvad der foregår bagved de nye ting. Derfor har jeg også ikke stiftet meget bekendt skab med andet end <b>HTML</b>, <b>CSS</b> og <b>JavaScript</b> endnu. På 3. Semester har vi på et valgfag haft om <b>Node / Express</b> som har givet indblik i hvad der sker bagved Front-enden, samt givet lidt erfaring med at bygge vores egen API sammen med <b>MSSQL</b>. Vi kommer også til at arbejde med frameworket Vue.js, som jeg ser meget frem til arbejde og lærer om det.";
                                 break;
                             case 2:
-                                h3.textContent = "Nysgerrighed";
-                                p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dolor id justo luctus euismod. Aliquam sem urna, sollicitudin in lobortis et, aliquet eget mi. Pellentesque maximus tempus quam id venenatis. Vivamus feugiat elit ac velit consequat, eu pellentesque velit condimentum. ";
-                                img.src = "assets/images/svg/puzzle_1.svg";
-                                img.alt = "Billede til " + h3.textContent;
+                                h3.textContent = "I fritiden.";
+                                p.textContent = "Når jeg ikke sidder og koder eller er kreativ kan jeg godt lide at cykle en lang tur og komme ud og se naturen, og selvfølgelig bruge tid med venner og familie. Når jeg bruger tid med mine venner, kan vi godt lide at spille forskellige PC-spil.";
                                 break;
                         }
                     //Add Class
@@ -544,7 +538,7 @@ function OMMIGcreate (check) {
                     //Append the content
                         inner.append(h3, p); // Left out, img.
                         outer.appendChild(inner);
-                        outer.classList.add("outer_vaerdiBox","flex-center");
+                        outer.classList.add("outer_vaerdiBox");
 
 
                         main_outer.appendChild(outer);
@@ -599,8 +593,8 @@ function FORSIDEcreate () {
                 outer_hero.appendChild(obj_box)
 
         // Personlig
-            forPer_h2.textContent = "Slow is smooth, smooth is fast!";
-            forPer_p.textContent = "Mauris ac pretium turpis. Aenean pharetra condimentum felis, eu iaculis massa. Mauris in vestibulum libero. Maecenas blandit hendrerit libero, id dignissim nisi malesuada et. Nulla ipsum dui, aliquam bibendum lacus id, fermentum cursus massa. Quisque diam nisl, congue sed arcu in, vestibulum tristique mi. In posuere egestas sapien id pellentesque. Donec varius risus suscipit dapibus viverra. Duis ultrices feugiat sollicitudin. Nulla efficitur ornare ante, at eleifend purus. Fusce massa risus, interdum nec interdum sit amet, faucibus non dolor. Nulla facilisi. Nulla vel luctus erat, vel fringilla turpis. Ut vitae malesuada augue. Curabitur non sollicitudin augue.";
+            forPer_h2.innerHTML = '<i>"Slow is smooth, smooth is fast."</i>';
+            forPer_p.innerHTML = "Mit navn er <b>Anders Erik Nissen</b>, og jeg læser til Multimediedesigner hos UCN – Aalborg. Jeg står og er ved at søge efter en praktikplads i foråret 2022. Under studiet har jeg fået en stor interesse inden for Front-end delen, hvor jeg elsker at få en dybere forståelse for hvordan ting fungere.";
             
             forPer_obj.data = "assets/images/svg/flyingDesk_v3_1.svg";
             forPer_obj.type = "image/svg+xml";
@@ -618,9 +612,9 @@ function FORSIDEcreate () {
             forPer_section.id = "forsidePersonlig";
             // forPer_section.classList.add("flex-center");
         // Projekter
-            forPro_info_h2.textContent = "PROJEKTER";
+            forPro_info_h2.textContent = "TIDLIGERE PROJEKTER";
             forPro_info_p.textContent = "Mauris ac pretium turpis. Aenean pharetra condimentum felis, eu iaculis massa. Mauris in vestibulum libero. Maecenas blandit hendrerit libero, id dignissim nisi malesuada et.";
-            forPro_info.append(forPro_info_h2, forPro_info_p);
+            forPro_info.append(forPro_info_h2);
         
             forPro_info.id = "forPro_info";
             forPro_info.classList.add("flex-center");
@@ -888,8 +882,8 @@ function KONTAKTcreate () {
             img_outer = document.createElement("section"), object = document.createElement("object");
         // Add and Append
             // Text Area
-                h1.textContent = "LAD OS TAGE EN SNAK!";
-                p.textContent = "Hvis du har spørgsmål, eller bare gerne vil i kontakt med mig, så send mig gerne en e-mail. Jeg svare tilbage så hurtigt som jeg kan!";
+                h1.textContent = "LAD OS TAGE EN SNAK.";
+                p.textContent = "Hvis du har spørgsmål, eller bare gerne vil i kontakt med mig, så send mig gerne en e-mail. Jeg svare tilbage så hurtigt som jeg kan.";
                 // Obfuscate Email
                     h2.innerHTML = '<a id="aen_email" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#110;&#100;&#101;&#114;&#115;&#101;&#114;&#105;&#107;&#110;&#105;&#115;&#115;&#101;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#97;&#110;&#100;&#101;&#114;&#115;&#101;&#114;&#105;&#107;&#110;&#105;&#115;&#115;&#101;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>';
                 text_area.append(h1, p, h2);
@@ -918,7 +912,7 @@ function KONTAKTcreate () {
 function PROJEKTERcreate () {
     let
     // Hero
-        hero_section = document.createElement("section"), h1 = document.createElement("h1"), hero_p = document.createElement("p"),
+        hero_section = document.createElement("section"), h1 = document.createElement("h1"), hero_h2 = document.createElement("h2"),
     // Skoleprojekter
         sko_section = document.createElement("section"), sko_h2 = document.createElement("h2"), sko_h2_box = document.createElement ("section"),
     // Mini Projekter
@@ -973,15 +967,16 @@ function PROJEKTERcreate () {
 
     // Add / Append
         // Hero
-            h1.textContent = "Projekter";
-            hero_p.textContent = "Her kan du se mine seneste projekter, fra mit studie og nogle som jeg har lavet i min fritid!";
+            h1.textContent = "PROJEKTER";
+            h1.classList.add("orange")
+            hero_h2.textContent = "Fra skole og fritid";
 
-            hero_section.append(h1, hero_p);
+            hero_section.append(h1, hero_h2);
             hero_section.classList.add("flex-center")
             hero_section.id = "heroTextSection";
             hero.appendChild(hero_section);
         // Skole
-            sko_h2.textContent = "Skoleprojekter";
+            sko_h2.textContent = "SKOLE PROJEKTER";
             sko_h2.classList.add("pro_h2s");
             sko_h2_box.classList.add("pro_h2_box", "flex-center")
             sko_section.classList.add("flex-center");
@@ -990,7 +985,7 @@ function PROJEKTERcreate () {
         // Mini
             mini_section.id = "mini_projekter";
             mini_section.classList.add("flex-center")
-            mini_h2.textContent = "Mini Projekter";
+            mini_h2.textContent = "FRITIDS PROJEKTER";
             mini_h2.classList.add("pro_h2s");
             mini_h2_box.classList.add("pro_h2_box", "flex-center");
         
