@@ -720,36 +720,38 @@ function PROJEKTcreate_template (check) {
             // Append
             hero_kode_block.appendChild(h5);
         }
-    // Forløb - Steps
-        for (let i = 0; i < 3; i++) {
-            let section = document.createElement("section"), h3 = document.createElement("h3"), p = document.createElement("p"), obj = document.createElement("object");
-            // Content
-            section.classList.add("projektStepBox");
-            obj.type = "image/svg+xml";
-            obj.classList.add("step_obj");
-
-            switch (i) {
-                case 0:
-                    h3.textContent = "Udfordringen";
-                    p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
-                    obj.data = "assets/images/icons/challenge_icon.svg";
-                    break;
-                case 1:
-                    h3.textContent = "Scopet og Designet";
-                    p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
-                    obj.data = "assets/images/icons/design_icon.svg";
-                    break;
-                case 2:
-                    h3.textContent = "Løsningen";
-                    p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
-                    obj.data = "assets/images/icons/process_icon_v3.svg";
-                    break;
+    function steps(p1,p2,p3) {
+        // Forløb - Steps
+            for (let i = 0; i < 3; i++) {
+                let section = document.createElement("section"), h3 = document.createElement("h3"), p = document.createElement("p"), obj = document.createElement("object");
+                // Content
+                section.classList.add("projektStepBox");
+                obj.type = "image/svg+xml";
+                obj.classList.add("step_obj");
+    
+                switch (i) {
+                    case 0:
+                        h3.textContent = "Udfordringen";
+                        p.textContent = p1;
+                        obj.data = "assets/images/icons/challenge_icon.svg";
+                        break;
+                    case 1:
+                        h3.textContent = "Designet";
+                        p.textContent = p2;
+                        obj.data = "assets/images/icons/design_icon.svg";
+                        break;
+                    case 2:
+                        h3.textContent = "Løsningen";
+                        p.textContent = p3;
+                        obj.data = "assets/images/icons/process_icon_v3.svg";
+                        break;
+                }
+                // Append
+                section.append(obj, h3, p);
+                section.classList.add("flex-center")
+                step_section.appendChild(section);
             }
-            // Append
-            section.append(obj, h3, p);
-            section.classList.add("flex-center")
-            step_section.appendChild(section);
-        }
+    }
     // For Each IMG
         let
         arr_galleri = [];
@@ -761,6 +763,7 @@ function PROJEKTcreate_template (check) {
             img.src = each.img;
             div.appendChild(img);
             section.appendChild(div);
+            section.classList.add("template_galleri_outer");
             galleri_section.appendChild(section);
         });
     //2nd round of Append and Content
@@ -816,6 +819,44 @@ function PROJEKTcreate_template (check) {
             main.appendChild(next_section);
 
         // Switch content depending on URL.
+        class Steps {
+            constructor (intro, udfordring, design, kode) {
+                this.intro = intro;
+                this.udfordring = udfordring;
+                this.design = design;
+                this.kode = kode;
+            }
+        }
+
+        const
+        snv_obj = new Steps(
+            "Forenden af Vejle fjord holder den frivillige Sejlklubben Neptun Vejle til hvor den har hørt til siden 1881. Vejle havn danner rammerne for mange forskellige begivenheder, og tiltrækker mange gæster. SNV er tilholdssted for mange lystbåds-ejere og sejlentusiaster, og har i dag 507 medlemmer. SNV tilbyder også ting som undervisning, og et sted for unge som ældre at mødes over deres fælles interesse.",
+
+            "Det har længe været tydeligt for SNV at deres hjemmeside ikke afspejler deres værdier og engagement, og trænger derfor til et re-design. Den nuværende hjemmeside er uoverskuelig at forvirre både nye, gamle og potentielle medlemmer. Derfor er nuværende medlemmer blevet nødsaget til at bruge Facebook til at kommunikere relevante ting til klubben. I gruppen valgte vi at indsnævret scopet til at ikke tage alt indhold med fra den nuværende hjemmeside, og derfor kunne fokusere på et nyt design og informations arkitektur til de vigtigste dele.",
+
+            "I gruppen valgte vi at indsnævret scopet til at ikke tage alt indhold med fra den nuværende hjemmeside, og derfor kunne fokusere på et nyt design og informations arkitektur til de vigtigste dele. Vi ville gerne vise med designet at det var en sejlklub, derfor valgte vi at bruge en bølge i footeren samt en skrå vinkel til at skulle forstille et sejl.",
+
+            "Jeg stod for største delen af kodningen af produktet, med fokus på vores JS og API. Jeg valgte at lave en slags 1-page hjemmeside, hvor alt indholdet bliver udskiftet i 1 HTML-fil alt efter URL’et. Alt data blev samlet i vores WordPress Headless RESTful API, og det skabte forskellige problemer hen ad vejen, blandt andet hvordan WordPress plugin’en ACF strukturere data og dermed lave ændringer alt efter behovet fra Front-enden. Jeg endte med at bruge meget tid på vigtigt funktioner på hjemmesiden, som f.eks. et slideshow på forsiden og en funktion til at kunne bladre igennem et array 6 objekter ad gangen. Det var svært men krævede også at jeg fik en god forståelse for JS."
+        ),
+        englerod_obj = new Steps (
+            "Johanne driver virksomheden Englerod, som er en madblok med niche inden for vegansk mad. På Englerod.dk deler Johanne veganske opskrifter, samt tips til at implementere den grønne livsstil i hverdagen. Desuden har Johanne udgivet 3 kogebøger med veganske opskrifter. For Johanne handler det ikke om at gøre det at spise vegansk til en religion, hendes fokus er på grøntsagerne, det at spise grønt og dyrke sine egne grøntsager. ",
+
+            "Problemet for Englerod var at det er en hjemmeside som indeholder rigtig meget indhold, af forskellige typer som f.eks. guides til food-prep og en opskriftsoversigt. Derfor var det vigtigt at komme frem til at løsning som ville skabe overblik for brugeren og have en hjemmeside med nem navigation.",
+
+            "Efter at have lavet vores analyse af vores interviews og kigget på en konkurrent analyse, gav gruppen sig i kast med at skabe wireframes. I gruppen valgte vi et simpelt og overskueligt design som bruger de 2 farver fra Englerod logoet. Jeg var i starten af processen med til at designe vores produkt, men måtte hurtigt ligge mit fokus på vores API og hjemmeside. ",
+
+            "Imens gruppen arbejder med designet, gav jeg mig i kast med at opbygge vores Headless WordPress API, som skulle indeholde alt vores data. Meget af tiden gik med forstå hvordan JSON og JavaScript objekter/arrays kunne bruges til at dynamisk skabe vores hjemmeside. Hjemmesidens struktur bliver styret via URL’et og ville hver gang bruge en XMLHttprequest til at hente data fra vores RESTful API. Jeg følte at det var bedst at hente alt indholdet hver gang, også fordi det var først gang jeg rigtigt skulle arbejde med JavaScript og WordPress som API. "
+        ),
+        pinktree_obj = new Steps (
+            "PINKTREE er et lille projekt jeg endte med at lave i min sommerferie, for at holde en pause fra denne portofolie som du ser. Den havde til formål at skulle være en hjemmeside hvor en bruger kunne skabe noter og fjerne dem igen. På tidspunktet havde jeg ikke noget kendskab til back-end og servere så hjemmesiden ville ikke kunne huske noter fra tidligere brug af hjemmesiden. Jeg havde også til formål med projektet at øve mig på JS og at arbejde med SVG'er.",
+
+            "Meget af arbejdet lå i at komme op med et design som kunne gøre hjemmesiden mere interessant og for at jeg kunne få erfaring med ting som SVG’er og animationer. Som projektet skred frem, valgte jeg også at lave det til en hjemmeside uden en scrolle-funktion udover på listen af noter, så jeg fik lov til at arbejde meget med at kunne få de forskellige elementer til at passe.",
+
+            "Det først jeg endte med at gøre var at prøve og komme på noget design som kunne være et centerstykke for mit projekt. Jeg prøvede først med forskellige karakterer, men endte med at lave det træ som du kan se på hjemmesiden. Jeg prøver at skabe dybde i billede ved at arbejde med flere lag og gøre de bagerste elementer utydelig og mindre end de andre. Derefter var det med at få en forståelse for hvordan SVG’er fungere for at jeg kunne begynde at animere min SVG. Designet af siden blev skabt hen af vejen imens jeg kodede projektet, med ting som farver og temaer.",
+
+            "I koden arbejde jeg med at brugeren først skulle kunne tage nogle valg som ville ændre på udseendet af hjemmesiden når vi kom til siden med noterne. Derfor valgte jeg at kigge på ting som custom-attributes og arbejde med CSS :root variabler. Disse ville blive ændre alt efter hvilket element brugeren tryggede på, og kunne lade sig gøre fordi hjemmesiden er en 1-page hjemmesiden så der er ikke nogen links som ville genindlæse siden.  Til sidst arbejde jeg med at bruge animationer for at gøre hjemmesiden mere levende og interessant at interagere med."
+        );
+
         let intro_h2_start = "Hvad er ";
         switch (check) {
             case "snv":
@@ -823,7 +864,9 @@ function PROJEKTcreate_template (check) {
                     hero_h2.textContent = "MAJ - JUNI 2021";
                 // Intro
                     intro_h2.textContent = intro_h2_start + "SNV.dk?";
-                    intro_p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
+                    intro_p.textContent = snv_obj.intro;
+
+                    steps(snv_obj.udfordring, snv_obj.design, snv_obj.kode);
 
                     a_github.href = "https://github.com/AndersErikNissen/MMD2-Gruppe3";
                     a_live.href = "https://mmd.ucn.dk/class/mmda0920/1086088/Sem2/eksamen/Rubrics/Gruppe3-MMDA0920-MMD2/";
@@ -831,8 +874,8 @@ function PROJEKTcreate_template (check) {
                 // Add ID to Body for dynamic styling.
                     document.querySelector("body").id = "template_snv";
                 // Links
-                a_live.href = "";
-                a_github.href = "";
+                a_live.href = "https://mmd.ucn.dk/class/mmda0920/1086088/Sem2/eksamen/Rubrics/Gruppe3-MMDA0920-MMD2/";
+                a_github.href = "https://github.com/AndersErikNissen/MMD2-Gruppe3";
                 next_a.href = "englerod.html";
 
                 a_container.append(a_github, a_live);
@@ -842,7 +885,9 @@ function PROJEKTcreate_template (check) {
                     hero_h2.textContent = "APRIL 2021";
                  // Intro
                      intro_h2.textContent = intro_h2_start + "Englerod.dk?";
-                     intro_p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
+                     intro_p.textContent = englerod_obj.intro;
+
+                     steps(englerod_obj.udfordring, englerod_obj.design, englerod_obj.kode);
 
                      a_live.href = "https://mmd.ucn.dk/class/mmda0920/1086088/Sem2/Tem3/Rubrics/Englerod-Gruppe3/";
                 // Add ID to Body for dynamic styling.
@@ -857,7 +902,9 @@ function PROJEKTcreate_template (check) {
                     hero_h2.textContent = "AUGUST 2021";
                 // Intro
                     intro_h2.textContent = intro_h2_start + "PINKTREE?";
-                    intro_p.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et justo est. Phasellus nec nibh metus. Proin nec semper purus.";
+                    intro_p.textContent = pinktree_obj.intro;
+
+                    steps(pinktree_obj.udfordring, pinktree_obj.design, pinktree_obj.kode);
 
                     a_github.href = "https://github.com/AndersErikNissen/mini_pinkTree";
                     a_live.href = "https://mini-pink-tree.vercel.app/";
