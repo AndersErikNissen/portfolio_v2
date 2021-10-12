@@ -491,8 +491,8 @@ function OMMIGcreate (check) {
     // Add Content / Append
         // Intro
             h1.textContent = "MOJN.";
-            intro_p.textContent = "Jeg hedder Anders Erik Nissen, jeg er 27år gammel og studere til Multimediedesigner hos UCN – Aalborg. I foråret 2022 skal jeg i praktik i en virksomhed, hvor jeg håber på at kunne komme til at fordybe mig og lærer mere inden for faget.";
-            introIMG.src = "assets/images/profile_picture_v2.jpg"; 
+            intro_p.textContent = "Jeg hedder Anders Erik Nissen, jeg er 27 år gammel og er opvokset i Sønderjylland. I 2020 begyndte jeg at studere hos UCN – Aalborg, som Multimediedesigner. I foråret 2022 skal jeg i praktik i en virksomhed, hvor jeg håber på, at jeg kan komme til at lære mere inden for faget og lære at bruge min viden, fra studietiden i praksis.";
+            introIMG.src = "assets/images/new_profil.jpg"; 
 
             introIMG.id = "ommig_profile_picture";
             introIMG_div.appendChild(introIMG);
@@ -522,15 +522,15 @@ function OMMIGcreate (check) {
                         switch(i) {
                             case 0:
                                 h3.textContent = "Inden studiet.";
-                                p.textContent = "Inden jeg begyndte på studiet, vidste jeg ikke hvad jeg kunne tænke mig at blive, men håbede at Multimedie-uddannelsen kunne vise mig noget jeg kunne synke tænderne i. Jeg ville ikke have troet at det ville blive front-end og kode delen, men det vidste sig at være noget jeg var meget nysgerrig på og noget som nu bringer en stor glæde at arbejde med.";
+                                p.textContent = "Inden jeg søgte ind på studiet, gik jeg længe og var i tvivl om hvad jeg ville studere, men Multimediedesigner var en af de uddannelser, som jeg ofte havde spekuleret på. Efter studiestart gik der ikke længe før, at jeg fandt ud af at det var den rette uddannelse for mig. Jeg gik først ind med en tro om at, det var design delen som ville interessere mig mest, men det er endt med at blive front-end delen som jeg er mest nysgerrig på og noget som nu bringer mig en stor glæde at arbejde med.";
                                 break;
                             case 1:
                                 h3.textContent = "Et fundament, at bygge på.";
-                                p.innerHTML = "Jeg finder en stor glæde i at lærer tingene fra bunden af og op, også for at når jeg skal bygge ting på den viden har jeg en forståelse for hvad der foregår bagved de nye ting. Derfor har jeg også ikke stiftet meget bekendt skab med andet end <b>HTML</b>, <b>CSS</b> og <b>JavaScript</b> endnu. På 3. Semester har vi på et valgfag haft om <b>Node / Express</b> som har givet indblik i hvad der sker bagved Front-enden, samt givet lidt erfaring med at bygge vores egen API sammen med <b>MSSQL</b>. Vi kommer også til at arbejde med frameworket Vue.js, som jeg ser meget frem til arbejde og lærer om det.";
+                                p.innerHTML = "Jeg finder stor glæde i at lære tingene fra bunden af, så når jeg får ny viden har jeg et stærkt fundament at bygge det ovenpå samt en dybere forståelse af de processer som ligger bag. Derfor har jeg ikke stiftet meget bekendtskab med andet end <b>HTML</b>, <b>CSS</b> og <b>JavaScript</b> endnu. På 3. Semester har vi på et valgfag haft om <b>Node / Express</b> som har givet indblik i hvad der sker bagved Front-enden, samt givet mig lidt erfaring med at bygge vores egen API sammen med <b>MSSQL</b>. Vi kommer også til at arbejde med frameworket Vue.js, som jeg ser meget frem til lære om og komme til at arbejde med.";
                                 break;
                             case 2:
                                 h3.textContent = "I fritiden.";
-                                p.textContent = "Når jeg ikke sidder og koder eller er kreativ kan jeg godt lide at cykle en lang tur og komme ud og se naturen, og selvfølgelig bruge tid med venner og familie. Når jeg bruger tid med mine venner, kan vi godt lide at spille forskellige PC-spil.";
+                                p.textContent = "Når jeg ikke er i skole eller laver lektier, laver jeg nogle gange mine egne små kode projekter og animationer. Meget af min fritid bruger jeg sammen med mine venner og familie, men jeg nyder også at cykle lange ture, både i Aalborg by og udenfor byen, så jeg kan komme ud og nyde naturen. Om aftenen bruger jeg gerne tid i køkkenet og bagefter spiller jeg ofte PC-spil med mine venner online.";
                                 break;
                         }
                     //Add Class
@@ -573,7 +573,7 @@ function FORSIDEcreate () {
 
             // hero_h2.textContent = "Mit navn er Anders Erik Nissen, og jeg studerer til Multimediedesigner hos UCN i Aalborg.";
             hero_h2.textContent = "En webportfolio af Anders Erik Nissen.";
-            cv.href = "";
+            cv.href = "assets/download/aen_cv_v1.pdf";
             cv.textContent = "DOWNLOAD CV"
             cv.download;
             cv.classList.add("button");
@@ -594,7 +594,7 @@ function FORSIDEcreate () {
 
         // Personlig
             forPer_h2.innerHTML = '<i>"Slow is smooth, smooth is fast."</i>';
-            forPer_p.innerHTML = "Mit navn er <b>Anders Erik Nissen</b>, og jeg læser til Multimediedesigner hos UCN – Aalborg. Jeg står og er ved at søge efter en praktikplads i foråret 2022. Under studiet har jeg fået en stor interesse inden for Front-end delen, hvor jeg elsker at få en dybere forståelse for hvordan ting fungere.";
+            forPer_p.innerHTML = "Mit navn er <b>Anders Erik Nissen</b>, og jeg læser til Multimediedesigner hos UCN – Aalborg. Jeg søger en praktikplads til foråret 2022, hovedsageligt med fokus på front-end.";
             
             forPer_obj.data = "assets/images/svg/flyingDesk_v3_1.svg";
             forPer_obj.type = "image/svg+xml";
@@ -700,7 +700,7 @@ function PROJEKTcreate_template (check) {
     // First round of Append (Need to add some elements before, the loops create elements in the same parents).
         hero_section.appendChild(hero_h2);
         step_section.appendChild(step_h1);
-        galleri_section.appendChild(galleri_h2);
+        // galleri_section.appendChild(galleri_h2);
 
     // Hero - Sprog Box's
         for (let i = 0; i < 3; i++) {
@@ -830,31 +830,31 @@ function PROJEKTcreate_template (check) {
 
         const
         snv_obj = new Steps(
-            "Forenden af Vejle fjord holder den frivillige Sejlklubben Neptun Vejle til hvor den har hørt til siden 1881. Vejle havn danner rammerne for mange forskellige begivenheder, og tiltrækker mange gæster. SNV er tilholdssted for mange lystbåds-ejere og sejlentusiaster, og har i dag 507 medlemmer. SNV tilbyder også ting som undervisning, og et sted for unge som ældre at mødes over deres fælles interesse.",
+            "For enden af Vejle fjord holder den frivillige Sejlklubben Neptun Vejle til hvor den har hørt til siden 1881. Vejle havn danner rammerne for mange forskellige begivenheder, og tiltrækker mange gæster. SNV er tilholdssted for mange lystbåds-ejere og sejlentusiaster, og har i dag 507 medlemmer. SNV tilbyder også ting som undervisning, og et sted for unge samt ældre at mødes over deres fælles interesse.",
 
-            "Det har længe været tydeligt for SNV at deres hjemmeside ikke afspejler deres værdier og engagement, og trænger derfor til et re-design. Den nuværende hjemmeside er uoverskuelig at forvirre både nye, gamle og potentielle medlemmer. Derfor er nuværende medlemmer blevet nødsaget til at bruge Facebook til at kommunikere relevante ting til klubben. I gruppen valgte vi at indsnævret scopet til at ikke tage alt indhold med fra den nuværende hjemmeside, og derfor kunne fokusere på et nyt design og informations arkitektur til de vigtigste dele.",
+            "Det har længe været tydeligt for SNV at deres hjemmeside ikke afspejler deres værdier og engagement, og trængte derfor til et re-design. Den nuværende hjemmeside er uoverskuelig og forvirre både nye, gamle og potentielle medlemmer. Derfor er nuværende medlemmer blevet nød til at bruge Facebook til at kommunikere relevante ting med klubben.",
 
-            "I gruppen valgte vi at indsnævret scopet til at ikke tage alt indhold med fra den nuværende hjemmeside, og derfor kunne fokusere på et nyt design og informations arkitektur til de vigtigste dele. Vi ville gerne vise med designet at det var en sejlklub, derfor valgte vi at bruge en bølge i footeren samt en skrå vinkel til at skulle forstille et sejl.",
+            "I gruppen valgte vi at indsnævre scopet og derfor ikke tage alt indhold med fra den nuværende hjemmeside, og dermed kunne fokusere på et nyt design og informations arkitektur. Vi ville gerne vise med designet at det var en sejlklub, derfor valgte vi at bruge en bølge i footeren samt en skrå vinkel som skulle forstille et sejl.",
 
-            "Jeg stod for største delen af kodningen af produktet, med fokus på vores JS og API. Jeg valgte at lave en slags 1-page hjemmeside, hvor alt indholdet bliver udskiftet i 1 HTML-fil alt efter URL’et. Alt data blev samlet i vores WordPress Headless RESTful API, og det skabte forskellige problemer hen ad vejen, blandt andet hvordan WordPress plugin’en ACF strukturere data og dermed lave ændringer alt efter behovet fra Front-enden. Jeg endte med at bruge meget tid på vigtigt funktioner på hjemmesiden, som f.eks. et slideshow på forsiden og en funktion til at kunne bladre igennem et array 6 objekter ad gangen. Det var svært men krævede også at jeg fik en god forståelse for JS."
+            "Jeg stod for største delen af kodningen af produktet, med fokus på vores JS og API. Jeg valgte at lave en slags 1-page hjemmeside, hvor alt indholdet bliver udskiftet i 1 HTML-fil alt efter URL’et. Alt data blev samlet i vores WordPress Headless RESTful API, og det skabte forskellige problemer hen ad vejen, blandt andet hvordan WordPress plugin’en ACF strukturere data og dermed lave ændringer alt efter behovet fra Front-enden. Jeg endte med at bruge meget tid på vigtige funktioner på hjemmesiden, som f.eks. et slideshow på forsiden og en funktion til at kunne bladre igennem et array 6 objekter ad gangen. Det var svært men krævede også at jeg fik en god forståelse for JS."
         ),
         englerod_obj = new Steps (
             "Johanne driver virksomheden Englerod, som er en madblok med niche inden for vegansk mad. På Englerod.dk deler Johanne veganske opskrifter, samt tips til at implementere den grønne livsstil i hverdagen. Desuden har Johanne udgivet 3 kogebøger med veganske opskrifter. For Johanne handler det ikke om at gøre det at spise vegansk til en religion, hendes fokus er på grøntsagerne, det at spise grønt og dyrke sine egne grøntsager. ",
 
-            "Problemet for Englerod var at det er en hjemmeside som indeholder rigtig meget indhold, af forskellige typer som f.eks. guides til food-prep og en opskriftsoversigt. Derfor var det vigtigt at komme frem til at løsning som ville skabe overblik for brugeren og have en hjemmeside med nem navigation.",
+            "Problemet for Englerod var at det er en hjemmeside som indeholder rigtig meget indhold, af forskellige typer som f.eks. guides til food-prep og en opskriftsoversigt. Derfor var det vigtig at komme frem til en løsning som ville skabe overblik for brugeren og have en hjemmeside med nem navigation.",
 
             "Efter at have lavet vores analyse af vores interviews og kigget på en konkurrent analyse, gav gruppen sig i kast med at skabe wireframes. I gruppen valgte vi et simpelt og overskueligt design som bruger de 2 farver fra Englerod logoet. Jeg var i starten af processen med til at designe vores produkt, men måtte hurtigt ligge mit fokus på vores API og hjemmeside. ",
 
-            "Imens gruppen arbejder med designet, gav jeg mig i kast med at opbygge vores Headless WordPress API, som skulle indeholde alt vores data. Meget af tiden gik med forstå hvordan JSON og JavaScript objekter/arrays kunne bruges til at dynamisk skabe vores hjemmeside. Hjemmesidens struktur bliver styret via URL’et og ville hver gang bruge en XMLHttprequest til at hente data fra vores RESTful API. Jeg følte at det var bedst at hente alt indholdet hver gang, også fordi det var først gang jeg rigtigt skulle arbejde med JavaScript og WordPress som API. "
+            "Imens gruppen arbejdede med designet, gav jeg mig i kast med at opbygge vores Headless WordPress RESTFUL API, som skulle indeholde alt vores data. Meget af tiden gik med at forstå hvordan JSON og JavaScript objekter/arrays kunne bruges til at dynamisk skabe vores hjemmeside. Hjemmesidens struktur bliver styret via URL’et og ville hver gang bruge en XMLHttprequest til at hente data fra vores RESTful API. Jeg følte at det var bedst at hente alt indholdet hver gang, også fordi det var først gang jeg rigtigt skulle arbejde med JavaScript og WordPress som API. "
         ),
         pinktree_obj = new Steps (
-            "PINKTREE er et lille projekt jeg endte med at lave i min sommerferie, for at holde en pause fra denne portofolie som du ser. Den havde til formål at skulle være en hjemmeside hvor en bruger kunne skabe noter og fjerne dem igen. På tidspunktet havde jeg ikke noget kendskab til back-end og servere så hjemmesiden ville ikke kunne huske noter fra tidligere brug af hjemmesiden. Jeg havde også til formål med projektet at øve mig på JS og at arbejde med SVG'er.",
+            "PINKTREE er et lille projekt jeg endte med at lave i min sommerferie, for at holde en pause fra denne portofolie som du ser. Den havde til formål at skulle være en hjemmeside hvor en bruger kunne skabe noter og fjerne dem igen. På tidspunktet havde jeg ikke noget kendskab til back-end og servere, så hjemmesiden kunne ikke huske noter fra tidligere brug af hjemmesiden. Jeg havde også til formål med projektet at øve mig på JS og at arbejde med SVG'er.",
 
             "Meget af arbejdet lå i at komme op med et design som kunne gøre hjemmesiden mere interessant og for at jeg kunne få erfaring med ting som SVG’er og animationer. Som projektet skred frem, valgte jeg også at lave det til en hjemmeside uden en scrolle-funktion udover på listen af noter, så jeg fik lov til at arbejde meget med at kunne få de forskellige elementer til at passe.",
 
-            "Det først jeg endte med at gøre var at prøve og komme på noget design som kunne være et centerstykke for mit projekt. Jeg prøvede først med forskellige karakterer, men endte med at lave det træ som du kan se på hjemmesiden. Jeg prøver at skabe dybde i billede ved at arbejde med flere lag og gøre de bagerste elementer utydelig og mindre end de andre. Derefter var det med at få en forståelse for hvordan SVG’er fungere for at jeg kunne begynde at animere min SVG. Designet af siden blev skabt hen af vejen imens jeg kodede projektet, med ting som farver og temaer.",
+            "Det først jeg endte med at gøre var at prøve og komme på noget design som kunne være et centerstykke for mit projekt. Jeg prøvede først med forskellige karakterer, men endte med at lave det træ som du kan se på hjemmesiden. Jeg prøvede at skabe dybde i billedet ved at arbejde med flere lag og gøre de bagerste elementer utydelig og mindre end de andre. Derefter var det med at få en forståelse for hvordan SVG’er fungere for at jeg kunne begynde at animere min SVG. Designet af siden blev skabt hen af vejen imens jeg kodede projektet, med ting som farver og temaer.",
 
-            "I koden arbejde jeg med at brugeren først skulle kunne tage nogle valg som ville ændre på udseendet af hjemmesiden når vi kom til siden med noterne. Derfor valgte jeg at kigge på ting som custom-attributes og arbejde med CSS :root variabler. Disse ville blive ændre alt efter hvilket element brugeren tryggede på, og kunne lade sig gøre fordi hjemmesiden er en 1-page hjemmesiden så der er ikke nogen links som ville genindlæse siden.  Til sidst arbejde jeg med at bruge animationer for at gøre hjemmesiden mere levende og interessant at interagere med."
+            "I koden arbejde jeg med at brugeren først skulle kunne tage nogle valg som ville ændre på udseendet af hjemmesiden når vi kom til siden med noterne. Derfor valgte jeg at kigge på ting som custom-attributes og arbejde med CSS :root variabler. Disse ville blive ændre alt efter hvilket element brugeren trykkede på, og kunne lade sig gøre fordi hjemmesiden er en 1-page hjemmesiden så der er ikke nogen links som ville genindlæse siden.  Til sidst arbejde jeg med at bruge animationer for at gøre hjemmesiden mere levende og interessant at interagere med."
         );
 
         let intro_h2_start = "Hvad er ";
