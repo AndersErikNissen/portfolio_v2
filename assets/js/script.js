@@ -752,20 +752,6 @@ function PROJEKTcreate_template (check) {
                 step_section.appendChild(section);
             }
     }
-    // For Each IMG
-        let
-        arr_galleri = [];
-
-        arr_galleri.forEach(each => {
-            let
-            section = document.createElement("section"), div = document.createElement("div"), img = document.createElement("img");
-
-            img.src = each.img;
-            div.appendChild(img);
-            section.appendChild(div);
-            section.classList.add("template_galleri_outer");
-            galleri_section.appendChild(section);
-        });
     //2nd round of Append and Content
         // Hero
             hero_section.id = "heroTextSection";
@@ -812,7 +798,7 @@ function PROJEKTcreate_template (check) {
             next_section.classList.add("flex-center");
             
             // Append
-            next_div.append(next_h3, next_arrow);
+            next_div.append(next_h3);
             next_a.appendChild(next_div);
             next_section.appendChild(next_a);
             
@@ -857,7 +843,10 @@ function PROJEKTcreate_template (check) {
             "I koden arbejde jeg med at brugeren først skulle kunne tage nogle valg som ville ændre på udseendet af hjemmesiden når vi kom til siden med noterne. Derfor valgte jeg at kigge på ting som custom-attributes og arbejde med CSS :root variabler. Disse ville blive ændre alt efter hvilket element brugeren trykkede på, og kunne lade sig gøre fordi hjemmesiden er en 1-page hjemmesiden så der er ikke nogen links som ville genindlæse siden.  Til sidst arbejde jeg med at bruge animationer for at gøre hjemmesiden mere levende og interessant at interagere med."
         );
 
-        let intro_h2_start = "Hvad er ";
+        let 
+        intro_h2_start = "Hvad er ",
+        arr_galleri = [], // Fill with images depending on the page
+        galleri_path = './assets/images/images_projekter/';
         switch (check) {
             case "snv":
                 // Hero
@@ -870,7 +859,15 @@ function PROJEKTcreate_template (check) {
 
                     a_github.href = "https://github.com/AndersErikNissen/MMD2-Gruppe3";
                     a_live.href = "https://mmd.ucn.dk/class/mmda0920/1086088/Sem2/eksamen/Rubrics/Gruppe3-MMDA0920-MMD2/";
-                
+
+                // Galleri
+                // Insert images
+                for (let i = 1; i < 4; i++) {
+                    let
+                    newPath = galleri_path + check + '_galleri_' + i + '.jpg';
+                    arr_galleri.push(newPath)
+                }
+
                 // Add ID to Body for dynamic styling.
                     document.querySelector("body").id = "template_snv";
                 // Links
@@ -890,6 +887,14 @@ function PROJEKTcreate_template (check) {
                      steps(englerod_obj.udfordring, englerod_obj.design, englerod_obj.kode);
 
                      a_live.href = "https://mmd.ucn.dk/class/mmda0920/1086088/Sem2/Tem3/Rubrics/Englerod-Gruppe3/";
+
+                     // Galleri
+                    // Insert images
+                    for (let i = 1; i < 4; i++) {
+                        let
+                        newPath = galleri_path + check + '_galleri_' + i + '.jpg';
+                        arr_galleri.push(newPath)
+                    }
                 // Add ID to Body for dynamic styling.
                     document.querySelector("body").id = "template_englerod";
 
@@ -908,6 +913,14 @@ function PROJEKTcreate_template (check) {
 
                     a_github.href = "https://github.com/AndersErikNissen/mini_pinkTree";
                     a_live.href = "https://mini-pink-tree.vercel.app/";
+
+                // Galleri
+                // Insert images
+                for (let i = 1; i < 4; i++) {
+                    let
+                    newPath = galleri_path + check + '_galleri_' + i + '.jpg';
+                    arr_galleri.push(newPath)
+                }
                 // Add ID to Body for dynamic styling.
                     document.querySelector("body").id = "template_pinktree";
                 next_a.href = "snv.html";
@@ -915,6 +928,17 @@ function PROJEKTcreate_template (check) {
                 a_container.append(a_github, a_live);
                 break;
         }
+        // For Each IMG
+        arr_galleri.forEach(each => {
+            let
+            section = document.createElement("section"), div = document.createElement("div"), img = document.createElement("img");
+
+            img.src = each;
+            div.appendChild(img);
+            section.appendChild(div);
+            section.classList.add("template_galleri_outer");
+            galleri_section.appendChild(section);
+        });
 }   
 
 function KONTAKTcreate () {
