@@ -517,26 +517,26 @@ function OMMIGcreate (check) {
             // Creates 3 container with "Values" content
                 for (let i = 0; i < 3; i++) {
                     let
-                    outer = document.createElement("section"), inner = document.createElement("section"), h3 = document.createElement("h3"), p = document.createElement("p"), img = document.createElement("img");
+                    outer = document.createElement("section"), inner = document.createElement("section"), h2 = document.createElement("h2"), p = document.createElement("p"), img = document.createElement("img");
                     //Switch to change content depending where in the loop(i) we are.
                         switch(i) {
                             case 0:
-                                h3.textContent = "Inden studiet.";
+                                h2.textContent = "Inden studiet.";
                                 p.textContent = "Inden jeg søgte ind på studiet, gik jeg længe og var i tvivl om hvad jeg ville studere, men Multimediedesigner var en af de uddannelser, som jeg ofte havde spekuleret på. Efter studiestart gik der ikke længe før, at jeg fandt ud af at det var den rette uddannelse for mig. Jeg gik først ind med en tro om at, det var design delen som ville interessere mig mest, men det er endt med at blive front-end delen som jeg er mest nysgerrig på og noget som nu bringer mig en stor glæde at arbejde med.";
                                 break;
                             case 1:
-                                h3.textContent = "Et fundament, at bygge på.";
+                                h2.textContent = "Et fundament, at bygge på.";
                                 p.innerHTML = "Jeg finder stor glæde i at lære tingene fra bunden af, så når jeg får ny viden har jeg et stærkt fundament at bygge det ovenpå samt en dybere forståelse af de processer som ligger bag. Derfor har jeg ikke stiftet meget bekendtskab med andet end <b>HTML</b>, <b>CSS</b> og <b>JavaScript</b> endnu. På 3. Semester har vi på et valgfag haft om <b>Node / Express</b> som har givet indblik i hvad der sker bagved Front-enden, samt givet mig lidt erfaring med at bygge vores egen API sammen med <b>MSSQL</b>. Vi kommer også til at arbejde med frameworket Vue.js, som jeg ser meget frem til lære om og komme til at arbejde med.";
                                 break;
                             case 2:
-                                h3.textContent = "I fritiden.";
+                                h2.textContent = "I fritiden.";
                                 p.textContent = "Når jeg ikke er i skole eller laver lektier, laver jeg nogle gange mine egne små kode projekter og animationer. Meget af min fritid bruger jeg sammen med mine venner og familie, men jeg nyder også at cykle lange ture, både i Aalborg by og udenfor byen, så jeg kan komme ud og nyde naturen. Om aftenen bruger jeg gerne tid i køkkenet og bagefter spiller jeg ofte PC-spil med mine venner online.";
                                 break;
                         }
                     //Add Class
                         inner.classList.add("vaerdiBox", "flex-center");
                     //Append the content
-                        inner.append(h3, p); // Left out, img.
+                        inner.append(h2, p); // Left out, img.
                         outer.appendChild(inner);
                         outer.classList.add("outer_vaerdiBox");
 
@@ -1098,11 +1098,14 @@ function footerPosition() {
     mainH = mainn.offsetHeight,
     windowH = window.innerHeight;
 
+
+
     document.documentElement.style.setProperty("--footer-position", (mainH + windowH) + "px");
     // document.querySelector("footer").style.top = mainH + windowH * 1.5 + "px";
     console.log(mainH);
     console.log(windowH)
 }
+
 // Set position after every item has been created and has the right height.
 // Didn't work when used together with HTMLcreate, unless I set the height to something specific in CSS. 
 // I think it has something to do in what order HTML is drawn and the height of elements are calculated(? Might be wrong).

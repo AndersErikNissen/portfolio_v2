@@ -84,6 +84,7 @@ UCN MMDA0920*/
 
 
         --footer-position: 0;
+        --main-position: 0;
 
         /* Global */
         --global-outer-height: 50vh;
@@ -1001,6 +1002,14 @@ footer {
     /* Template - Projekter */
     .pro_h2s {
         margin: 2rem 0;
+    }
+
+    /* Om mig */
+    #hero_frame_ommig {
+        flex-direction: column;
+    }
+    body#om-mig #heroTextSection {
+        width: 100%;
     }
 }
 @media screen and (max-width: 479px) {
