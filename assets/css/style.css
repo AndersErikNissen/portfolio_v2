@@ -139,21 +139,6 @@ UCN MMDA0920*/
         justify-content: center;
         align-items: center;
     }
-
-/*##################
-    MEDIA QUERIES 
-###################*/
-    @media screen and (min-width: 768px) and (max-width: 1024px) {
-        .grid {
-            grid-template-columns: repeat(var(--grid-column-tablet), 1fr);
-        }
-    }
-    @media screen and (min-width: 320px) and (max-width: 480px) {
-        .grid {
-            grid-template-columns: repeat(var(--grid-column-mobil), 1fr);
-        }
-    }
-
   
 /* --------------------------------------------------------- */
 /* ----------------------- MAIN HTML ----------------------- */
@@ -684,7 +669,7 @@ footer {
         border-radius: 99px;
         text-align: center;
 
-        margin: 0 .5rem;
+        margin:.5rem;
     }
 
     .projektIntro_container {
@@ -708,6 +693,9 @@ footer {
             display: flex;
 
             justify-content: space-between;
+        }
+        #template_next {
+            padding: 2rem 0;
         }
 
         .projectTemplate_intro_links {
@@ -966,7 +954,7 @@ footer {
     }
     /* Forside */
     #outer_hero {
-        justify-content: end;
+        justify-content: center;
         width: auto;
         height: 100%;
     }
@@ -977,6 +965,7 @@ footer {
     }
     #forsideHeroObjBox {
         width: 100%;
+        display: none;
     }
     /* #forsideHeroObjBox object {
         max-height: 40vh;
@@ -988,7 +977,13 @@ footer {
         }
         .projektMain section {
             width: 100%;
+            align-items: center;
+            justify-content: center;
         }
+        .projektMain section object {
+            width: 100%;
+        }
+
 
     /* Kontakt */
     #kontakt-outer_container {
@@ -1041,7 +1036,7 @@ footer {
     .projektMain section img {
         display: none;
     }
-    .projektMain section object {
+    .projektMain section {
         width: 100%;
         height: 100vw;
     }
