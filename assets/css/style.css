@@ -633,7 +633,7 @@ footer {
         }
 
         #englerod_imgBox {background-color: #f27720;}
-        #snv_imgBox {background-color: #B22918; position: relative; z-index: 0;}
+        #snv_imgBox {background-color: #B22918;}
         #pinktree_imgBox {background-color: #2cbdd0;}
 
         .projektMain section img, .projektMain section object {
@@ -643,13 +643,7 @@ footer {
         .projektMain section img {
             border-radius: 0 3px 3px 0;
         }
-        .projektMain section object {
-            padding: 5%;
-        }
 
-        #forsideSeAlleProjekter {
-            min-height: 20vh;
-        }
 
 /*      --------------- 
         -- PROJEKTER --
@@ -675,7 +669,7 @@ footer {
 
     .projektIntro_container {
         width: 100%;
-        min-height: 50vh;
+        /* min-height: 50vh; */
     }
     .pro_h2_box {
         margin: 3rem 0;
@@ -987,14 +981,18 @@ footer {
         /* Main */
         .projektMain {
             width: 100%;
-            max-width: 600px;
+            max-width: 720px;
+        }
+        .projektMain a {
+            width: 100%;
         }
         .projektMain section {
             width: 100%;
             align-items: center;
             justify-content: center;
+            padding: 0;
         }
-        .projektMain section object {
+        .projektMain_outer {
             width: 100%;
         }
 
@@ -1066,6 +1064,9 @@ footer {
     /* Projekt Sections */
     .projektMain section img {
         display: none;
+    }
+    .projektMain section object {
+        width: 75%;
     }
     .projektMain section {
         width: 100%;

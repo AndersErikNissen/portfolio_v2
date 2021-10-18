@@ -1033,6 +1033,7 @@ function PROJEKTERcreate () {
                 a.appendChild(imgLogo_box);
                 pMain.appendChild(a);
                 section.appendChild(pMain);
+                section.classList.add("projektMain_outer");
                 sko_section.appendChild(section);
         }
 
