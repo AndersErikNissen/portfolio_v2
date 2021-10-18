@@ -793,7 +793,7 @@ function PROJEKTcreate_template (check) {
 
             main.appendChild(galleri_section);
         // Next
-            next_h3.textContent = "NÆSTE PROJEKT";
+            next_h3.textContent = "NÆSTE PROJEKT?";
             next_arrow.data = "assets/images/icons/arrow_down_v1.svg";
             
             next_section.id = "template_next";
