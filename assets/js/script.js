@@ -573,7 +573,7 @@ function FORSIDEcreate () {
 
             // hero_h2.textContent = "Mit navn er Anders Erik Nissen, og jeg studerer til Multimediedesigner hos UCN i Aalborg.";
             hero_h2.textContent = "En webportfolio af Anders Erik Nissen.";
-            cv.href = "assets/download/aen_cv_v1.pdf";
+            cv.href = "assets/download/aen_cv_v2.pdf";
             cv.textContent = "DOWNLOAD CV"
             cv.download;
             cv.classList.add("button");
