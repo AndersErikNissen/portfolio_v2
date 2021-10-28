@@ -1076,7 +1076,7 @@ function PROJEKTERcreate () {
             for (let i = 0; i < 1; i++) {
                 let
                 section = document.createElement("section"), pMain = document.createElement("section"), h2 = document.createElement("h2"), h4 = document.createElement("h4"), 
-                imgLogo_box = document.createElement("section"), logo = document.createElement("object"), img = document.createElement("img"), a = document.createElement("a");
+                imgLogo_box = document.createElement("section"), logo_outer = document.createElement("section"), logo = document.createElement("object"), img = document.createElement("img"), a = document.createElement("a");
                 // Changes content after point in loop(i).
                 switch (i) {
                     case 0:
@@ -1092,15 +1092,19 @@ function PROJEKTERcreate () {
                     break;
                 }
                 //General Items Content
-                    section.classList.add("flex-center");
-                    pMain.classList.add("projektMain");
+                section.classList.add("flex-center");
+                pMain.classList.add("projektMain");
+                logo_outer.classList.add("projekt_logo_outer");
+                imgLogo_box.classList.add("projektMain_container")
     
                 //Append 
-                    imgLogo_box.append(logo, img);
-                    a.appendChild(imgLogo_box);
-                    pMain.appendChild(a);
-                    section.appendChild(pMain);
-                    mini_section.appendChild(section);
+                logo_outer.appendChild(logo);
+                imgLogo_box.append(logo_outer, img);
+                a.appendChild(imgLogo_box);
+                pMain.appendChild(a);
+                section.appendChild(pMain);
+                section.classList.add("projektMain_outer");
+                mini_section.appendChild(section);
             }
 
     // Add ID to Body for dynamic styling.
